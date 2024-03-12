@@ -1,0 +1,60 @@
+.character-frame {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	overflow: hidden;
+
+	width: var(--character-frame-size);
+	height: var(--character-frame-size);
+
+	border: 2px dashed var(--character-frame-border-color);
+	background-color: transparent;
+
+	&--sm {
+		width: var(--character-frame-size-sm);
+		height: var(--character-frame-size-sm);
+	}
+
+	&--xs {
+		width: var(--character-frame-size-xs);
+		height: var(--character-frame-size-xs);
+	}
+
+	&--highlight {
+		background-color: var(--character-frame-background-color-highlight);
+	}
+
+	&--faded {
+		border-color: var(--character-frame-border-color-faded);
+		background-color: transparent !important;
+	}
+
+	&:hover,
+	&:focus {
+		background-color: var(--character-frame-background-color-focused);
+	}
+
+	&__character {
+		font-size: var(--character-frame-font-size);
+	}
+
+	&--xs &__character {
+		font-size: var(--character-frame-font-size-xs);
+	}
+}
+
+:root {
+	--character-frame-size: 50px;
+	--character-frame-size-sm: 25px;
+	--character-frame-size-xs: 20px;
+
+	--character-frame-font-size: 24px;
+	--character-frame-font-size-xs: 16px;
+
+	--character-frame-border-color: #000000;
+	--character-frame-border-color-faded: #9e9e9e;
+
+	--character-frame-background-color-highlight: #fff3e0;
+	--character-frame-background-color-focused: #ffb44c;
+}
