@@ -1,4 +1,3 @@
-import React from "react";
 import { StoryFn, Meta } from "@storybook/react";
 import { Action, ActionProps } from "../../ts/components/Action";
 

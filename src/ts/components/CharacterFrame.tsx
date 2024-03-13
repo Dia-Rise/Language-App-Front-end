@@ -1,5 +1,3 @@
-import React from "react";
-
 export enum CharacterFrameSize {
 	MD = "",
 	SM = "character-frame--sm",

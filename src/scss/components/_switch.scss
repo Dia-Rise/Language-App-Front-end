@@ -1,0 +1,48 @@
+.switch {
+	cursor: pointer;
+	display: inline-flex;
+	padding: var(--switch-padding);
+	width: var(--switch-width);
+	border-radius: 100px;
+	border: 0;
+	position: relative;
+
+	&__input {
+		display: none;
+		visibility: hidden;
+	}
+
+	&__dial {
+		width: var(--switch-dial-size);
+		height: var(--switch-dial-size);
+		border-radius: 50%;
+		background-color: var(--switch-dial--background-color);
+		transition: transform 0.1s ease-in-out;
+	}
+
+	&--active &__dial {
+		transform: translateX(21px);
+	}
+
+	&__icon {
+		position: absolute;
+		width: var(--switch-dial-size);
+		height: var(--switch-dial-size);
+
+		&--false {
+			left: var(--switch-padding);
+		}
+
+		&--true {
+			right: var(--switch-padding);
+		}
+	}
+}
+
+:root {
+	--switch-width: 50px;
+	--switch-padding: 4px;
+
+	--switch-dial-size: 20px;
+	--switch-dial--background-color: var(--clr-white);
+}

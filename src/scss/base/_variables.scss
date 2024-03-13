@@ -1,286 +1,95 @@
 $font-primary: "inter", Arial, sans-serif;
 
 :root {
-	/*
-        * The names of these colours a ambiguous. 
-        * This is because the end user will be able to edit the colours, via the admin area, to match their brand.
-        */
 
 	//Primary
-	--clr-base-0: #ffffff;
-	--clr-base-10: #ffffff;
-	--clr-base-20: #fafafa;
-	--clr-base-30: #f0f0f0;
-	--clr-base-40: #dedede;
-	--clr-base-50: #9a9f9a;
-	--clr-base-60: #717671;
-	--clr-base-70: #5d625d;
-	--clr-base-80: #3f433f;
-	--clr-base-90: #1e221e;
+	--clr-base-50: #FAFAFA;
+	--clr-base-100: #F5F5F5;
+	--clr-base-200: #EEEEEE;
+	--clr-base-300: #E0E0E0;
+	--clr-base-400: #BDBDBD;
+	--clr-base-500: #9E9E9E;
+	--clr-base-600: #757575;
+	--clr-base-700: #616161;
+	--clr-base-800: #424242;
+	--clr-base-900: #212121;
 
 	--clr-white: #ffffff;
 	--clr-black: #000000;
 	--clr-disabled: var(--clr-base-30);
 
 	//Accent
-	--clr-accent-primary-0: #fcf3ff;
-	--clr-accent-primary-10: #f8e1ff;
-	--clr-accent-primary-20: #f6ccff;
-	--clr-accent-primary-30: #f2b2ff;
-	--clr-accent-primary-40: #ec9bff;
-	--clr-accent-primary-50: #e785ff;
-	--clr-accent-primary-60: #dc7cfa;
-	--clr-accent-primary-70: #cd71ef;
-	--clr-accent-primary-80: #c36ae7;
-	--clr-accent-primary-90: #b15cd8;
-	--clr-accent-primary: var(--clr-accent-primary-0);
+	--clr-primary-50: #FFF3E0;
+	--clr-primary-100: #FFDFB1;
+	--clr-primary-200: #FFCA7F;
+	--clr-primary-300: #FFB44C;
+	--clr-primary-400: #FFA424;
+	--clr-primary-500: #FF9400;
+	--clr-primary-600: #FF8A00;
+	--clr-primary-700: #F97802;
+	--clr-primary-800: #F36703;
+	--clr-primary-900: #EA4B04;
+	--clr-primary: var(--clr-primary-600);
 
-	--clr-accent-secondary-0: #f3fbf2;
-	--clr-accent-secondary-10: #def6da;
-	--clr-accent-secondary-20: #c6f1c0;
-	--clr-accent-secondary-30: #adeba5;
-	--clr-accent-secondary-40: #98e58f;
-	--clr-accent-secondary-50: #85e07a;
-	--clr-accent-secondary-60: #77ce70;
-	--clr-accent-secondary-70: #64b964;
-	--clr-accent-secondary-80: #53a459;
-	--clr-accent-secondary-90: #338045;
-	--clr-accent-secondary: var(--clr-accent-secondary-0);
-
-	--primary-background-gradient: linear-gradient(
-		243.18deg,
-		var(--clr-accent-primary) 0%,
-		var(--clr-accent-secondary) 100%
-	);
+	--clr-secondary-50: #f7e3ff;
+	--clr-secondary-100: #e9bafe;
+	--clr-secondary-200: #da89fe;
+	--clr-secondary-300: #da89fe;
+	--clr-secondary-400: #bb00ff;
+	--clr-secondary-500: #ac00fd;
+	--clr-secondary-600: #9700f8;
+	--clr-secondary-700: #7800f3;
+	--clr-secondary-800: #5800f1;
+	--clr-secondary-900: #0000e5;
+	--clr-secondary: var(--clr-secondary-400);
 
 	//states
-	--clr-error-0: #fbe5eb;
-	--clr-error-10: #f7bdcc;
-	--clr-error-20: #f293ab;
-	--clr-error-30: #ec698b;
-	--clr-error-40: #e64d73;
-	--clr-error-50: #e1385d;
-	--clr-error-60: #d0345a;
-	--clr-error-70: #bb2f55;
-	--clr-error-80: #a62a51;
-	--clr-error-90: #812349;
-	--clr-error: var(--clr-error-50);
+	--clr-error-50: #FFE7E6;
+	--clr-error-100: #FFC8B8;
+	--clr-error-200: #FFA28A;
+	--clr-error-300: #FF7A5B;
+	--clr-error-400: #FF5636;
+	--clr-error-500: #FF240C;
+	--clr-error-600: #FF1A07;
+	--clr-error-700: #FF0800;
+	--clr-error-800: #F10000;
+	--clr-error-900: #DA0000;
+	--clr-error: var(--clr-error-700);
 
-	--clr-warning-0: #fff8e2;
-	--clr-warning-10: #ffecb6;
-	--clr-warning-20: #ffe088;
-	--clr-warning-30: #ffd559;
-	--clr-warning-40: #ffca3a;
-	--clr-warning-50: #ffc22a;
-	--clr-warning-60: #ffb426;
-	--clr-warning-70: #ffa124;
-	--clr-warning-80: #ff9123;
-	--clr-warning-90: #ff7221;
-	--clr-warning: var(--clr-warning-90);
+	--clr-warning-50: #ffffe6;
+	--clr-warning-100: #fcfdc0;
+	--clr-warning-200: #f9fa93;
+	--clr-warning-300: #f5f662;
+	--clr-warning-400: #f0f234;
+	--clr-warning-500: #ffff00;
+	--clr-warning-600: #ffeb00;
+	--clr-warning-700: #ffd100;
+	--clr-warning-800: #ffb700;
+	--clr-warning-900: #ff8a00;
+	--clr-warning: var(--clr-warning-700);
 
-	--clr-success-0: #e2faea;
-	--clr-success-10: #b9f2cc;
-	--clr-success-20: #85e9ab;
-	--clr-success-30: #38e187;
-	--clr-success-40: #00d86a;
-	--clr-success-50: #00ce52;
-	--clr-success-60: #00be47;
-	--clr-success-70: #00aa3a;
-	--clr-success-80: #00992e;
-	--clr-success-90: #007819;
-	--clr-success: var(--clr-success-30);
+	--clr-success-50: #E3FFEC;
+	--clr-success-100: #BAFFCF;
+	--clr-success-200: #84FFAE;
+	--clr-success-300: #00FF88;
+	--clr-success-400: #00FB66;
+	--clr-success-500: #00F44E;
+	--clr-success-600: #00E242;
+	--clr-success-700: #00CE33;
+	--clr-success-800: #00BB26;
+	--clr-success-900: #009909;
+	--clr-success: var(--clr-success-700);
 
-	--clr-info-0: #e2f6ff;
-	--clr-info-10: #b5e7ff;
-	--clr-info-20: #84d7ff;
-	--clr-info-30: #54c7ff;
-	--clr-info-40: #33baff;
-	--clr-info-50: #21aeff;
-	--clr-info-60: #209fef;
-	--clr-info-70: #1f8cdb;
-	--clr-info-80: #1d7bc7;
-	--clr-info-90: #195aa4;
-	--clr-info: var(--clr-info-50);
+	--clr-info-50: #E2F3FF;
+	--clr-info-100: #BAE0FF;
+	--clr-info-200: #8BCEFF;
+	--clr-info-300: #53BAFF;
+	--clr-info-400: #14AAFF;
+	--clr-info-500: #009AFF;
+	--clr-info-600: #008BFF;
+	--clr-info-700: #0077FF;
+	--clr-info-800: #1564EC;
+	--clr-info-900: #2242CD;
+	--clr-info: var(--clr-info-700);
 
-	//=========================================================
-	//Components
-	//=========================================================
-
-	--accordion-content-text-color: var(--clr-base-70);
-
-	--action-outline-border-color: var(--clr-base-90);
-	--action-outline-text-color: var(--clr-base-90);
-	--action-primary-background-color: var(--clr-base-90);
-	--action-primary-text-color: var(--clr-base-0);
-
-	--alert-box-error-background: var(--clr-error-30);
-	--alert-box-error-border: var(--clr-error);
-	--alert-box-information-background: var(--clr-info-30);
-	--alert-box-information-border: var(--clr-info);
-	--alert-box-success-background: var(--clr-success-10);
-	--alert-box-success-border: var(--clr-success);
-	--alert-box-warning-background: var(--clr-warning-70);
-	--alert-box-warning-border: var(--clr-warning);
-
-	--carousel-navigation-button-background-color: var(--clr-base-90);
-	--carousel-navigation-button-text-color: var(--clr-base-0);
-	--carousel-pagination-bullet-background-color: var(--clr-base-90);
-
-	--checkbox-box-border-color: var(--clr-base-90);
-	--checkbox-box-checked-state-background-color: var(--clr-base-90);
-	--checkbox-icon-text-color: var(--clr-base-0);
-
-	--info-box-error-background: var(--clr-error);
-	--info-box-success-background: var(--clr-success);
-	--info-box-warning-background: var(--clr-warning);
-	--info-box-info-background: var(--clr-info);
-	--info-box-primary-color: #ffffff;
-	--info-box-secondary-color: #1e211e;
-
-	--input-border-color: var(--clr-base-50);
-	--input-disabled-border-color: var(--clr-disabled);
-	--input-disabled-text-color: var(--clr-disabled);
-	--input-error-background-color: var(--clr-error-0);
-	--input-error-border-color: var(--clr-error);
-	--input-warning-background-color: var(--clr-warning-0);
-	--input-warning-border-color: var(--clr-warning);
-	--input-success-background-color: var(--clr-success-0);
-	--input-success-border-color: var(--clr-success);
-	--input-info-background-color: var(--clr-info-0);
-	--input-info-border-color: var(--clr-info);
-
-	--input-label-disabled-text-color: var(--clr-disabled);
-	--input-label-error-text-color: var(--clr-error);
-	--input-label-warning-text-color: var(--clr-warning);
-	--input-label-success-text-color: var(--clr-success);
-	--input-label-info-text-color: var(--clr-info);
-
-	--input-text-color: var(--clr-base-90);
-
-	--label-text-color: var(--clr-base-70);
-
-	--loader-box-background-color: var(--clr-base-90);
-
-	--modal-background-color: rgba(0, 0, 0, 0.3);
-	--modal-close-action-background-color: var(--clr-base-0);
-	--modal-container-background-color: var(--clr-base-0);
-
-	--notificationBox-error-border: var(--clr-error);
-	--notificationBox-success-border: var(--clr-success);
-	--notificationBox-warning-border: var(--clr-warning);
-	--notificationBox-info-border: var(--clr-info);
-
-	--progress-bar-bar-background-color: var(--clr-base-90);
-	--progress-bar-border-color: var(--clr-base-90);
-
-	--rhs-background-color: rgba(0, 0, 0, 0.3);
-	--rhs-container-background-color: var(--clr-base-0);
-	--rhs-toggle-action-background-color: var(--clr-base-0);
-
-	--rhs-card-background-color: rgba(242, 242, 242, 1);
-
-	--select-dropdown-background-color: var(--clr-base-0);
-	--select-dropdown-option-focused-text-color: var(--clr-base-90);
-	--select-dropdown-option-focused-background-color: rgba(244, 246, 244, 1);
-	--select-dropdown-option-text-color: var(--clr-base-50);
-	--select-icon-text-color: var(--clr-base-70);
-	--select-trigger-action-border-color: var(--clr-base-50);
-	--select-trigger-action-text-color: var(--clr-base-90);
-
-	--slider-track-background-color: rgba(255, 255, 255, 0.3);
-
-	--speaker-area-header-text-color: var(--clr-base-90);
-	--speaker-area-image-border-color: var(--clr-base-0);
-	--speaker-area-sub-header-text-color: var(--clr-base-70);
-
-	--tabs-button-text-color: var(--clr-base-70);
-	--tabs-button-active-text-color: var(--clr-base-90);
-	--tabs-button-active-background-color: #f7f7f7;
-	--tabs-carousel-border-color: var(--clr-disabled);
-
-	--topic-pill-default-background-color: rgba(242, 242, 242, 1);
-	--topic-pill-primary-background-color: #f2f2f2;
-	--topic-pill-secondary-border-color: #f2f2f2;
-	--topic-pill-default-text-color: rgba(117, 117, 117, 1);
-
-	--video-bottom-bar-action-text-color: var(--clr-base-0);
-	--video-bottom-bar-background-color: rgba(0, 0, 0, 0.8);
-	--video-bottom-bar-text-color: var(--clr-base-0);
-
-	--volume-controller-button-text-color: var(--clr-base-0);
-
-	//=========================================================
-	//Layouts
-	//=========================================================
-
-	--sessions-rhs-action-hover-background-color: #f5f5f5;
-
-	--speaker-pill-background-color: rgba(30, 33, 30, 0.05);
-	--speaker-pill-hover-background-color: rgba(30, 33, 30, 0.1);
-
-	--event-card-speaker-text-color: var(--clr-base-70);
-	--event-card-background-color: var(--clr-base-0);
-	--event-card-descrption-text-color: var(--clr-base-50);
-	--event-card-header-text-color: var(--clr-base-90);
-
-	//=========================================================
-	//Views
-	//=========================================================
-
-	--available-events-divider-background-color: var(--clr-base-90);
-	--available-events-sub-header-text-color: var(--clr-base-70);
-
-	--create-an-account-background-color: var(--primary-background-gradient);
-	--create-an-account-content-area-background-color: var(--clr-base-0);
-	--create-an-account-form-action-text-color: var(--clr-base-90);
-	--create-an-account-form-header-text-color: var(--clr-base-90);
-	--create-an-account-form-sub-header-text-color: var(--clr-base-70);
-
-	--lobby-background-color: var(--primary-background-gradient);
-	--lobby-content-area-background-color: var(--clr-base-0);
-	--lobby-speaker-container-text-color: var(--clr-base-70);
-
-	--sessions-background-color: var(--primary-background-gradient);
-	--sessions-side-panel-background-color: var(--clr-base-0);
-
-	--sign-in-background-color: var(--primary-background-gradient);
-	--sign-in-content-area-background-color: var(--clr-base-0);
-	--sign-in-forgot-password-action-text-color: var(--clr-base-90);
-	--sign-in-form-action-text-color: var(--clr-base-90);
-	--sign-in-form-header-text-color: var(--clr-base-90);
-	--sign-in-form-sub-header-text-color: var(--clr-base-70);
-
-	--reset-password-background-color: var(--primary-background-gradient);
-	--reset-password-content-area-background-color: var(--clr-base-0);
-	--reset-password-form-header-text-color: var(--clr-base-90);
-	--reset-password-form-sub-header-text-color: var(--clr-base-70);
-
-	--forgot-password-background-color: var(--primary-background-gradient);
-	--forgot-password-content-area-background-color: var(--clr-base-0);
-	--forgot-password-action-text-color: var(--clr-base-90);
-	--forgot-password-action-sub-text-color: var(--clr-base-70);
-	--forgot-password-form-action-text-color: var(--clr-base-90);
-	--forgot-password-form-header-text-color: var(--clr-base-90);
-	--forgot-password-form-sub-header-text-color: var(--clr-base-70);
-
-	//=========================================================
-	//Z Index
-	//=========================================================
-
-	--modalZIndex: 9;
-	--rhsZIndex: 8;
-	--selectDropboxZIndex: 7;
-	--modal-close-action-z-index: 1;
-
-	//=========================================================
-	//View Sizing
-	//=========================================================
-
-	--view-padding-side: 1rem;
-	--view-padding-vertical: 1rem;
-
-	@include media(xl) {
-		--view-padding-side: 9.375rem;
-		--view-padding-vertical: 6.25rem;
-	}
 }
