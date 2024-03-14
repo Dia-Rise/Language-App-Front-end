@@ -7,6 +7,12 @@ type AlphabetType = {
 	romanji: string;
 };
 
+// type test = {
+// 	default: AlphabetType;
+// 	dakuten?: AlphabetType;
+// 	handakuten?: AlphabetType;
+// };
+
 export const Alphabet: AlphabetType[] = [
 	{
 		hiragana: Hira.A,

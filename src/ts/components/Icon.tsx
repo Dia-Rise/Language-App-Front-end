@@ -18,10 +18,10 @@ export enum IconSize {
 
 export type IconSVGProps = {
 	svg: IconSVG;
-	size: IconSize;
+	size?: IconSize;
 	className?: string;
 };
 
-export function Icon({ svg, size, className = "" }: IconSVGProps) {
+export function Icon({ svg, size = IconSize.SM, className = "" }: IconSVGProps) {
 	return <span className={`icon ${className} ${size ? size : ""}`} dangerouslySetInnerHTML={{ __html: svg }} />;
 }

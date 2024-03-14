@@ -1,0 +1,81 @@
+.modal {
+	position: fixed;
+
+	background-color: var(--modal-background-color);
+	border: 2px solid var(--modal-border-color);
+
+	border-radius: 8px;
+
+	max-height: calc(100vh - var(--modal-distance-from-screen));
+	min-width: 300px;
+	max-width: 600px;
+	overflow: auto;
+
+	padding: 32px 24px;
+
+	&__close {
+		position: absolute;
+		top: 16px;
+		right: 16px;
+		cursor: pointer;
+		background-color: transparent;
+		border: 0;
+	}
+
+	&--top-left {
+		left: var(--modal-distance-from-screen);
+		top: var(--modal-distance-from-screen);
+	}
+
+	&--top {
+		left: 50%;
+		top: var(--modal-distance-from-screen);
+		transform: translateX(-50%);
+	}
+
+	&--top-right {
+		right: var(--modal-distance-from-screen);
+		top: var(--modal-distance-from-screen);
+	}
+
+	&--left {
+		left: var(--modal-distance-from-screen);
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	&--center {
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	&--right {
+		left: var(--modal-distance-from-screen);
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	&--bottom-left {
+		left: var(--modal-distance-from-screen);
+		bottom: var(--modal-distance-from-screen);
+	}
+
+	&--bottom {
+		left: 50%;
+		bottom: var(--modal-distance-from-screen);
+		transform: translateX(-50%);
+	}
+
+	&--bottom-right {
+		left: var(--modal-distance-from-screen);
+		bottom: var(--modal-distance-from-screen);
+	}
+}
+
+:root {
+	--modal-background-color: var(--clr-white);
+	--modal-border-color: var(--clr-base-50);
+
+	--modal-distance-from-screen: 8px;
+}
