@@ -1,3 +1,195 @@
+@mixin standardActionColor($backgroundColor, $fontColor, $hoverBackgroundColor, $hoverFontColor) {
+	border-color: $backgroundColor;
+	background-color: $backgroundColor;
+	color: $fontColor;
+
+	&:hover {
+		border-color: $hoverBackgroundColor;
+		background-color: $hoverBackgroundColor;
+		color: $hoverFontColor;
+	}
+}
+
+@mixin textActionColor($fontColor, $hoverFontColor) {
+	border-color: transparent;
+	background-color: transparent;
+	color: $fontColor;
+
+	&:hover {
+		border-color: transparent;
+		background-color: transparent;
+		color: $hoverFontColor;
+	}
+}
+
+@mixin outlineActionColor($color, $hoverColor) {
+	border-color: $color;
+	background-color: transparent;
+	color: $color;
+
+	&:hover {
+		border-color: $hoverColor;
+		background-color: transparent;
+		color: $hoverColor;
+	}
+}
+
 .action {
-	background-color: #ff0000;
+	cursor: pointer;
+	border: 2px solid;
+	border-radius: 6px;
+
+	padding: 8px 16px;
+	font-weight: 500;
+
+	&--small {
+		padding: 4px 8px;
+	}
+
+	&--medium {
+		padding: 8px 16px;
+	}
+
+	&--large {
+		padding: 8px 24px;
+	}
+
+	&--text {
+		padding: 0;
+	}
+
+	&--primary {
+		@include standardActionColor(
+			var(--clr-primary),
+			var(--clr-base-50),
+			var(--clr-primary-700),
+			var(--clr-base-100)
+		);
+	}
+
+	&--outline#{&}--primary {
+		@include outlineActionColor(var(--clr-primary), var(--clr-primary-800));
+	}
+
+	&--text#{&}--primary {
+		@include textActionColor(var(--clr-primary), var(--clr-primary-700));
+	}
+
+	&--secondary {
+		@include standardActionColor(
+			var(--clr-secondary),
+			var(--clr-white),
+			var(--clr-secondary-700),
+			var(--clr-base-50)
+		);
+	}
+
+	&--outline#{&}--secondary {
+		@include outlineActionColor(var(--clr-secondary), var(--clr-secondary-800));
+	}
+
+	&--text#{&}--secondary {
+		@include textActionColor(var(--clr-secondary), var(--clr-secondary-700));
+	}
+
+	&--error {
+		@include standardActionColor(var(--clr-error), var(--clr-white), var(--clr-error-700), var(--clr-base-50));
+	}
+
+	&--text#{&}--error {
+		@include textActionColor(var(--clr-error), var(--clr-error-700));
+	}
+
+	&--outline#{&}--error {
+		@include outlineActionColor(var(--clr-error), var(--clr-error-800));
+	}
+
+	&--success {
+		@include standardActionColor(var(--clr-success), var(--clr-white), var(--clr-success-700), var(--clr-base-50));
+	}
+
+	&--outline#{&}--success {
+		@include outlineActionColor(var(--clr-success), var(--clr-success-800));
+	}
+
+	&--text#{&}--success {
+		@include textActionColor(var(--clr-success), var(--clr-success-700));
+	}
+
+	&--warning {
+		@include standardActionColor(
+			var(--clr-warning),
+			var(--clr-base-800),
+			var(--clr-warning-700),
+			var(--clr-base-900)
+		);
+	}
+
+	&--outline#{&}--warning {
+		@include outlineActionColor(var(--clr-warning), var(--clr-warning-800));
+	}
+
+	&--text#{&}--warning {
+		@include textActionColor(var(--clr-warning), var(--clr-warning-700));
+	}
+
+	&--info {
+		@include standardActionColor(var(--clr-info), var(--clr-white), var(--clr-info-700), var(--clr-base-50));
+	}
+
+	&--text#{&}--info {
+		@include textActionColor(var(--clr-info), var(--clr-info-700));
+	}
+
+	&--light {
+		@include standardActionColor(
+			var(--clr-base-100),
+			var(--clr-white-800),
+			var(--clr-base-200),
+			var(--clr-base-900)
+		);
+	}
+
+	&--outline#{&}--light {
+		@include outlineActionColor(var(--clr-base-100), var(--clr-base-200));
+	}
+
+	&--text#{&}--light {
+		@include textActionColor(var(--clr-base-100), var(--clr-base-300));
+	}
+
+	&--dark {
+		@include standardActionColor(var(--clr-base-900), var(--clr-base-100), var(--clr-base-800), var(--clr-base-50));
+	}
+
+	&--outline#{&}--dark {
+		@include outlineActionColor(var(--clr-base-900), var(--clr-base-700));
+	}
+
+	&--text#{&}--dark {
+		@include textActionColor(var(--clr-base-900), var(--clr-base-800));
+	}
+
+	&--standard#{&}--disabled,
+	&--standard:disabled {
+		cursor: default !important;
+		@include standardActionColor(
+			var(--clr-base-100) !important,
+			var(--clr-base-300) !important,
+			var(--clr-base-100) !important,
+			var(--clr-base-300) !important
+		);
+	}
+
+	&--outline#{&}--disabled,
+	&--outline:disabled {
+		cursor: default !important;
+		@include outlineActionColor(var(--clr-base-100) !important, var(--clr-base-100) !important);
+	}
+
+	&--text#{&}--disabled,
+	&--text:disabled {
+		cursor: default !important;
+		@include textActionColor(var(--clr-base-100) !important, var(--clr-base-100) !important);
+	}
 }

@@ -1,459 +1,550 @@
 import { Hira, Kata } from "../../enums";
 
-type AlphabetType = {
+type CharacterStringType = {
 	hiragana: Hira | "";
 	katakana: Kata | "";
 	romanji: string;
 };
 
-type test2 = {
-	default: AlphabetType;
-	dakuten?: AlphabetType;
-	handakuten?: AlphabetType;
+type PronunciationType = {
+	default: CharacterStringType;
+	dakuten?: CharacterStringType;
+	handakuten?: CharacterStringType;
 };
 
-type test = {
-	family: string;
-	n: test2 | null;
-	a: test2 | null;
-	e: test2 | null;
-	i: test2 | null;
-	o: test2 | null;
-	u: test2 | null;
+type CharacterGridDataType = {
+	rowLabel: {
+		default: string;
+		dakuten?: string;
+		handakuten?: string;
+	};
+	n?: PronunciationType | null;
+	a?: PronunciationType | null;
+	e?: PronunciationType | null;
+	i?: PronunciationType | null;
+	o?: PronunciationType | null;
+	u?: PronunciationType | null;
 };
 
-export const CharacterGridData: test[] = [
+export const CharacterGridData: CharacterGridDataType[] = [
 	{
-		family: "singular",
-		n: null,
+		rowLabel: {
+			default: "",
+		},
 		a: {
 			default: {
 				hiragana: Hira.A,
 				katakana: Kata.A,
 				romanji: "a",
 			},
-			dakuten: {
-				hiragana: Hira.E,
-				katakana: Kata.E,
-				romanji: "a",
-			},
 		},
 		e: {
 			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
+				hiragana: Hira.E,
+				katakana: Kata.E,
+				romanji: "e",
 			},
 		},
 		i: {
 			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
+				hiragana: Hira.I,
+				katakana: Kata.I,
+				romanji: "i",
 			},
 		},
 		o: {
 			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
+				hiragana: Hira.O,
+				katakana: Kata.O,
+				romanji: "o",
 			},
 		},
 		u: {
 			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
+				hiragana: Hira.U,
+				katakana: Kata.U,
+				romanji: "u",
 			},
 		},
 	},
 	{
-		family: "singular",
+		// K
+		rowLabel: {
+			default: "K",
+			dakuten: "G",
+		},
 		n: null,
 		a: {
 			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
+				hiragana: Hira.KA,
+				katakana: Kata.KA,
+				romanji: "ka",
 			},
 			dakuten: {
-				hiragana: Hira.E,
-				katakana: Kata.E,
-				romanji: "a",
+				hiragana: Hira.GA,
+				katakana: Kata.GA,
+				romanji: "ga",
 			},
 		},
 		e: {
 			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
+				hiragana: Hira.KE,
+				katakana: Kata.KE,
+				romanji: "ke",
+			},
+			dakuten: {
+				hiragana: Hira.GE,
+				katakana: Kata.GE,
+				romanji: "ge",
 			},
 		},
 		i: {
 			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
+				hiragana: Hira.KI,
+				katakana: Kata.KI,
+				romanji: "ki",
+			},
+			dakuten: {
+				hiragana: Hira.GI,
+				katakana: Kata.GI,
+				romanji: "gi",
 			},
 		},
 		o: {
 			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
+				hiragana: Hira.KO,
+				katakana: Kata.KO,
+				romanji: "ko",
+			},
+			dakuten: {
+				hiragana: Hira.GO,
+				katakana: Kata.GO,
+				romanji: "go",
 			},
 		},
 		u: {
 			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
+				hiragana: Hira.KU,
+				katakana: Kata.KU,
+				romanji: "ku",
+			},
+			dakuten: {
+				hiragana: Hira.GU,
+				katakana: Kata.GU,
+				romanji: "gu",
 			},
 		},
 	},
 	{
-		family: "singular",
+		// S
+		rowLabel: {
+			default: "S",
+			dakuten: "Z",
+		},
 		n: null,
 		a: {
 			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
+				hiragana: Hira.SA,
+				katakana: Kata.SA,
+				romanji: "sa",
 			},
 			dakuten: {
-				hiragana: Hira.E,
-				katakana: Kata.E,
-				romanji: "a",
+				hiragana: Hira.ZA,
+				katakana: Kata.ZA,
+				romanji: "za",
 			},
 		},
 		e: {
 			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
+				hiragana: Hira.SE,
+				katakana: Kata.SE,
+				romanji: "se",
+			},
+			dakuten: {
+				hiragana: Hira.ZE,
+				katakana: Kata.ZE,
+				romanji: "za",
 			},
 		},
 		i: {
 			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
+				hiragana: Hira.SHI,
+				katakana: Kata.SHI,
+				romanji: "shi",
+			},
+			dakuten: {
+				hiragana: Hira.ZI,
+				katakana: Kata.ZI,
+				romanji: "ji",
 			},
 		},
 		o: {
 			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
+				hiragana: Hira.SO,
+				katakana: Kata.SO,
+				romanji: "so",
+			},
+			dakuten: {
+				hiragana: Hira.ZO,
+				katakana: Kata.ZO,
+				romanji: "zo",
 			},
 		},
 		u: {
 			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
+				hiragana: Hira.SU,
+				katakana: Kata.SU,
+				romanji: "su",
+			},
+			dakuten: {
+				hiragana: Hira.ZU,
+				katakana: Kata.ZU,
+				romanji: "zu",
 			},
 		},
 	},
 	{
-		family: "singular",
+		rowLabel: {
+			default: "T",
+			dakuten: "D",
+		},
 		n: null,
 		a: {
 			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
+				hiragana: Hira.TA,
+				katakana: Kata.TA,
+				romanji: "ta",
 			},
 			dakuten: {
-				hiragana: Hira.E,
-				katakana: Kata.E,
-				romanji: "a",
+				hiragana: Hira.DA,
+				katakana: Kata.DA,
+				romanji: "da",
 			},
 		},
 		e: {
 			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
-			},
-		},
-		i: {
-			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
-			},
-		},
-		o: {
-			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
-			},
-		},
-		u: {
-			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
-			},
-		},
-	},
-	{
-		family: "singular",
-		n: null,
-		a: {
-			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
+				hiragana: Hira.TE,
+				katakana: Kata.TE,
+				romanji: "te",
 			},
 			dakuten: {
-				hiragana: Hira.E,
-				katakana: Kata.E,
-				romanji: "a",
-			},
-		},
-		e: {
-			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
+				hiragana: Hira.DE,
+				katakana: Kata.DE,
+				romanji: "de",
 			},
 		},
 		i: {
 			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
-			},
-		},
-		o: {
-			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
-			},
-		},
-		u: {
-			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
-			},
-		},
-	},
-	{
-		family: "singular",
-		n: null,
-		a: {
-			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
+				hiragana: Hira.CHI,
+				katakana: Kata.CHI,
+				romanji: "chi",
 			},
 			dakuten: {
-				hiragana: Hira.E,
-				katakana: Kata.E,
-				romanji: "a",
-			},
-		},
-		e: {
-			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
-			},
-		},
-		i: {
-			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
+				hiragana: Hira.DI,
+				katakana: Kata.DI,
+				romanji: "ji",
 			},
 		},
 		o: {
 			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
+				hiragana: Hira.TO,
+				katakana: Kata.TO,
+				romanji: "to",
+			},
+			dakuten: {
+				hiragana: Hira.DO,
+				katakana: Kata.DO,
+				romanji: "do",
 			},
 		},
 		u: {
 			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
+				hiragana: Hira.TSU,
+				katakana: Kata.TSU,
+				romanji: "tsu",
+			},
+			dakuten: {
+				hiragana: Hira.DU,
+				katakana: Kata.DU,
+				romanji: "zu",
 			},
 		},
 	},
 	{
-		family: "singular",
+		rowLabel: {
+			default: "N",
+		},
 		n: {
 			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
+				hiragana: Hira.N,
+				katakana: Kata.N,
+				romanji: "n",
 			},
 		},
 		a: {
 			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
-			},
-			dakuten: {
-				hiragana: Hira.E,
-				katakana: Kata.E,
-				romanji: "a",
+				hiragana: Hira.NA,
+				katakana: Kata.NA,
+				romanji: "na",
 			},
 		},
 		e: {
 			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
+				hiragana: Hira.NE,
+				katakana: Kata.NE,
+				romanji: "ne",
 			},
 		},
 		i: {
 			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
+				hiragana: Hira.NI,
+				katakana: Kata.NI,
+				romanji: "ni",
 			},
 		},
 		o: {
 			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
+				hiragana: Hira.NO,
+				katakana: Kata.NO,
+				romanji: "no",
 			},
 		},
 		u: {
 			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
+				hiragana: Hira.NU,
+				katakana: Kata.NU,
+				romanji: "nu",
 			},
 		},
 	},
 	{
-		family: "singular",
-		n: null,
+		rowLabel: {
+			default: "H",
+			dakuten: "B",
+			handakuten: "P",
+		},
 		a: {
 			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
+				hiragana: Hira.HA,
+				katakana: Kata.HA,
+				romanji: "ha",
 			},
 			dakuten: {
-				hiragana: Hira.E,
-				katakana: Kata.E,
-				romanji: "a",
+				hiragana: Hira.BA,
+				katakana: Kata.BA,
+				romanji: "ba",
+			},
+			handakuten: {
+				hiragana: Hira.PA,
+				katakana: Kata.PA,
+				romanji: "pa",
 			},
 		},
 		e: {
 			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
+				hiragana: Hira.HE,
+				katakana: Kata.HE,
+				romanji: "he",
+			},
+			dakuten: {
+				hiragana: Hira.BE,
+				katakana: Kata.BE,
+				romanji: "be",
+			},
+			handakuten: {
+				hiragana: Hira.PE,
+				katakana: Kata.PE,
+				romanji: "pe",
 			},
 		},
 		i: {
 			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
+				hiragana: Hira.HI,
+				katakana: Kata.HI,
+				romanji: "hi",
+			},
+			dakuten: {
+				hiragana: Hira.BI,
+				katakana: Kata.BI,
+				romanji: "bi",
+			},
+			handakuten: {
+				hiragana: Hira.PI,
+				katakana: Kata.PI,
+				romanji: "pi",
 			},
 		},
 		o: {
 			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
+				hiragana: Hira.HO,
+				katakana: Kata.HO,
+				romanji: "ho",
+			},
+			dakuten: {
+				hiragana: Hira.BO,
+				katakana: Kata.BO,
+				romanji: "bo",
+			},
+			handakuten: {
+				hiragana: Hira.PO,
+				katakana: Kata.PO,
+				romanji: "po",
 			},
 		},
 		u: {
 			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
+				hiragana: Hira.FU,
+				katakana: Kata.FU,
+				romanji: "hu",
+			},
+			dakuten: {
+				hiragana: Hira.BU,
+				katakana: Kata.BU,
+				romanji: "bu",
+			},
+			handakuten: {
+				hiragana: Hira.PU,
+				katakana: Kata.PU,
+				romanji: "pu",
 			},
 		},
 	},
 	{
-		family: "singular",
-		n: null,
+		rowLabel: {
+			default: "M",
+		},
 		a: {
 			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
-			},
-			dakuten: {
-				hiragana: Hira.E,
-				katakana: Kata.E,
-				romanji: "a",
-			},
-		},
-		e: null,
-		i: null,
-		o: {
-			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
-			},
-		},
-		u: {
-			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
-			},
-		},
-	},
-	{
-		family: "singular",
-		n: null,
-		a: {
-			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
-			},
-			dakuten: {
-				hiragana: Hira.E,
-				katakana: Kata.E,
-				romanji: "a",
+				hiragana: Hira.MA,
+				katakana: Kata.MA,
+				romanji: "ma",
 			},
 		},
 		e: {
 			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
+				hiragana: Hira.ME,
+				katakana: Kata.ME,
+				romanji: "me",
 			},
 		},
 		i: {
 			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
+				hiragana: Hira.MI,
+				katakana: Kata.MI,
+				romanji: "mi",
 			},
 		},
 		o: {
 			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
+				hiragana: Hira.MO,
+				katakana: Kata.MO,
+				romanji: "mo",
 			},
 		},
 		u: {
 			default: {
-				hiragana: Hira.A,
-				katakana: Kata.A,
-				romanji: "a",
+				hiragana: Hira.MU,
+				katakana: Kata.MU,
+				romanji: "mu",
+			},
+		},
+	},
+	{
+		rowLabel: {
+			default: "Y",
+		},
+		a: {
+			default: {
+				hiragana: Hira.YA,
+				katakana: Kata.YA,
+				romanji: "ya",
+			},
+		},
+		o: {
+			default: {
+				hiragana: Hira.YO,
+				katakana: Kata.YO,
+				romanji: "yo",
+			},
+		},
+		u: {
+			default: {
+				hiragana: Hira.YU,
+				katakana: Kata.YU,
+				romanji: "yu",
+			},
+		},
+	},
+	{
+		rowLabel: {
+			default: "R",
+		},
+		a: {
+			default: {
+				hiragana: Hira.RA,
+				katakana: Kata.RA,
+				romanji: "ra",
+			},
+		},
+		e: {
+			default: {
+				hiragana: Hira.RE,
+				katakana: Kata.RE,
+				romanji: "re",
+			},
+		},
+		i: {
+			default: {
+				hiragana: Hira.RI,
+				katakana: Kata.RI,
+				romanji: "ri",
+			},
+		},
+		o: {
+			default: {
+				hiragana: Hira.RO,
+				katakana: Kata.RO,
+				romanji: "ro",
+			},
+		},
+		u: {
+			default: {
+				hiragana: Hira.RU,
+				katakana: Kata.RU,
+				romanji: "ru",
+			},
+		},
+	},
+	{
+		rowLabel: {
+			default: "W",
+		},
+		a: {
+			default: {
+				hiragana: Hira.WA,
+				katakana: Kata.WA,
+				romanji: "wa",
+			},
+		},
+		e: {
+			default: {
+				hiragana: "",
+				katakana: Kata.WE,
+				romanji: "we",
+			},
+		},
+		i: {
+			default: {
+				hiragana: "",
+				katakana: Kata.WI,
+				romanji: "wi",
+			},
+		},
+		o: {
+			default: {
+				hiragana: Hira.WO,
+				katakana: Kata.WO,
+				romanji: "wo",
 			},
 		},
 	},

@@ -6,6 +6,7 @@ export enum CharacterFrameSize {
 
 export type CharacterFrameProps = {
 	character: string;
+	subCharacter?: string;
 	size?: CharacterFrameSize;
 	highlighed?: boolean;
 	onMouseEnter?: () => void;
@@ -14,6 +15,7 @@ export type CharacterFrameProps = {
 
 export function CharacterFrame({
 	character,
+	subCharacter,
 	size = CharacterFrameSize.MD,
 	highlighed = false,
 	onMouseEnter,
@@ -24,7 +26,10 @@ export function CharacterFrame({
 			className={`character-frame ${size} ${highlighed ? "character-frame--highlight" : ""} ${!character.length ? "character-frame--faded" : ""}`}
 			{...{ onMouseEnter, onMouseLeave }}
 		>
-			<span className={`character-frame__character`}>{character}</span>
+			<div className={`character-frame__characters`}>
+				<span className={`character-frame__character`}>{character}</span>
+				{subCharacter && <span className={`character-frame__sub-character`}>{subCharacter}</span>}
+			</div>
 		</div>
 	);
 }

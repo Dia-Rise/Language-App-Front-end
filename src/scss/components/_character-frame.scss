@@ -8,7 +8,7 @@
 	width: var(--character-frame-size);
 	height: var(--character-frame-size);
 
-	border: 2px dashed var(--character-frame-border-color);
+	outline: 2px dashed var(--character-frame-border-color);
 	background-color: transparent;
 
 	&--sm {
@@ -26,7 +26,7 @@
 	}
 
 	&--faded {
-		border-color: var(--character-frame-border-color-faded);
+		outline-color: var(--character-frame-border-color-faded);
 		background-color: transparent !important;
 	}
 
@@ -35,8 +35,20 @@
 		background-color: var(--character-frame-background-color-focused);
 	}
 
+	&__characters {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 2px;
+	}
+
 	&__character {
 		font-size: var(--character-frame-font-size);
+	}
+
+	&__sub-character {
+		font-size: var(--character-frame-sub-font-size);
+		line-height: 100%;
 	}
 
 	&--xs &__character {
@@ -52,8 +64,10 @@
 	--character-frame-font-size: 24px;
 	--character-frame-font-size-xs: 16px;
 
-	--character-frame-border-color: var(--clr-black);
-	--character-frame-border-color-faded: var(--clr-base-500);
+	--character-frame-sub-font-size: 10px;
+
+	--character-frame-border-color: var(--clr-base-300);
+	--character-frame-border-color-faded: var(--clr-base-200);
 
 	--character-frame-background-color-highlight: var(--clr-primary-50);
 	--character-frame-background-color-focused: var(--clr-primary-300);

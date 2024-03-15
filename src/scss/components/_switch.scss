@@ -21,7 +21,7 @@
 	}
 
 	&--active &__dial {
-		transform: translateX(21px);
+		transform: translateX(27px);
 	}
 
 	&__icon {
@@ -40,9 +40,9 @@
 }
 
 :root {
-	--switch-width: 50px;
+	--switch-width: 60px;
 	--switch-padding: 4px;
 
-	--switch-dial-size: 20px;
+	--switch-dial-size: 25px;
 	--switch-dial--background-color: var(--clr-white);
 }
