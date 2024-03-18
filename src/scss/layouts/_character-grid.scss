@@ -14,10 +14,18 @@
 		& th {
 			padding: 10px;
 			color: var(--clr-base-700);
+			&.faded {
+				color: var(--clr-base-300);
+			}
 		}
+
 		& td {
 			padding: 0;
 			margin: 0;
 		}
 	}
+
+	// &__header--faded {
+	// 	color: var(--clr-base-300) !important;
+	// }
 }

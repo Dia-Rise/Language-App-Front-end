@@ -12,7 +12,7 @@ type PronunciationType = {
 	handakuten?: CharacterStringType;
 };
 
-type CharacterGridDataType = {
+export type CharacterGridDataType = {
 	rowLabel: {
 		default: string;
 		dakuten?: string;

@@ -58,12 +58,22 @@
 		padding: 0;
 	}
 
+	//PRIMARY
 	&--primary {
 		@include standardActionColor(
 			var(--clr-primary),
 			var(--clr-base-50),
 			var(--clr-primary-700),
 			var(--clr-base-100)
+		);
+	}
+
+	&--active#{&}--primary {
+		@include standardActionColor(
+			var(--clr-primary-800),
+			var(--clr-white),
+			var(--clr-primary-800),
+			var(--clr-white)
 		);
 	}
 
@@ -75,12 +85,22 @@
 		@include textActionColor(var(--clr-primary), var(--clr-primary-700));
 	}
 
+	//SECONDARY
 	&--secondary {
 		@include standardActionColor(
 			var(--clr-secondary),
 			var(--clr-white),
-			var(--clr-secondary-700),
+			var(--clr-secondary-500),
 			var(--clr-base-50)
+		);
+	}
+
+	&--active#{&}--secondary {
+		@include standardActionColor(
+			var(--clr-secondary-600),
+			var(--clr-white),
+			var(--clr-secondary-600),
+			var(--clr-white)
 		);
 	}
 
@@ -92,8 +112,13 @@
 		@include textActionColor(var(--clr-secondary), var(--clr-secondary-700));
 	}
 
+	//ERROR
 	&--error {
-		@include standardActionColor(var(--clr-error), var(--clr-white), var(--clr-error-700), var(--clr-base-50));
+		@include standardActionColor(var(--clr-error), var(--clr-white), var(--clr-error-800), var(--clr-base-50));
+	}
+
+	&--active#{&}--error {
+		@include standardActionColor(var(--clr-error-900), var(--clr-white), var(--clr-error-900), var(--clr-white));
 	}
 
 	&--text#{&}--error {
@@ -104,8 +129,18 @@
 		@include outlineActionColor(var(--clr-error), var(--clr-error-800));
 	}
 
+	//SUCCESS
 	&--success {
-		@include standardActionColor(var(--clr-success), var(--clr-white), var(--clr-success-700), var(--clr-base-50));
+		@include standardActionColor(var(--clr-success), var(--clr-white), var(--clr-success-800), var(--clr-base-50));
+	}
+
+	&--active#{&}--success {
+		@include standardActionColor(
+			var(--clr-success-800),
+			var(--clr-white),
+			var(--clr-success-800),
+			var(--clr-white)
+		);
 	}
 
 	&--outline#{&}--success {
@@ -116,12 +151,22 @@
 		@include textActionColor(var(--clr-success), var(--clr-success-700));
 	}
 
+	//WARNING
 	&--warning {
 		@include standardActionColor(
 			var(--clr-warning),
 			var(--clr-base-800),
-			var(--clr-warning-700),
+			var(--clr-warning-800),
 			var(--clr-base-900)
+		);
+	}
+
+	&--active#{&}--warning {
+		@include standardActionColor(
+			var(--clr-warning-900),
+			var(--clr-base-900),
+			var(--clr-warning-900),
+			var(--clr-abse-900)
 		);
 	}
 
@@ -133,19 +178,38 @@
 		@include textActionColor(var(--clr-warning), var(--clr-warning-700));
 	}
 
+	//INFO
 	&--info {
-		@include standardActionColor(var(--clr-info), var(--clr-white), var(--clr-info-700), var(--clr-base-50));
+		@include standardActionColor(var(--clr-info), var(--clr-white), var(--clr-info-800), var(--clr-base-50));
+	}
+
+	&--active#{&}--info {
+		@include standardActionColor(var(--clr-info-900), var(--clr-white), var(--clr-info-900), var(--clr-white));
+	}
+
+	&--outline#{&}--info {
+		@include outlineActionColor(var(--clr-info), var(--clr-info-800));
 	}
 
 	&--text#{&}--info {
 		@include textActionColor(var(--clr-info), var(--clr-info-700));
 	}
 
+	//LIGHT
 	&--light {
 		@include standardActionColor(
 			var(--clr-base-100),
-			var(--clr-white-800),
+			var(--clr-base-800),
 			var(--clr-base-200),
+			var(--clr-base-900)
+		);
+	}
+
+	&--active#{&}--light {
+		@include standardActionColor(
+			var(--clr-base-300),
+			var(--clr-base-900),
+			var(--clr-base-300),
 			var(--clr-base-900)
 		);
 	}
@@ -158,8 +222,13 @@
 		@include textActionColor(var(--clr-base-100), var(--clr-base-300));
 	}
 
+	//DARK
 	&--dark {
 		@include standardActionColor(var(--clr-base-900), var(--clr-base-100), var(--clr-base-800), var(--clr-base-50));
+	}
+
+	&--active#{&}--dark {
+		@include standardActionColor(var(--clr-black), var(--clr-white), var(--clr-black), var(--clr-white));
 	}
 
 	&--outline#{&}--dark {

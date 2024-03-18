@@ -9,8 +9,8 @@ import { CharacterGridTable } from "./CharacterGridTable";
 export function CharacterGrid() {
 	const [alphabet, setAlphabet] = useState<Alphabet>(Alphabet.Hiragana);
 	const [pronunciation, setPronunciation] = useState<Pronunciation>(Pronunciation.Default);
-	// const [highlightedRow, setHighlightedRow] = useState<string>();
-	// const [highlightedcolumn, setHighlightedcolumn] = useState<string>();
+	const [highlightedRow, setHighlightedRow] = useState<string | null>(null);
+	const [highlightedColumn, setHighlightedColumn] = useState<string | null>(null);
 
 	function toggleAlphabet() {
 		setAlphabet(alphabet === Alphabet.Katagana ? Alphabet.Hiragana : Alphabet.Katagana);
@@ -22,8 +22,17 @@ export function CharacterGrid() {
 
 	return (
 		<div className="character-grid">
-			<CharacterGridControls {...{ alphabet, toggleAlphabet, changePronunciation }} />
-			<CharacterGridTable {...{ alphabet, pronunciation }} />
+			<CharacterGridControls {...{ alphabet, toggleAlphabet, pronunciation, changePronunciation }} />
+			<CharacterGridTable
+				{...{
+					alphabet,
+					pronunciation,
+					highlightedColumn,
+					setHighlightedColumn,
+					highlightedRow,
+					setHighlightedRow,
+				}}
+			/>
 		</div>
 	);
 }

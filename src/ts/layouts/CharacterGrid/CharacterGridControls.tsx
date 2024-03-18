@@ -5,10 +5,16 @@ import { IconSVG } from "../../components/Icon";
 export type CharacterGridControlsProps = {
 	alphabet: Alphabet;
 	toggleAlphabet: () => void;
+	pronunciation: Pronunciation;
 	changePronunciation: (value: Pronunciation) => void;
 };
 
-export function CharacterGridControls({ alphabet, toggleAlphabet, changePronunciation }: CharacterGridControlsProps) {
+export function CharacterGridControls({
+	alphabet,
+	toggleAlphabet,
+	pronunciation,
+	changePronunciation,
+}: CharacterGridControlsProps) {
 	return (
 		<div className="character-grid__controls">
 			<Switch
@@ -19,13 +25,25 @@ export function CharacterGridControls({ alphabet, toggleAlphabet, changePronunci
 			/>
 
 			<ActionGroup>
-				<Action onClick={() => changePronunciation(Pronunciation.Default)} size={ActionSize.SM}>
+				<Action
+					onClick={() => changePronunciation(Pronunciation.Default)}
+					active={pronunciation === Pronunciation.Default}
+					size={ActionSize.SM}
+				>
 					{Hira.HA}
 				</Action>
-				<Action onClick={() => changePronunciation(Pronunciation.Dakuten)} size={ActionSize.SM}>
+				<Action
+					onClick={() => changePronunciation(Pronunciation.Dakuten)}
+					active={pronunciation === Pronunciation.Dakuten}
+					size={ActionSize.SM}
+				>
 					{Hira.BA}
 				</Action>
-				<Action onClick={() => changePronunciation(Pronunciation.Handakuten)} size={ActionSize.SM}>
+				<Action
+					onClick={() => changePronunciation(Pronunciation.Handakuten)}
+					active={pronunciation === Pronunciation.Handakuten}
+					size={ActionSize.SM}
+				>
 					{Hira.PA}
 				</Action>
 			</ActionGroup>

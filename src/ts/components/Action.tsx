@@ -38,6 +38,7 @@ type ActionCommonProps = {
 	color?: ActionColors;
 	size?: ActionSize;
 	disabled?: boolean;
+	active?: boolean;
 	children: ReactNode;
 	className?: string;
 };
@@ -49,17 +50,24 @@ export function Action({
 	color = ActionColors.Light,
 	size = ActionSize.MD,
 	disabled,
+	active,
 	onClick,
 	href,
 	children,
 	className = "",
 }: ActionProps) {
 	return href ? (
-		<a className={`action ${variant} ${color} ${size} ${className}`} {...{ disabled, href }}>
+		<a
+			className={`action ${variant} ${color} ${size} ${active ? "action--active" : ""} ${className}`}
+			{...{ disabled, href }}
+		>
 			{children}
 		</a>
 	) : (
-		<button className={`action ${variant} ${color} ${size} ${className}`} {...{ disabled, onClick }}>
+		<button
+			className={`action ${variant} ${color} ${size} ${active ? "action--active" : ""} ${className}`}
+			{...{ disabled, onClick }}
+		>
 			{children}
 		</button>
 	);
