@@ -1,0 +1,103 @@
+// PRIMARY
+&--primary {
+	@include buttonBackgroundColor(var(--clr-primary), var(--clr-white));
+
+	&:hover {
+		@include buttonBackgroundColor(var(--clr-primary-700), var(--clr-white));
+	}
+}
+
+&--active#{&}--primary {
+	@include buttonBackgroundColor(var(--clr-primary-700), var(--clr-white));
+}
+
+// SECONDARY
+&--secondary {
+	@include buttonBackgroundColor(var(--clr-secondary), var(--clr-white));
+
+	&:hover {
+		@include buttonBackgroundColor(var(--clr-secondary-700), var(--clr-white));
+	}
+}
+
+&--active#{&}--secondary {
+	@include buttonBackgroundColor(var(--clr-secondary-700), var(--clr-white));
+}
+
+// ERROR
+&--error {
+	@include buttonBackgroundColor(var(--clr-error), var(--clr-white));
+
+	&:hover {
+		@include buttonBackgroundColor(var(--clr-error-800), var(--clr-white));
+	}
+}
+
+&--active#{&}--error {
+	@include buttonBackgroundColor(var(--clr-error-800), var(--clr-white));
+}
+
+// WARNING
+&--warning {
+	@include buttonBackgroundColor(var(--clr-warning), var(--clr-black));
+
+	&:hover {
+		@include buttonBackgroundColor(var(--clr-warning-800), var(--clr-black));
+	}
+}
+
+&--active#{&}--warning {
+	@include buttonBackgroundColor(var(--clr-warning-800), var(--clr-black));
+}
+
+// WARNING
+&--success {
+	@include buttonBackgroundColor(var(--clr-success), var(--clr-white));
+
+	&:hover {
+		@include buttonBackgroundColor(var(--clr-success-800), var(--clr-white));
+	}
+}
+
+&--active#{&}--success {
+	@include buttonBackgroundColor(var(--clr-success-800), var(--clr-white));
+}
+
+// INFO
+&--info {
+	@include buttonBackgroundColor(var(--clr-info), var(--clr-white));
+
+	&:hover {
+		@include buttonBackgroundColor(var(--clr-info-800), var(--clr-white));
+	}
+}
+
+&--active#{&}--info {
+	@include buttonBackgroundColor(var(--clr-info-800), var(--clr-white));
+}
+
+// LIGHT
+&--light {
+	@include buttonBackgroundColor(var(--clr-base-200), var(--clr-base-800));
+
+	&:hover {
+		@include buttonBackgroundColor(var(--clr-base-100), var(--clr-base-800));
+	}
+}
+
+&--active#{&}--light {
+	@include buttonBackgroundColor(var(--clr-base-300), var(--clr-base-800));
+}
+
+// DARK
+&--dark {
+	@include buttonBackgroundColor(var(--clr-black), var(--clr-white));
+
+	&:hover {
+		@include buttonBackgroundColor(var(--clr-base-900), var(--clr-white));
+	}
+}
+
+&--active#{&}--dark {
+	@include buttonBackgroundColor(var(--clr-base-900), var(--clr-white));
+}

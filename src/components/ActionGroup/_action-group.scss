@@ -1,0 +1,21 @@
+.action-group {
+	display: inline-flex;
+	// border-radius: 4px;
+
+	& .action {
+		border-radius: 0;
+		border-left: 0;
+		padding-left: 12px;
+
+		&:first-child {
+			border-top-left-radius: 100px;
+			border-bottom-left-radius: 100px;
+		}
+
+		&:last-child {
+			border-left: inherit;
+			border-top-right-radius: 100px;
+			border-bottom-right-radius: 100px;
+		}
+	}
+}

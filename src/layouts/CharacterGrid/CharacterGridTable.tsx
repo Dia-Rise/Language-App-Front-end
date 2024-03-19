@@ -1,4 +1,4 @@
-import { CharacterFrame } from "../../components";
+import { CharacterFrame } from "../../components/CharacterFrame/CharacterFrame";
 import { Pronunciation, Alphabet } from "../../enums";
 import { CharacterGridData, CharacterGridDataType } from "./CharcterGrid.data";
 

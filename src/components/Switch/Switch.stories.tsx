@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { StoryFn, Meta } from "@storybook/react";
-import { Switch, SwitchProps } from "../../ts/components/Switch";
-import { IconSVG } from "../../ts/components/Icon";
+import { Switch, SwitchProps } from "./Switch";
+import { IconSVG } from "../Icon/Icon";
 
 export default {
 	title: "Components/Switch",

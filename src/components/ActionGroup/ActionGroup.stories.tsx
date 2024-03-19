@@ -1,7 +1,7 @@
 import { StoryFn, Meta } from "@storybook/react";
-import { Action, ActionSize } from "../../ts/components/Action";
-import { ActionGroup, ActionGroupProps } from "../../ts/components/ActionGroup";
-import { Hira } from "../../ts/enums";
+import { ActionGroup, ActionGroupProps } from "./ActionGroup";
+import { Hira } from "../../enums";
+import { Action, ActionSize, ActionVariant } from "../Action/Action";
 
 export default {
 	title: "Components/ActionGroup",
@@ -11,13 +11,13 @@ export default {
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: StoryFn<typeof Action> = (args: ActionGroupProps) => (
 	<ActionGroup {...args}>
-		<Action onClick={() => {}} size={ActionSize.SM}>
+		<Action variant={ActionVariant.Button} onClick={() => {}} size={ActionSize.SM}>
 			{Hira.A}
 		</Action>
-		<Action onClick={() => {}} size={ActionSize.SM}>
+		<Action variant={ActionVariant.Button} onClick={() => {}} size={ActionSize.SM}>
 			{Hira.E}
 		</Action>
-		<Action onClick={() => {}} size={ActionSize.SM}>
+		<Action variant={ActionVariant.Button} onClick={() => {}} size={ActionSize.SM}>
 			{Hira.I}
 		</Action>
 	</ActionGroup>

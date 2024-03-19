@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
-import { Position } from "../enums";
-import { Icon, IconSVG } from "./Icon";
+import { Position } from "../../enums";
+import { Icon, IconSVG } from "../Icon/Icon";
 
 export type ModalProps = {
 	position?: Position;

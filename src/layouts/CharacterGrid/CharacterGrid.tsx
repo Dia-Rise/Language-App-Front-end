@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Alphabet } from "../../enums/Alphabet";
-import { Pronunciation } from "../../enums";
+import { Alphabet, Pronunciation } from "../../enums";
 import { CharacterGridControls } from "./CharacterGridControls";
 import { CharacterGridTable } from "./CharacterGridTable";
 

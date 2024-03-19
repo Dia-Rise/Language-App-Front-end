@@ -1,9 +1,15 @@
 import { ReactNode } from "react";
 
 export enum ActionVariant {
+	Button = "button",
+	Toggle = "toggle",
+	Link = "link",
+}
+
+export enum ActionAppearance {
 	Standard = "action--standard",
 	Text = "action--text",
-	oultine = "action--outline",
+	Oultine = "action--outline",
 }
 
 export enum ActionSize {
@@ -23,18 +29,28 @@ export enum ActionColors {
 	Dark = "action--dark",
 }
 
-type ActionFunctionType =
+type ActionVariantType =
 	| {
+			variant: ActionVariant.Button;
 			onClick: () => void;
+			active?: never;
 			href?: never;
 	  }
 	| {
+			variant: ActionVariant.Link;
 			onClick?: never;
+			active?: never;
 			href: string;
+	  }
+	| {
+			variant: ActionVariant.Toggle;
+			onClick: () => void;
+			active?: boolean;
+			href?: string;
 	  };
 
 type ActionCommonProps = {
-	variant?: ActionVariant;
+	appearance?: ActionAppearance;
 	color?: ActionColors;
 	size?: ActionSize;
 	disabled?: boolean;
@@ -43,10 +59,11 @@ type ActionCommonProps = {
 	className?: string;
 };
 
-export type ActionProps = ActionCommonProps & ActionFunctionType;
+export type ActionProps = ActionCommonProps & ActionVariantType;
 
 export function Action({
-	variant = ActionVariant.Standard,
+	variant,
+	appearance = ActionAppearance.Standard,
 	color = ActionColors.Light,
 	size = ActionSize.MD,
 	disabled,
@@ -56,16 +73,16 @@ export function Action({
 	children,
 	className = "",
 }: ActionProps) {
-	return href ? (
+	return variant === ActionVariant.Link ? (
 		<a
-			className={`action ${variant} ${color} ${size} ${active ? "action--active" : ""} ${className}`}
+			className={`action ${appearance} ${color} ${size} ${active ? "action--active" : ""} ${className}`}
 			{...{ disabled, href }}
 		>
 			{children}
 		</a>
 	) : (
 		<button
-			className={`action ${variant} ${color} ${size} ${active ? "action--active" : ""} ${className}`}
+			className={`action ${appearance} ${color} ${size} ${variant === ActionVariant.Toggle ? "action--toggle" : ""} ${active ? "action--active" : ""} ${className}`}
 			{...{ disabled, onClick }}
 		>
 			{children}

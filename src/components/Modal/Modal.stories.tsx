@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { StoryFn, Meta } from "@storybook/react";
-import { Modal, ModalProps } from "../../ts/components/Modal";
-import { Position } from "../../ts/enums";
+import { Modal, ModalProps } from "./Modal";
+import { Position } from "../../enums";
 
 export default {
 	title: "Components/Modal",

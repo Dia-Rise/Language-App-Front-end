@@ -1,0 +1,26 @@
+&--small {
+	font-size: 10px;
+	padding: 10px 20px;
+}
+
+&--toggle#{&}--small {
+	padding: 10px;
+}
+
+&--medium {
+	font-size: 12px;
+	padding: 12px 24px;
+}
+
+&--toggle#{&}--medium {
+	padding: 12px;
+}
+
+&--large {
+	font-size: 18px;
+	padding: 12px 24px;
+}
+
+&--toggle#{&}--large {
+	padding: 12px;
+}

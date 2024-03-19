@@ -19,15 +19,15 @@
 // Components
 //===================================================================
 
-@import "components/action";
-@import "components/action-group";
-@import "components/character-frame";
-@import "components/icons";
-@import "components/switch";
-@import "components/modal";
+@import "../components/Action/action";
+@import "../components/ActionGroup/action-group";
+@import "../components/CharacterFrame/character-frame";
+@import "../components/Icon/icons";
+@import "../components/Switch/switch";
+@import "../components/Modal/modal";
 
 //===================================================================
 // Layouts
 //===================================================================
 
-@import "layouts/character-grid";
+@import "../layouts/CharacterGrid/character-grid";

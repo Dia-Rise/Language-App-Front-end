@@ -1,6 +1,6 @@
 // import { useState } from "react";
 import { StoryFn, Meta } from "@storybook/react";
-import { CharacterGrid } from "../../ts/layouts/CharacterGrid/CharacterGrid";
+import { CharacterGrid } from "./CharacterGrid";
 // import { Position } from "../../ts/enums";
 
 export default {

@@ -1,5 +1,5 @@
 import { MouseEvent } from "react";
-import { Icon, IconSVG, IconSize } from "./Icon";
+import { Icon, IconSVG, IconSize } from "../Icon/Icon";
 
 type SwitchFalseProps =
 	| {

@@ -1,5 +1,5 @@
 import { StoryFn, Meta } from "@storybook/react";
-import { CharacterFrame, CharacterFrameProps } from "../../ts/components/CharacterFrame";
+import { CharacterFrame, CharacterFrameProps } from "./CharacterFrame";
 
 export default {
 	title: "Components/CharacterFrames",

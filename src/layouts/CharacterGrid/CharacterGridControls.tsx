@@ -1,6 +1,6 @@
-import { Action, ActionGroup, ActionSize, Switch } from "../../components";
-import { Alphabet, Hira, Pronunciation } from "../../enums";
-import { IconSVG } from "../../components/Icon";
+import { Switch, ActionGroup, Action, ActionVariant, ActionSize } from "../../components";
+import { IconSVG } from "../../components/Icon/Icon";
+import { Alphabet, Pronunciation, Hira } from "../../enums";
 
 export type CharacterGridControlsProps = {
 	alphabet: Alphabet;
@@ -26,6 +26,7 @@ export function CharacterGridControls({
 
 			<ActionGroup>
 				<Action
+					variant={ActionVariant.Toggle}
 					onClick={() => changePronunciation(Pronunciation.Default)}
 					active={pronunciation === Pronunciation.Default}
 					size={ActionSize.SM}
@@ -33,6 +34,7 @@ export function CharacterGridControls({
 					{Hira.HA}
 				</Action>
 				<Action
+					variant={ActionVariant.Toggle}
 					onClick={() => changePronunciation(Pronunciation.Dakuten)}
 					active={pronunciation === Pronunciation.Dakuten}
 					size={ActionSize.SM}
@@ -40,6 +42,7 @@ export function CharacterGridControls({
 					{Hira.BA}
 				</Action>
 				<Action
+					variant={ActionVariant.Toggle}
 					onClick={() => changePronunciation(Pronunciation.Handakuten)}
 					active={pronunciation === Pronunciation.Handakuten}
 					size={ActionSize.SM}

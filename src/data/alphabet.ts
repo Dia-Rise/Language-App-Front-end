@@ -1,5 +1,4 @@
-import { Hira } from "../enums/Hira";
-import { Kata } from "../enums/Kata";
+import { Hira, Kata } from "../enums";
 
 type AlphabetType = {
 	hiragana: Hira | "";
