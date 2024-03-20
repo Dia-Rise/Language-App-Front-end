@@ -1,4 +1,4 @@
-import { Switch, ActionGroup, Action, ActionVariant, ActionSize } from "../../components";
+import { Switch, ButtonGroup, Button, ButtonSize, ButtonAppearance } from "../../components";
 import { IconSVG } from "../../components/Icon/Icon";
 import { Alphabet, Pronunciation, Hira } from "../../enums";
 
@@ -24,32 +24,32 @@ export function CharacterGridControls({
 				trueIcon={IconSVG.Katakana}
 			/>
 
-			<ActionGroup>
-				<Action
-					variant={ActionVariant.Toggle}
+			<ButtonGroup>
+				<Button
+					appearance={ButtonAppearance.Oultine}
 					onClick={() => changePronunciation(Pronunciation.Default)}
 					active={pronunciation === Pronunciation.Default}
-					size={ActionSize.SM}
+					size={ButtonSize.SM}
 				>
 					{Hira.HA}
-				</Action>
-				<Action
-					variant={ActionVariant.Toggle}
+				</Button>
+				<Button
+					appearance={ButtonAppearance.Oultine}
 					onClick={() => changePronunciation(Pronunciation.Dakuten)}
 					active={pronunciation === Pronunciation.Dakuten}
-					size={ActionSize.SM}
+					size={ButtonSize.SM}
 				>
 					{Hira.BA}
-				</Action>
-				<Action
-					variant={ActionVariant.Toggle}
+				</Button>
+				<Button
+					appearance={ButtonAppearance.Oultine}
 					onClick={() => changePronunciation(Pronunciation.Handakuten)}
 					active={pronunciation === Pronunciation.Handakuten}
-					size={ActionSize.SM}
+					size={ButtonSize.SM}
 				>
 					{Hira.PA}
-				</Action>
-			</ActionGroup>
+				</Button>
+			</ButtonGroup>
 		</div>
 	);
 }

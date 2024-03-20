@@ -1,0 +1,210 @@
+@mixin buttonBackgroundColor($backgroundColor, $fontColor) {
+	border-color: $backgroundColor;
+	background-color: $backgroundColor;
+	color: $fontColor;
+}
+
+@mixin buttonOutlineColor($borderColor, $fontColor) {
+	border-color: $borderColor;
+	background-color: transparent;
+	color: $fontColor;
+}
+
+.button {
+	cursor: pointer;
+	border-radius: var(--button-border-radius, 9999999px);
+
+	transition:
+		background-color 0.2s ease-in-out,
+		border-color 0.2s ease-in-out,
+		color 0.2s ease-in-out;
+
+	width: var(--button-width, auto);
+	height: var(--button-height);
+
+	border: 1.5px solid;
+	padding-inline: var(--button-padding);
+
+	border-color: var(--button-border-color, var(--button-background-color));
+	background-color: var(--button-background-color);
+	color: var(--button-text-color);
+
+	font-size: var(--button-font-size);
+	line-height: 100%;
+	font-weight: 600;
+
+	&:hover,
+	&--active {
+		border-color: var(--button-hover-border-color, var(--button-hover-background-color));
+		background-color: var(--button-hover-background-color);
+		color: var(--button-hover-text-color);
+	}
+
+	// &--active {
+	// 	border-color: var(--button-active-border-color, --border-active-background-color);
+	// 	background-color: var(--button-active-background-color);
+	// 	color: var(--button-active-text-color);
+	// }
+
+	&--small {
+		--button-font-size: 12px;
+		--button-height: 40px;
+		--button-padding: 20px;
+	}
+
+	&--medium {
+		--button-font-size: 14px;
+		--button-height: 48px;
+		--button-padding: 24px;
+	}
+
+	&--large {
+		--button-font-size: 16px;
+		--button-height: 50px;
+		--button-padding: 24px;
+	}
+
+	// PRIMARY
+	&--primary {
+		--button-background-color: var(--clr-primary);
+		--button-text-color: var(--clr-white);
+		--button-hover-background-color: var(--clr-primary-700);
+		--button-hover-text-color: var(--clr-white);
+	}
+
+	&--outline#{&}--primary {
+		--button-border-color: var(--clr-primary);
+		--button-background-color: transparent;
+		--button-text-color: var(--clr-primary);
+
+		--button-hover-border-color: var(--clr-primary-800);
+		--button-hover-background-color: transparent;
+		--button-hover-text-color: var(--clr-primary);
+	}
+
+	// SECONDARY
+	&--secondary {
+		--button-background-color: var(--clr-secondary);
+		--button-text-color: var(--clr-white);
+		--button-hover-background-color: var(--clr-secondary-700);
+		--button-hover-text-color: var(--clr-white);
+	}
+
+	&--outline#{&}--secondary {
+		--button-border-color: var(--clr-secondary);
+		--button-background-color: transparent;
+		--button-text-color: var(--clr-secondary);
+
+		--button-hover-border-color: var(--clr-secondary-800);
+		--button-hover-background-color: transparent;
+		--button-hover-text-color: var(--clr-secondary);
+	}
+
+	// ERROR
+	&--error {
+		--button-background-color: var(--clr-error);
+		--button-text-color: var(--clr-white);
+		--button-hover-background-color: var(--clr-error-800);
+		--button-hover-text-color: var(--clr-white);
+	}
+
+	&--outline#{&}--error {
+		--button-border-color: var(--clr-error);
+		--button-background-color: transparent;
+		--button-text-color: var(--clr-error);
+
+		--button-hover-border-color: var(--clr-error-900);
+		--button-hover-background-color: transparent;
+		--button-hover-text-color: var(--clr-error);
+	}
+
+	// WARNING
+	&--warning {
+		--button-background-color: var(--clr-warning);
+		--button-text-color: var(--clr-black);
+		--button-hover-background-color: var(--clr-warning-800);
+		--button-hover-text-color: var(--clr-black);
+	}
+
+	&--outline#{&}--warning {
+		--button-border-color: var(--clr-warning);
+		--button-background-color: transparent;
+		--button-text-color: var(--clr-warning);
+
+		--button-hover-border-color: var(--clr-warning-800);
+		--button-hover-background-color: transparent;
+		--button-hover-text-color: var(--clr-warning);
+	}
+
+	// WARNING
+	&--success {
+		--button-background-color: var(--clr-success);
+		--button-text-color: var(--clr-white);
+		--button-hover-background-color: var(--clr-success-800);
+		--button-hover-text-color: var(--clr-white);
+	}
+
+	&--outline#{&}--success {
+		--button-border-color: var(--clr-success);
+		--button-background-color: transparent;
+		--button-text-color: var(--clr-success);
+
+		--button-hover-border-color: var(--clr-success-800);
+		--button-hover-background-color: transparent;
+		--button-hover-text-color: var(--clr-success);
+	}
+
+	// INFO
+	&--info {
+		--button-background-color: var(--clr-info);
+		--button-text-color: var(--clr-white);
+		--button-hover-background-color: var(--clr-info-800);
+		--button-hover-text-color: var(--clr-white);
+	}
+
+	&--outline#{&}--info {
+		--button-border-color: var(--clr-info);
+		--button-background-color: transparent;
+		--button-text-color: var(--clr-info);
+
+		--button-hover-border-color: var(--clr-info-900);
+		--button-hover-background-color: transparent;
+		--button-hover-text-color: var(--clr-info);
+	}
+
+	// LIGHT
+	&--light {
+		--button-background-color: var(--clr-base-200);
+		--button-text-color: var(--clr-black);
+		--button-hover-background-color: var(--clr-base-300);
+		--button-hover-text-color: var(--clr-black);
+	}
+
+	&--outline#{&}--light {
+		--button-border-color: var(--clr-base-300);
+		--button-background-color: transparent;
+		--button-text-color: var(--clr-black);
+
+		--button-hover-border-color: var(--clr-base-400);
+		--button-hover-background-color: transparent;
+		--button-hover-text-color: var(--clr-black);
+	}
+
+	// DARK
+	&--dark {
+		--button-background-color: var(--clr-black);
+		--button-text-color: var(--clr-white);
+		--button-hover-background-color: var(--clr-base-900);
+		--button-hover-text-color: var(--clr-white);
+	}
+
+	&--outline#{&}--dark {
+		--button-border-color: var(--clr-black);
+		--button-background-color: transparent;
+		--button-text-color: var(--clr-black);
+
+		--button-hover-border-color: var(--clr-base-800);
+		--button-hover-background-color: transparent;
+		--button-hover-text-color: var(--clr-black);
+	}
+}
