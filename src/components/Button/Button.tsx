@@ -23,16 +23,26 @@ export enum ButtonColors {
 	Dark = "button--dark",
 }
 
-export type ButtonProps = {
-	appearance?: ButtonAppearance;
+type ButtonSizeTypes =
+	| {
+			appearance?: ButtonAppearance.Text;
+			size?: never;
+	  }
+	| {
+			appearance?: Exclude<ButtonAppearance, ButtonAppearance.Text>;
+			size?: ButtonSize;
+	  };
+
+type ButtonCommonProps = {
 	color?: ButtonColors;
-	size?: ButtonSize;
 	disabled?: boolean;
 	active?: boolean;
 	onClick: () => void;
 	children: ReactNode;
 	className?: string;
 };
+
+export type ButtonProps = ButtonCommonProps & ButtonSizeTypes;
 
 export function Button({
 	appearance = ButtonAppearance.Standard,
@@ -46,7 +56,7 @@ export function Button({
 }: ButtonProps) {
 	return (
 		<button
-			className={`button ${appearance} ${color} ${size} ${active ? "button--active" : ""} ${className}`}
+			className={`button ${appearance} ${color} ${appearance != ButtonAppearance.Text ? size : ""} ${active ? "button--active" : ""} ${className}`}
 			{...{ disabled, onClick }}
 		>
 			{children}
