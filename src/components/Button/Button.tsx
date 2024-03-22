@@ -21,6 +21,8 @@ export enum ButtonColors {
 	Info = "button--info",
 	Light = "button--light",
 	Dark = "button--dark",
+	White = "button--white",
+	Black = "button--black",
 }
 
 type ButtonSizeTypes =
