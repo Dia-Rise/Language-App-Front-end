@@ -1,0 +1,11 @@
+.input-label {
+	font-size: 12px;
+	line-height: 100%;
+	font-weight: 600;
+
+	color: var(--clr-base-600);
+
+	&--hidden {
+		display: none;
+	}
+}
