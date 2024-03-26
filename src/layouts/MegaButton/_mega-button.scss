@@ -1,0 +1,66 @@
+.mega-button {
+	cursor: pointer;
+
+	display: inline-flex;
+	flex-direction: column;
+
+	align-items: center;
+	justify-content: center;
+	gap: 24px;
+
+	width: 225px;
+	height: 225px;
+
+	border-radius: 16px;
+	border: 0;
+
+	background-color: var(--mega-button-background-color, var(--clr-primary-500));
+	color: var(--clr-white);
+
+	&:hover,
+	&:focus {
+		outline: 8px solid #00ffff;
+		outline-offset: 8px;
+	}
+
+	&__label-container {
+		display: inline-flex;
+		flex-direction: column;
+
+		align-items: center;
+		justify-content: center;
+		gap: 8px;
+	}
+
+	&__label {
+		font-size: 24px;
+		line-height: 100%;
+		font-weight: 700;
+	}
+
+	&__label {
+		font-size: 16px;
+		line-height: 100%;
+		font-weight: 700;
+	}
+
+	&--pink {
+		--mega-button-background-color: var(--clr-secondary-500);
+	}
+
+	&--blue {
+		--mega-button-background-color: var(--clr-info-500);
+	}
+
+	&--red {
+		--mega-button-background-color: var(--clr-red-500);
+	}
+
+	&--yellow {
+		--mega-button-background-color: var(--clr-warning-600);
+	}
+
+	&--green {
+		--mega-button-background-color: var(--clr-success-500);
+	}
+}
