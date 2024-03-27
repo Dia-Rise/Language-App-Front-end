@@ -56,7 +56,7 @@
 
 	// PRIMARY
 	&--primary {
-		--button-background-color: var(--clr-primary);
+		--button-background-color: var(--clr-primary-500);
 		--button-text-color: var(--clr-white);
 		--button-hover-background-color: var(--clr-primary-600);
 		--button-hover-text-color: var(--clr-white);
@@ -64,18 +64,18 @@
 
 	&--text#{&}--primary {
 		--button-background-color: transparent;
-		--button-text-color: var(--clr-primary);
+		--button-text-color: var(--clr-primary-500);
 
 		--button-hover-background-color: transparent;
-		--button-hover-text-color: var(--clr-primary-700);
+		--button-hover-text-color: var(--clr-primary-600);
 	}
 
 	&--outline#{&}--primary {
-		--button-border-color: var(--clr-primary);
+		--button-border-color: var(--clr-primary-500);
 		--button-background-color: transparent;
 		--button-text-color: var(--clr-primary);
 
-		--button-hover-border-color: var(--clr-primary-700);
+		--button-hover-border-color: var(--clr-primary-600);
 		--button-hover-background-color: transparent;
 		--button-hover-text-color: var(--clr-primary);
 	}
@@ -84,7 +84,7 @@
 	&--secondary {
 		--button-background-color: var(--clr-secondary);
 		--button-text-color: var(--clr-white);
-		--button-hover-background-color: var(--clr-secondary-600);
+		--button-hover-background-color: var(--clr-secondary-500);
 		--button-hover-text-color: var(--clr-white);
 	}
 
@@ -93,7 +93,7 @@
 		--button-text-color: var(--clr-secondary);
 
 		--button-hover-background-color: transparent;
-		--button-hover-text-color: var(--clr-secondary-600);
+		--button-hover-text-color: var(--clr-secondary-500);
 	}
 
 	&--outline#{&}--secondary {
@@ -101,7 +101,7 @@
 		--button-background-color: transparent;
 		--button-text-color: var(--clr-secondary);
 
-		--button-hover-border-color: var(--clr-secondary-700);
+		--button-hover-border-color: var(--clr-secondary-500);
 		--button-hover-background-color: transparent;
 		--button-hover-text-color: var(--clr-secondary);
 	}
@@ -127,7 +127,7 @@
 		--button-background-color: transparent;
 		--button-text-color: var(--clr-error);
 
-		--button-hover-border-color: var(--clr-error-700);
+		--button-hover-border-color: var(--clr-error-600);
 		--button-hover-background-color: transparent;
 		--button-hover-text-color: var(--clr-error);
 	}
@@ -136,29 +136,29 @@
 	&--warning {
 		--button-background-color: var(--clr-warning);
 		--button-text-color: var(--clr-black);
-		--button-hover-background-color: var(--clr-warning-600);
+		--button-hover-background-color: var(--clr-warning-500);
 		--button-hover-text-color: var(--clr-black);
 	}
 
 	&--text#{&}--warning {
 		--button-background-color: transparent;
-		--button-text-color: var(--clr-warning);
+		--button-text-color: var(--clr-warning-600);
 
+		--button-hover-background-color: transparent;
+		--button-hover-text-color: var(--clr-warning-700);
+	}
+
+	&--outline#{&}--warning {
+		--button-border-color: var(--clr-warning-600);
+		--button-background-color: transparent;
+		--button-text-color: var(--clr-warning-600);
+
+		--button-hover-border-color: var(--clr-warning-700);
 		--button-hover-background-color: transparent;
 		--button-hover-text-color: var(--clr-warning-600);
 	}
 
-	&--outline#{&}--warning {
-		--button-border-color: var(--clr-warning);
-		--button-background-color: transparent;
-		--button-text-color: var(--clr-warning);
-
-		--button-hover-border-color: var(--clr-warning-700);
-		--button-hover-background-color: transparent;
-		--button-hover-text-color: var(--clr-warning);
-	}
-
-	// WARNING
+	// SUCCESS
 	&--success {
 		--button-background-color: var(--clr-success);
 		--button-text-color: var(--clr-white);
@@ -179,7 +179,7 @@
 		--button-background-color: transparent;
 		--button-text-color: var(--clr-success);
 
-		--button-hover-border-color: var(--clr-success-700);
+		--button-hover-border-color: var(--clr-success-600);
 		--button-hover-background-color: transparent;
 		--button-hover-text-color: var(--clr-success);
 	}
@@ -188,7 +188,7 @@
 	&--info {
 		--button-background-color: var(--clr-info);
 		--button-text-color: var(--clr-white);
-		--button-hover-background-color: var(--clr-info-600);
+		--button-hover-background-color: var(--clr-info-700);
 		--button-hover-text-color: var(--clr-white);
 	}
 
@@ -197,7 +197,7 @@
 		--button-text-color: var(--clr-info);
 
 		--button-hover-background-color: transparent;
-		--button-hover-text-color: var(--clr-info-600);
+		--button-hover-text-color: var(--clr-info-700);
 	}
 
 	&--outline#{&}--info {
@@ -293,7 +293,7 @@
 	&--black {
 		--button-background-color: var(--clr-black);
 		--button-text-color: var(--clr-white);
-		--button-hover-background-color: var(--clr-base-900);
+		--button-hover-background-color: var(--clr-base-950);
 		--button-hover-text-color: var(--clr-white);
 	}
 
@@ -310,7 +310,7 @@
 		--button-background-color: transparent;
 		--button-text-color: var(--clr-black);
 
-		--button-hover-border-color: var(--clr-base-800);
+		--button-hover-border-color: var(--clr-base-900);
 		--button-hover-background-color: transparent;
 		--button-hover-text-color: var(--clr-black);
 	}

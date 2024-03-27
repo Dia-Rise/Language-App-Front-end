@@ -1,9 +1,4 @@
-$font-primary: "inter", Arial, sans-serif;
-
-:root {
-
-	//Base
-
+:root{
 	--clr-base-50: #f6f8f8;
 	--clr-base-100: #edf1f1;
 	--clr-base-200: #d7e0df;
@@ -20,7 +15,6 @@ $font-primary: "inter", Arial, sans-serif;
 	--clr-black: #000000;
 	--clr-disabled: var(--clr-base-300);
 
-	//Accent
 	--clr-primary-50:#fffbec;
 	--clr-primary-100:#fff6d3;
 	--clr-primary-200:#ffe9a5;
@@ -48,7 +42,7 @@ $font-primary: "inter", Arial, sans-serif;
     --clr-secondary-950: #510139;
 	--clr-secondary: var(--clr-secondary-400);
 
-	//states
+
 	--clr-error-50: #fff0f2;
 	--clr-error-100: #ffdde0;
 	--clr-error-200: #ffc0c6;
@@ -100,5 +94,4 @@ $font-primary: "inter", Arial, sans-serif;
 	--clr-info-900: #0d4e9b;
 	--clr-info-950: #0e305d;
 	--clr-info: var(--clr-info-600);
-
 }
