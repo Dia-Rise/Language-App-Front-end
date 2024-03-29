@@ -1,4 +1,12 @@
-import { ReactNode } from "react";
+import { ReactNode, MouseEvent } from "react";
+import { Link, NavLink } from "react-router-dom";
+
+export enum ButtonVariant {
+	Button = "Button",
+	Link = "Link",
+	ReactRouterLink = "ReactRouterLink",
+	ReactRouterNavLink = "ReactRouterNavLink",
+}
 
 export enum ButtonAppearance {
 	Standard = "",
@@ -25,6 +33,26 @@ export enum ButtonColors {
 	Black = "button--black",
 }
 
+type ButtonCommonProps = {
+	color?: ButtonColors;
+	disabled?: boolean;
+	active?: boolean;
+	children: ReactNode;
+	className?: string;
+};
+
+type ButtonVariantProps =
+	| {
+			variant: ButtonVariant.Button;
+			onClick: (event: MouseEvent<HTMLButtonElement>) => void;
+			href?: string;
+	  }
+	| {
+			variant: Exclude<ButtonVariant, ButtonVariant.Button>;
+			onClick?: never;
+			href: string;
+	  };
+
 type ButtonSizeTypes =
 	| {
 			appearance?: ButtonAppearance.Text;
@@ -35,33 +63,58 @@ type ButtonSizeTypes =
 			size?: ButtonSize;
 	  };
 
-type ButtonCommonProps = {
-	color?: ButtonColors;
-	disabled?: boolean;
-	active?: boolean;
-	onClick: () => void;
-	children: ReactNode;
-	className?: string;
-};
-
-export type ButtonProps = ButtonCommonProps & ButtonSizeTypes;
+export type ButtonProps = ButtonCommonProps & ButtonVariantProps & ButtonSizeTypes;
 
 export function Button({
+	variant,
 	appearance = ButtonAppearance.Standard,
 	color = ButtonColors.Light,
 	size = ButtonSize.SM,
 	disabled,
 	active,
 	onClick,
+	href,
 	children,
 	className = "",
 }: ButtonProps) {
-	return (
-		<button
-			className={`button ${appearance} ${color} ${appearance != ButtonAppearance.Text ? size : ""} ${active ? "button--active" : ""} ${className}`}
-			{...{ disabled, onClick }}
-		>
-			{children}
-		</button>
-	);
+	switch (variant) {
+		case ButtonVariant.Button:
+			return (
+				<button
+					className={`button ${appearance} ${color} ${appearance != ButtonAppearance.Text ? size : ""} ${active ? "button--active" : ""} ${className}`}
+					{...{ disabled, onClick }}
+				>
+					{children}
+				</button>
+			);
+		case ButtonVariant.ReactRouterLink:
+			return (
+				<Link
+					to={href}
+					className={`button ${appearance} ${color} ${appearance != ButtonAppearance.Text ? size : ""} ${active ? "button--active" : ""} ${className}`}
+					{...{ disabled, onClick }}
+				>
+					{children}
+				</Link>
+			);
+		case ButtonVariant.ReactRouterNavLink:
+			return (
+				<NavLink
+					to={href}
+					className={`button ${appearance} ${color} ${appearance != ButtonAppearance.Text ? size : ""} ${active ? "button--active" : ""} ${className}`}
+					{...{ disabled }}
+				>
+					{children}
+				</NavLink>
+			);
+		case ButtonVariant.Link:
+			return (
+				<a
+					className={`button ${appearance} ${color} ${appearance != ButtonAppearance.Text ? size : ""} ${active ? "button--active" : ""} ${className}`}
+					{...{ disabled, href }}
+				>
+					{children}
+				</a>
+			);
+	}
 }

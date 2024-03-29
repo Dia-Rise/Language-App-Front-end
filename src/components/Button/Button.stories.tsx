@@ -1,5 +1,5 @@
 import { StoryFn, Meta } from "@storybook/react";
-import { Button, ButtonColors, ButtonAppearance, ButtonSize, ButtonProps } from "./Button";
+import { Button, ButtonColors, ButtonAppearance, ButtonSize, ButtonProps, ButtonVariant } from "./Button";
 
 export default {
 	title: "Components/Buttons",
@@ -11,9 +11,9 @@ export default {
 		appearance: {
 			options: ButtonAppearance,
 		},
-		// variant: {
-		// 	options: ButtonVariant,
-		// },
+		variant: {
+			options: ButtonVariant,
+		},
 		size: {
 			options: ButtonSize,
 		},
@@ -27,4 +27,5 @@ export const Default = Template.bind({});
 
 Default.args = {
 	color: ButtonColors.Primary,
+	variant: ButtonVariant.Button,
 };

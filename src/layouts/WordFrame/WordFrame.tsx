@@ -1,6 +1,6 @@
 import classnames from "classnames";
 import { wordType } from "../../data/words/verbs";
-import { Button, ButtonColors, Icon, IconSize, IconSVG } from "../../components";
+import { Button, ButtonColors, ButtonVariant, Icon, IconSize, IconSVG } from "../../components";
 
 //? Maybe add this back in the future?
 // export enum WordFrameColor {
@@ -34,7 +34,12 @@ export function WordFrame({ word, className = "" }: WordFrameProps) {
 						<span className={`${baseClassName}__romanji`}>{word.conjugation.dictionary.romanji}</span>
 					</div>
 
-					<Button className={`${baseClassName}__button`} color={ButtonColors.White} onClick={() => {}}>
+					<Button
+						variant={ButtonVariant.Button}
+						className={`${baseClassName}__button`}
+						color={ButtonColors.White}
+						onClick={() => {}}
+					>
 						<Icon svg={IconSVG.Inspect} size={IconSize.MD} />
 					</Button>
 				</div>

@@ -1,7 +1,7 @@
 import { StoryFn, Meta } from "@storybook/react";
 import { ButtonGroup, ButtonGroupProps } from "./ButtonGroup";
 import { Hira } from "../../enums";
-import { Button, ButtonSize } from "../Button/Button";
+import { Button, ButtonSize, ButtonVariant } from "../Button/Button";
 
 export default {
 	title: "Components/ButtonGroup",
@@ -11,13 +11,13 @@ export default {
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: StoryFn<typeof Button> = (args: ButtonGroupProps) => (
 	<ButtonGroup {...args}>
-		<Button onClick={() => {}} size={ButtonSize.SM}>
+		<Button variant={ButtonVariant.Button} onClick={() => {}} size={ButtonSize.SM}>
 			{Hira.A}
 		</Button>
-		<Button onClick={() => {}} size={ButtonSize.SM}>
+		<Button variant={ButtonVariant.Button} onClick={() => {}} size={ButtonSize.SM}>
 			{Hira.E}
 		</Button>
-		<Button onClick={() => {}} size={ButtonSize.SM}>
+		<Button variant={ButtonVariant.Button} onClick={() => {}} size={ButtonSize.SM}>
 			{Hira.I}
 		</Button>
 	</ButtonGroup>

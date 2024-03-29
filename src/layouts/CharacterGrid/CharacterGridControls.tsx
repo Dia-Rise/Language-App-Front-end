@@ -1,4 +1,4 @@
-import { Switch, ButtonGroup, Button, ButtonSize, ButtonAppearance } from "../../components";
+import { Switch, ButtonGroup, Button, ButtonSize, ButtonAppearance, ButtonVariant } from "../../components";
 import { IconSVG } from "../../components/Icon/Icon";
 import { Alphabet, Pronunciation, Hira } from "../../enums";
 
@@ -26,6 +26,7 @@ export function CharacterGridControls({
 
 			<ButtonGroup>
 				<Button
+					variant={ButtonVariant.Button}
 					appearance={ButtonAppearance.Oultine}
 					onClick={() => changePronunciation(Pronunciation.Default)}
 					active={pronunciation === Pronunciation.Default}
@@ -34,6 +35,7 @@ export function CharacterGridControls({
 					{Hira.HA}
 				</Button>
 				<Button
+					variant={ButtonVariant.Button}
 					appearance={ButtonAppearance.Oultine}
 					onClick={() => changePronunciation(Pronunciation.Dakuten)}
 					active={pronunciation === Pronunciation.Dakuten}
@@ -42,6 +44,7 @@ export function CharacterGridControls({
 					{Hira.BA}
 				</Button>
 				<Button
+					variant={ButtonVariant.Button}
 					appearance={ButtonAppearance.Oultine}
 					onClick={() => changePronunciation(Pronunciation.Handakuten)}
 					active={pronunciation === Pronunciation.Handakuten}

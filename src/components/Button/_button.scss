@@ -2,6 +2,9 @@
 	cursor: pointer;
 	border-radius: var(--button-border-radius, 9999px);
 
+	display: inline-flex;
+	align-items: center;
+
 	transition:
 		background-color 0.2s ease-in-out,
 		border-color 0.2s ease-in-out,
@@ -20,6 +23,7 @@
 	font-size: var(--button-font-size);
 	line-height: var(--button-line-height, 100%);
 	font-weight: var(--button-font-weight, 600);
+	text-decoration: none;
 
 	&:hover,
 	&--active {
@@ -261,7 +265,6 @@
 		--button-hover-background-color: transparent;
 		--button-hover-text-color: var(--clr-base-800);
 	}
-
 
 	// WHITE
 	&--white {
