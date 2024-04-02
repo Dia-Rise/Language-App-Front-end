@@ -1,0 +1,21 @@
+.home-screen {
+	width: 100%;
+	height: 100vh;
+
+	display: flex;
+	gap: 72px;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	&__header {
+		color: var(--clr-base-700);
+	}
+
+	&__menu {
+		display: flex;
+		gap: 32px;
+		align-items: center;
+		justify-content: center;
+	}
+}

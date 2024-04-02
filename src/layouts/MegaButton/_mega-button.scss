@@ -1,5 +1,6 @@
 .mega-button {
 	cursor: pointer;
+	text-decoration: none;
 
 	display: inline-flex;
 	flex-direction: column;
@@ -36,12 +37,14 @@
 		font-size: 24px;
 		line-height: 100%;
 		font-weight: 700;
+		text-decoration: none;
 	}
 
-	&__label {
+	&__sub-label {
 		font-size: 16px;
 		line-height: 100%;
 		font-weight: 700;
+		text-decoration: none;
 	}
 
 	&--pink {

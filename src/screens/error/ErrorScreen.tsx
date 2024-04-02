@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Error404Message } from "./Error404Message";
 import { Button, ButtonColors, ButtonVariant } from "../../components";
+import { RoutePaths } from "../../enums";
 
 // type ErrorScreenProps = {};
 
@@ -23,7 +24,7 @@ export function ErrorScreen() {
 					}
 				})()}
 
-				<Button variant={ButtonVariant.ReactRouterNavLink} color={ButtonColors.Primary} href="/">
+				<Button variant={ButtonVariant.ReactRouterNavLink} color={ButtonColors.Primary} href={RoutePaths.HOME}>
 					Return Home
 				</Button>
 			</div>
