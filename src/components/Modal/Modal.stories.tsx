@@ -14,7 +14,7 @@ const Template: StoryFn<typeof Modal> = (args: ModalProps) => {
 	return (
 		<>
 			<button onClick={() => setVisible(true)}>Spawn modal</button>
-			<Modal {...args} isVisable={visible} onClose={() => setVisible(false)}>
+			<Modal {...args} isOpen={visible} onClose={() => setVisible(false)}>
 				<div>
 					<p>
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam elementum, ipsum eget semper

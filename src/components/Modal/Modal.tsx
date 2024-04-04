@@ -1,20 +1,18 @@
 import { ReactNode } from "react";
-import { Position } from "../../enums";
 import { Icon, IconSVG } from "../Icon/Icon";
 
 export type ModalProps = {
-	position?: Position;
-	isVisable: boolean;
+	isOpen: boolean;
 	onClose: () => void;
 	children: ReactNode;
 	className?: string;
 };
 
-export function Modal({ position = Position.Center, isVisable, onClose, children, className = "" }: ModalProps) {
+export function Modal({ isOpen, onClose, children, className = "" }: ModalProps) {
 	return (
 		<>
-			{isVisable && (
-				<div className={`modal modal--${position} ${className}`}>
+			{isOpen && (
+				<div className={`modal ${className}`}>
 					<button className="modal__close" onClick={() => onClose()}>
 						<Icon svg={IconSVG.Cross} />
 					</button>

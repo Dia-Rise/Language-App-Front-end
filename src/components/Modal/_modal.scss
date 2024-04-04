@@ -13,6 +13,10 @@
 
 	padding: 32px 24px;
 
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+
 	&__close {
 		position: absolute;
 		top: 16px;
@@ -20,56 +24,6 @@
 		cursor: pointer;
 		background-color: transparent;
 		border: 0;
-	}
-
-	&--top-left {
-		left: var(--modal-distance-from-screen);
-		top: var(--modal-distance-from-screen);
-	}
-
-	&--top {
-		left: 50%;
-		top: var(--modal-distance-from-screen);
-		transform: translateX(-50%);
-	}
-
-	&--top-right {
-		right: var(--modal-distance-from-screen);
-		top: var(--modal-distance-from-screen);
-	}
-
-	&--left {
-		left: var(--modal-distance-from-screen);
-		top: 50%;
-		transform: translateY(-50%);
-	}
-
-	&--center {
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%, -50%);
-	}
-
-	&--right {
-		left: var(--modal-distance-from-screen);
-		top: 50%;
-		transform: translateY(-50%);
-	}
-
-	&--bottom-left {
-		left: var(--modal-distance-from-screen);
-		bottom: var(--modal-distance-from-screen);
-	}
-
-	&--bottom {
-		left: 50%;
-		bottom: var(--modal-distance-from-screen);
-		transform: translateX(-50%);
-	}
-
-	&--bottom-right {
-		left: var(--modal-distance-from-screen);
-		bottom: var(--modal-distance-from-screen);
 	}
 }
 
