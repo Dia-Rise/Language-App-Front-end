@@ -18,6 +18,7 @@
 	transform: translate(-50%, -50%);
 
 	&__close {
+		color: var(--modal-close-color);
 		position: absolute;
 		top: 16px;
 		right: 16px;
@@ -32,4 +33,6 @@
 	--modal-border-color: var(--clr-base-50);
 
 	--modal-distance-from-screen: 8px;
+
+	--modal-close-color: var(--clr-base-600);
 }

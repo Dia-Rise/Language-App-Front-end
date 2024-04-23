@@ -1,16 +1,10 @@
 import { Hira, Kata } from "../enums";
 
-type AlphabetType = {
+export type AlphabetType = {
 	hiragana: Hira | "";
 	katakana: Kata | "";
 	romanji: string;
 };
-
-// type test = {
-// 	default: AlphabetType;
-// 	dakuten?: AlphabetType;
-// 	handakuten?: AlphabetType;
-// };
 
 export const Alphabet: AlphabetType[] = [
 	{
