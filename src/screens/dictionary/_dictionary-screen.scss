@@ -1,0 +1,43 @@
+.dictionary-screen {
+	width: 100%;
+	height: 100vh;
+
+	display: flex;
+	flex-direction: column;
+
+	&__top-bar {
+		background-color: var(--clr-base-50);
+		padding: 3rem 2rem 2rem;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 16px;
+
+		@include media(md) {
+			padding: 6.25rem 9.75rem 3rem;
+		}
+	}
+
+	&__header {
+		color: var(--clr-base-800);
+	}
+
+	// &__search-input {
+	// 	max-width: 625px;
+	// 	width: 100%;
+	// }
+
+	&__results-grid {
+		// flex-grow: 1;
+
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		gap: 32px;
+
+		padding: 2rem 2rem 3rem;
+		@include media(md) {
+			padding: 3rem 9.75rem 6.25rem;
+		}
+	}
+}

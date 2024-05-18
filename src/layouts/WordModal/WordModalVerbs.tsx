@@ -5,12 +5,5 @@ export type WordModalProps = {
 };
 
 export function WordModal({ word }: WordModalProps) {
-
-
-
-	return (
-		<div>
-            {word.teForm.furigana}
-        </div>
-	);
+	return <div>{word.masuForm.PastAffirmative.furigana}</div>;
 }

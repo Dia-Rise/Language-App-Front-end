@@ -1,38 +1,14 @@
-//TODO - Finalize this type
-export type wordType = {
-	meaning: string;
-	type: "ru" | "u" | "irregular";
-	conjugation: {
-		dictionary: {
-			kanji: string;
-			furigana: string;
-			romanji: string;
-			example?: string;
-		};
-		[key: string]: {
-			kanji: string;
-			furigana: string;
-			romanji: string;
-			example?: string;
-		};
-	};
-};
+import { WordType } from "../../types";
 
-export const verbs: wordType[] = [
+export const verbs: WordType[] = [
 	{
+		id: "1",
 		meaning: "To Speak",
-		type: "ru",
-		conjugation: {
-			dictionary: {
-				kanji: "",
-				furigana: "",
-				romanji: "",
-			},
-			teForm: {
-				kanji: "",
-				furigana: "",
-				romanji: "",
-			},
+		type: "verb",
+		verbType: "u",
+		dictionary: {
+			furigana: "はなす",
+			romanji: "hanasu",
 		},
 	},
 ];

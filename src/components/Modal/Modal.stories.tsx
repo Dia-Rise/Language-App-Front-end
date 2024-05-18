@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { StoryFn, Meta } from "@storybook/react";
 import { Modal, ModalProps } from "./Modal";
-import { Position } from "../../enums";
 
 export default {
 	title: "Components/Modal",
@@ -50,6 +49,4 @@ const Template: StoryFn<typeof Modal> = (args: ModalProps) => {
 
 export const Default = Template.bind({});
 
-Default.args = {
-	position: Position.TopRight,
-};
+Default.args = {};

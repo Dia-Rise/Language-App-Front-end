@@ -1,5 +1,8 @@
 export enum ConjugationType {
 	TeForm = "teForm",
-	MasuForm = "masuForm",
 	ShortForm = "shortForm",
+	MasuFormAffirmative = "masuFormAffirmative",
+	MasuFormNegative = "masuFormNegative",
+	MasuFormPastAffirmative = "masuFormPastAffirmative",
+	MasuFormPastNegative = "masuFormPastNegative",
 }

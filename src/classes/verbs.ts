@@ -1,26 +1,43 @@
 import { ConjugationType } from "../enums";
 import { ConjugationExceptionType, WordType } from "../types";
-import { convertFuriganaToRomanji } from "../utilities";
+import { convertFuriganaToRomanji, convertFuriganaToCharacterEquivalent } from "../utilities";
+
+type conjugationResultType = {
+	furigana: string;
+	romanji: string;
+	convertion: string;
+};
+
+type conjugationGroupType = {
+	affirmative: conjugationResultType;
+	negative: conjugationResultType;
+	PastAffirmative: conjugationResultType;
+	PastNegative: conjugationResultType;
+};
 
 export class Verbs {
 	private _dictionaryWord: WordType["dictionary"];
-	private _teForm: {
-		furigana: string;
-		romanji: string;
-		convertion: string;
-	};
+
+	private _teForm: conjugationResultType;
+	private _masuForm: conjugationGroupType;
+	// private _shortForm: conjugationGroupType;
 
 	constructor(word: WordType, exceptions?: ConjugationExceptionType[]) {
 		this._dictionaryWord = word.dictionary;
 
 		this._teForm = this.decipherException(exceptions, ConjugationType.TeForm) ?? this.convertToTeForm(word);
+		this._masuForm = this.convertToMasuForm(word);
 	}
 
-	get teForm(): { furigana: string; romanji: string; convertion: string } {
+	get teForm(): conjugationResultType {
 		return this._teForm;
 	}
 
-	get masuForm(): string {
+	get masuForm(): conjugationGroupType {
+		return this._masuForm;
+	}
+
+	get shortForm(): string {
 		return "";
 	}
 
@@ -114,4 +131,105 @@ export class Verbs {
 			convertion: conjugationGroup,
 		};
 	}
+
+	private convertToMasuForm(dictionaryForm: WordType, exceptions?: ConjugationExceptionType[]): conjugationGroupType {
+		if (dictionaryForm.type !== "verb")
+			throw Error(`Verb - convertToMasuForm() - Wrong word type has been given '${dictionaryForm.type}'`);
+
+		const { dictionary, verbType } = dictionaryForm;
+
+		let conjugationGroup: string | null = null;
+		let root: { jp: string; en: string } | null = null;
+
+		const affirmativeSuffix = { jp: "ます", en: "masu" };
+		const negativeSuffix = { jp: "ません", en: "masen" };
+		const pastAffirmativeSuffix = { jp: "ました", en: "mashita" };
+		const pastNegativeSuffix = { jp: "ませんでした", en: "masendeshita" };
+
+		if (verbType === "irregular") {
+			conjugationGroup = `irregular`;
+			switch (dictionary.furigana) {
+				case "する":
+					root = { jp: "し", en: "shi" };
+					break;
+				case "くる":
+					root = { jp: "き", en: "ki" };
+					break;
+				default:
+					throw Error(
+						`Verb - convertToMasuForm() - Word is incorrectly set as an 'irregular' verb.'${dictionary.romanji}'`
+					);
+			}
+		} else if (verbType === "ru") {
+			const rootSuffix = dictionary.furigana.slice(-1);
+			const rootWord = dictionary.furigana.substring(0, dictionary.furigana.length - 1);
+			const romanjiSuffix = convertFuriganaToRomanji(rootSuffix);
+			const romanjiRoot = dictionary.romanji.slice(0, dictionary.romanji.lastIndexOf(romanjiSuffix));
+
+			conjugationGroup = `る`;
+			root = { jp: rootWord, en: romanjiRoot };
+		} else if (verbType === "u") {
+			conjugationGroup = `う`;
+
+			const originalSuffix = dictionary.furigana.slice(-1);
+			const newSuffix = convertFuriganaToCharacterEquivalent(originalSuffix, "i");
+			const originalRomanjiSuffix = convertFuriganaToRomanji(originalSuffix);
+			const newRomanjiSuffix = convertFuriganaToRomanji(newSuffix);
+
+			const rootWord = dictionary.furigana.substring(0, dictionary.furigana.length - 1) + newSuffix;
+			const romanjiRoot =
+				dictionary.romanji.slice(0, dictionary.romanji.lastIndexOf(originalRomanjiSuffix)) + newRomanjiSuffix;
+
+			root = {
+				jp: rootWord,
+				en: romanjiRoot,
+			};
+		}
+
+		if (root && conjugationGroup) {
+			return {
+				affirmative: this.decipherException(exceptions, ConjugationType.MasuFormAffirmative) ?? {
+					furigana: root.jp + affirmativeSuffix.jp,
+					romanji: root.en + affirmativeSuffix.en,
+					convertion: conjugationGroup,
+				},
+				negative: this.decipherException(exceptions, ConjugationType.MasuFormNegative) ?? {
+					furigana: root.jp + negativeSuffix.jp,
+					romanji: root.en + affirmativeSuffix.en,
+					convertion: conjugationGroup,
+				},
+				PastAffirmative: this.decipherException(exceptions, ConjugationType.MasuFormPastAffirmative) ?? {
+					furigana: root.jp + pastAffirmativeSuffix.jp,
+					romanji: root.en + affirmativeSuffix.en,
+					convertion: conjugationGroup,
+				},
+				PastNegative: this.decipherException(exceptions, ConjugationType.MasuFormPastNegative) ?? {
+					furigana: root.jp + pastNegativeSuffix.jp,
+					romanji: root.en + affirmativeSuffix.en,
+					convertion: conjugationGroup,
+				},
+			};
+		}
+
+		throw Error(
+			`Verb - convertToMasuForm() - Root word could not be converted for some reason. ${dictionary.romanji}'`
+		);
+	}
+
+	// private convertToShortForm(dictionaryForm: WordType) {
+	// 	if (dictionaryForm.type !== "verb")
+	// 		throw Error(`Verb - convertToShortForm() - Wrong word type has been given '${dictionaryForm.type}'`);
+
+	// 	const { dictionary, verbType } = dictionaryForm;
+
+	// 	// if (verbType === "irregular") {
+
+	// 	// } else if (verbType === "ru") {
+
+	// 	// } else if (verbType === "u") {
+
+	// 	// }
+
+	// 	return;
+	// }
 }

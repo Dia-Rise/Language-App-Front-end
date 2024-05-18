@@ -24,14 +24,14 @@ export const Default = Template.bind({});
 
 Default.args = {
 	word: {
+		id: "1",
 		meaning: "To Speak",
-		type: "irregular",
-		conjugation: {
-			dictionary: {
-				kanji: "lorem ipsum",
-				furigana: "はなす",
-				romanji: "hana-suru",
-			},
+		type: "verb",
+		verbType: "u",
+		dictionary: {
+			// kanji: "lorem ipsum",
+			furigana: "はなす",
+			romanji: "hanasu",
 		},
 	},
 };

@@ -1,6 +1,6 @@
 import classnames from "classnames";
-import { wordType } from "../../data/words/verbs";
 import { Button, ButtonColors, ButtonVariant, Icon, IconSize, IconSVG } from "../../components";
+import { WordType } from "../../types";
 
 //? Maybe add this back in the future?
 // export enum WordFrameColor {
@@ -14,7 +14,7 @@ import { Button, ButtonColors, ButtonVariant, Icon, IconSize, IconSVG } from "..
 
 export type WordFrameProps = {
 	illistration: string;
-	word: wordType; //TODO - USE BETTER/UPDATE TYPE.
+	word: WordType;
 	className?: string;
 };
 
@@ -30,8 +30,8 @@ export function WordFrame({ word, className = "" }: WordFrameProps) {
 
 				<div className={`${baseClassName}__sub-content`}>
 					<div className={`${baseClassName}__examples`}>
-						<span className={`${baseClassName}__furigana`}>{word.conjugation.dictionary.furigana}</span>
-						<span className={`${baseClassName}__romanji`}>{word.conjugation.dictionary.romanji}</span>
+						<span className={`${baseClassName}__furigana`}>{word.dictionary.furigana}</span>
+						<span className={`${baseClassName}__romanji`}>{word.dictionary.romanji}</span>
 					</div>
 
 					<Button

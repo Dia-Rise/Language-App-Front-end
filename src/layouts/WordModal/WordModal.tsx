@@ -19,7 +19,7 @@ export function WordModal({ word }: WordModalProps) {
 
 	return (
 		<Modal className="word-modal" isOpen={true} onClose={() => {}}>
-			{words ? <div>hello</div> : <Spinner />}
+			{words ? <div>{words.masuForm.affirmative.furigana}</div> : <Spinner />}
 		</Modal>
 	);
 }

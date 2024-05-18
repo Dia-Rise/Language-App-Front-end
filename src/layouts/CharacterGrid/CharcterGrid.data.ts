@@ -395,7 +395,7 @@ export const CharacterGridData: CharacterGridDataType[] = [
 			default: {
 				hiragana: Hira.FU,
 				katakana: Kata.FU,
-				romanji: "hu",
+				romanji: "fu",
 			},
 			dakuten: {
 				hiragana: Hira.BU,
