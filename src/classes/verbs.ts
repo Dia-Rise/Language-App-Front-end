@@ -1,32 +1,30 @@
 import { ConjugationType } from "../enums";
-import { ConjugationExceptionType, WordType } from "../types";
+import { ConjugationExceptionType, conjugationGroupType, conjugationResultType, WordType } from "../types";
 import { convertFuriganaToRomanji, convertFuriganaToCharacterEquivalent } from "../utilities";
-
-type conjugationResultType = {
-	furigana: string;
-	romanji: string;
-	convertion: string;
-};
-
-type conjugationGroupType = {
-	affirmative: conjugationResultType;
-	negative: conjugationResultType;
-	PastAffirmative: conjugationResultType;
-	PastNegative: conjugationResultType;
-};
 
 export class Verbs {
 	private _dictionaryWord: WordType["dictionary"];
+	private _meaning: WordType["meaning"];
 
 	private _teForm: conjugationResultType;
 	private _masuForm: conjugationGroupType;
-	// private _shortForm: conjugationGroupType;
+	private _shortForm: conjugationGroupType;
 
 	constructor(word: WordType, exceptions?: ConjugationExceptionType[]) {
 		this._dictionaryWord = word.dictionary;
+		this._meaning = word.meaning;
 
 		this._teForm = this.decipherException(exceptions, ConjugationType.TeForm) ?? this.convertToTeForm(word);
-		this._masuForm = this.convertToMasuForm(word);
+		this._masuForm = this.convertToMasuForm(word, exceptions);
+		this._shortForm = this.convertToShortForm(word, exceptions);
+	}
+
+	get dictionaryForm(): WordType["dictionary"] {
+		return this._dictionaryWord;
+	}
+
+	get meaning(): WordType["meaning"] {
+		return this._meaning;
 	}
 
 	get teForm(): conjugationResultType {
@@ -37,8 +35,8 @@ export class Verbs {
 		return this._masuForm;
 	}
 
-	get shortForm(): string {
-		return "";
+	get shortForm(): conjugationGroupType {
+		return this._shortForm;
 	}
 
 	private decipherException(exceptionArray: ConjugationExceptionType[] | undefined, type: ConjugationType) {
@@ -57,6 +55,7 @@ export class Verbs {
 		return null;
 	}
 
+	//* TE FORM - START *//
 	private convertToTeForm(dictionaryForm: WordType) {
 		if (dictionaryForm.type !== "verb")
 			throw Error(`Verb - convertToTeForm() - Wrong word type has been given '${dictionaryForm.type}'`);
@@ -131,7 +130,9 @@ export class Verbs {
 			convertion: conjugationGroup,
 		};
 	}
+	//* TE FORM - END *//
 
+	//* MASU FORM - START *//
 	private convertToMasuForm(dictionaryForm: WordType, exceptions?: ConjugationExceptionType[]): conjugationGroupType {
 		if (dictionaryForm.type !== "verb")
 			throw Error(`Verb - convertToMasuForm() - Wrong word type has been given '${dictionaryForm.type}'`);
@@ -195,17 +196,17 @@ export class Verbs {
 				},
 				negative: this.decipherException(exceptions, ConjugationType.MasuFormNegative) ?? {
 					furigana: root.jp + negativeSuffix.jp,
-					romanji: root.en + affirmativeSuffix.en,
+					romanji: root.en + negativeSuffix.en,
 					convertion: conjugationGroup,
 				},
 				PastAffirmative: this.decipherException(exceptions, ConjugationType.MasuFormPastAffirmative) ?? {
 					furigana: root.jp + pastAffirmativeSuffix.jp,
-					romanji: root.en + affirmativeSuffix.en,
+					romanji: root.en + pastAffirmativeSuffix.en,
 					convertion: conjugationGroup,
 				},
 				PastNegative: this.decipherException(exceptions, ConjugationType.MasuFormPastNegative) ?? {
 					furigana: root.jp + pastNegativeSuffix.jp,
-					romanji: root.en + affirmativeSuffix.en,
+					romanji: root.en + pastNegativeSuffix.en,
 					convertion: conjugationGroup,
 				},
 			};
@@ -215,21 +216,163 @@ export class Verbs {
 			`Verb - convertToMasuForm() - Root word could not be converted for some reason. ${dictionary.romanji}'`
 		);
 	}
+	//* MASU FORM - END *//
 
-	// private convertToShortForm(dictionaryForm: WordType) {
-	// 	if (dictionaryForm.type !== "verb")
-	// 		throw Error(`Verb - convertToShortForm() - Wrong word type has been given '${dictionaryForm.type}'`);
+	//* SHORT FORM - START *//
+	private convertToShortForm(dictionaryForm: WordType, exceptions?: ConjugationExceptionType[]) {
+		if (dictionaryForm.type !== "verb")
+			throw Error(`Verb - convertToShortForm() - Wrong word type has been given '${dictionaryForm.type}'`);
 
-	// 	const { dictionary, verbType } = dictionaryForm;
+		const { dictionary, verbType } = dictionaryForm;
 
-	// 	// if (verbType === "irregular") {
+		//Present Negative
+		function convertToPresentNegative() {
+			if (verbType === "irregular") {
+				switch (dictionary.furigana) {
+					case "する":
+						return { furigana: "しない", romanji: "shinai" };
+					case "くる":
+						return { furigana: "こない", romanji: "konai" };
+					default:
+						throw Error(
+							`Verb - convertToMasuForm() - Word is incorrectly set as an 'irregular' verb.'${dictionary.romanji}'`
+						);
+				}
+			} else if (verbType === "ru") {
+				//jp
+				const rootSuffix = dictionary.furigana.slice(-1);
+				const rootWord = dictionary.furigana.substring(0, dictionary.furigana.length - 1) + "ない";
 
-	// 	// } else if (verbType === "ru") {
+				//en
+				const romanjiSuffix = convertFuriganaToRomanji(rootSuffix);
+				const romanjiRoot = dictionary.romanji.slice(0, dictionary.romanji.lastIndexOf(romanjiSuffix)) + "nai";
 
-	// 	// } else if (verbType === "u") {
+				return {
+					furigana: rootWord,
+					romanji: romanjiRoot,
+				};
+			} else {
+				//jp
+				const originalSuffix = dictionary.furigana.slice(-1);
+				const newSuffix =
+					originalSuffix === "う" ? "わ" : convertFuriganaToCharacterEquivalent(originalSuffix, "a");
+				const rootWord = dictionary.furigana.substring(0, dictionary.furigana.length - 1) + newSuffix + "ない";
 
-	// 	// }
+				//en
+				const originalRomanjiSuffix = convertFuriganaToRomanji(originalSuffix);
+				const newRomanjiSuffix = convertFuriganaToRomanji(newSuffix);
+				const romanjiRoot =
+					dictionary.romanji.slice(0, dictionary.romanji.lastIndexOf(originalRomanjiSuffix)) +
+					newRomanjiSuffix +
+					"nai";
 
-	// 	return;
-	// }
+				return {
+					furigana: rootWord,
+					romanji: romanjiRoot,
+				};
+			}
+		}
+
+		//Past Affirmative
+		const teForm = this.convertToTeForm(dictionaryForm);
+		function convertToPastAffirmative() {
+			if (verbType === "irregular") {
+				switch (dictionary.furigana) {
+					case "する":
+						return { furigana: "した", romanji: "shita" };
+					case "くる":
+						return { furigana: "きた", romanji: "kita" };
+					default:
+						throw Error(
+							`Verb - convertToMasuForm() - Word is incorrectly set as an 'irregular' verb.'${dictionary.romanji}'`
+						);
+				}
+			} else {
+				//jp
+				const rootSuffix = teForm.furigana.slice(-1);
+				const newSuffix = rootSuffix === "で" ? "だ" : "た";
+				const rootWord = teForm.furigana.substring(0, teForm.furigana.length - 1) + newSuffix;
+
+				//en
+				const romanjiSuffix = convertFuriganaToRomanji(rootSuffix);
+				const newRomanjiSuffix = convertFuriganaToRomanji(newSuffix);
+				const romanjiRoot =
+					teForm.romanji.slice(0, teForm.romanji.lastIndexOf(romanjiSuffix)) + newRomanjiSuffix;
+
+				return {
+					furigana: rootWord,
+					romanji: romanjiRoot,
+				};
+			}
+		}
+
+		//Past Negative
+		function convertToPastNegative() {
+			if (verbType === "irregular") {
+				switch (dictionary.furigana) {
+					case "する":
+						return { furigana: "しなかった", romanji: "shinakatta" };
+					case "くる":
+						return { furigana: "こなかった", romanji: "konakatta" };
+					default:
+						throw Error(
+							`Verb - convertToMasuForm() - Word is incorrectly set as an 'irregular' verb.'${dictionary.romanji}'`
+						);
+				}
+			} else if (verbType === "ru") {
+				//jp
+				const rootSuffix = dictionary.furigana.slice(-1);
+				const rootWord = dictionary.furigana.substring(0, dictionary.furigana.length - 1) + "なかった";
+
+				//en
+				const romanjiSuffix = convertFuriganaToRomanji(rootSuffix);
+				const romanjiRoot =
+					dictionary.romanji.slice(0, dictionary.romanji.lastIndexOf(romanjiSuffix)) + "nakatta";
+
+				return {
+					furigana: rootWord,
+					romanji: romanjiRoot,
+				};
+			} else {
+				//jp
+				const originalSuffix = dictionary.furigana.slice(-1);
+				const newSuffix =
+					originalSuffix === "う" ? "わ" : convertFuriganaToCharacterEquivalent(originalSuffix, "a");
+				const rootWord =
+					dictionary.furigana.substring(0, dictionary.furigana.length - 1) + newSuffix + "なかった";
+
+				//en
+				const originalRomanjiSuffix = convertFuriganaToRomanji(originalSuffix);
+				const newRomanjiSuffix = convertFuriganaToRomanji(newSuffix);
+				const romanjiRoot =
+					dictionary.romanji.slice(0, dictionary.romanji.lastIndexOf(originalRomanjiSuffix)) +
+					newRomanjiSuffix +
+					"nakatta";
+
+				return {
+					furigana: rootWord,
+					romanji: romanjiRoot,
+				};
+			}
+		}
+
+		return {
+			affirmative: this.decipherException(exceptions, ConjugationType.ShortFormAffirmative) ?? {
+				furigana: dictionary.furigana,
+				romanji: dictionary.romanji,
+			},
+			negative:
+				this.decipherException(exceptions, ConjugationType.ShortFormNegative) ?? convertToPresentNegative(),
+			PastAffirmative:
+				this.decipherException(exceptions, ConjugationType.ShortFormPastAffirmative) ??
+				convertToPastAffirmative(),
+			PastNegative:
+				this.decipherException(exceptions, ConjugationType.ShortFormPastNegative) ?? convertToPastNegative(),
+		};
+
+		throw Error(
+			`Verb - convertToMasuForm() - Root word could not be converted for some reason. ${dictionary.romanji}'`
+		);
+	}
+	//* SHORT FORM - END *//
 }
