@@ -1,4 +1,4 @@
-import { Verbs } from "../classes/verbs";
+import { Adjectives, Verbs } from "../classes";
 import { getExceptionsByDictionaryId, getExceptionsByDictionaryIdResponse } from "../resources";
 import { WordType } from "../types";
 
@@ -9,7 +9,7 @@ export async function createWordClass(word: WordType) {
 		case "verb":
 			return new Verbs(word, exceptions);
 		case "adjective":
-			return null;
+			return new Adjectives(word, exceptions);
 		case "noun":
 			return null;
 		case "thing":

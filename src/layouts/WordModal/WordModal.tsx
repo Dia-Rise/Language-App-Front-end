@@ -4,6 +4,7 @@ import { createWordClass } from "../../utilities";
 import { Verbs, Adjectives, Nouns } from "../../classes";
 import { WordType } from "../../types";
 import { WordModalVerb } from "./WordModalVerbs";
+import { WordModalAdjectives } from "./WordModalAdjectives";
 
 export type WordModalProps = {
 	word: WordType;
@@ -22,7 +23,7 @@ export function WordModal({ word }: WordModalProps) {
 		if (word instanceof Verbs) {
 			return <WordModalVerb word={word} />;
 		} else if (word instanceof Adjectives) {
-			return <>Remember to create adjective class.</>;
+			return <WordModalAdjectives word={word} />;
 		} else if (word instanceof Nouns) {
 			return <>Remember to create noun class.</>;
 		}

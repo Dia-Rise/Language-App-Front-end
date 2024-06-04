@@ -1,11 +1,11 @@
-import { Verbs } from "../../classes/verbs";
+import { Adjectives } from "../../classes";
 import { Tabs } from "../../components";
 
 export type WordModalVerbProps = {
-	word: Verbs;
+	word: Adjectives;
 };
 
-export function WordModalVerb({ word }: WordModalVerbProps) {
+export function WordModalAdjectives({ word }: WordModalVerbProps) {
 	const baseClassName = `word-frame`;
 
 	return (
@@ -23,11 +23,11 @@ export function WordModalVerb({ word }: WordModalVerbProps) {
 				data={[
 					{
 						id: "1",
-						label: "Masu Form",
+						label: "Standard",
 						content: (
 							<>
-								<p>{word.masuForm.pastAffirmative.romanji}</p>
-								<p>{word.masuForm.pastAffirmative.furigana}</p>
+								<p>{word.tense.pastAffirmative.romanji}</p>
+								<p>{word.tense.pastAffirmative.furigana}</p>
 							</>
 						),
 					},
@@ -43,7 +43,7 @@ export function WordModalVerb({ word }: WordModalVerbProps) {
 					},
 					{
 						id: "3",
-						label: "short Form",
+						label: "Short Form",
 						content: (
 							<>
 								<p>{word.shortForm.pastAffirmative.romanji}</p>

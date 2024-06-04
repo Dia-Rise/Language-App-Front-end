@@ -199,12 +199,12 @@ export class Verbs {
 					romanji: root.en + negativeSuffix.en,
 					convertion: conjugationGroup,
 				},
-				PastAffirmative: this.decipherException(exceptions, ConjugationType.MasuFormPastAffirmative) ?? {
+				pastAffirmative: this.decipherException(exceptions, ConjugationType.MasuFormPastAffirmative) ?? {
 					furigana: root.jp + pastAffirmativeSuffix.jp,
 					romanji: root.en + pastAffirmativeSuffix.en,
 					convertion: conjugationGroup,
 				},
-				PastNegative: this.decipherException(exceptions, ConjugationType.MasuFormPastNegative) ?? {
+				pastNegative: this.decipherException(exceptions, ConjugationType.MasuFormPastNegative) ?? {
 					furigana: root.jp + pastNegativeSuffix.jp,
 					romanji: root.en + pastNegativeSuffix.en,
 					convertion: conjugationGroup,
@@ -363,10 +363,10 @@ export class Verbs {
 			},
 			negative:
 				this.decipherException(exceptions, ConjugationType.ShortFormNegative) ?? convertToPresentNegative(),
-			PastAffirmative:
+			pastAffirmative:
 				this.decipherException(exceptions, ConjugationType.ShortFormPastAffirmative) ??
 				convertToPastAffirmative(),
-			PastNegative:
+			pastNegative:
 				this.decipherException(exceptions, ConjugationType.ShortFormPastNegative) ?? convertToPastNegative(),
 		};
 

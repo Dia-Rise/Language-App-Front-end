@@ -10,9 +10,8 @@ export default {
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: StoryFn<typeof WordModal> = (args) => <WordModal {...args} />;
 
-export const Default = Template.bind({});
-
-Default.args = {
+export const U_Verb = Template.bind({});
+U_Verb.args = {
 	word: {
 		id: "1",
 		meaning: "To Speak",
@@ -21,6 +20,34 @@ Default.args = {
 		dictionary: {
 			furigana: "はなす",
 			romanji: "hanasu",
+		},
+	},
+};
+
+export const I_Adjective = Template.bind({});
+I_Adjective.args = {
+	word: {
+		id: "2",
+		meaning: "Fun, Funny",
+		type: "adjective",
+		adjectiveType: "i",
+		dictionary: {
+			furigana: "おもしろい",
+			romanji: "omoshiroi",
+		},
+	},
+};
+
+export const NA_Adjective = Template.bind({});
+NA_Adjective.args = {
+	word: {
+		id: "3",
+		meaning: "Quiet",
+		type: "adjective",
+		adjectiveType: "na",
+		dictionary: {
+			furigana: "しずか",
+			romanji: "shizuka",
 		},
 	},
 };

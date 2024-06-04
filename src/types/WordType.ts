@@ -17,7 +17,7 @@ type WordTypeTypes =
 	  }
 	| {
 			type: "adjective";
-			adjectiveType: string;
+			adjectiveType: "i" | "na";
 	  }
 	| {
 			type: "noun";

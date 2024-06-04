@@ -10,4 +10,9 @@ export enum ConjugationType {
 	ShortFormNegative = "shortFormNegative",
 	ShortFormPastAffirmative = "shortFormPastAffirmative",
 	ShortFormPastNegative = "shortFormPastNegative",
+
+	AdjAffirmative = "adjAffirmative",
+	AdjNegative = "adjNegative",
+	AdjPastAffirmative = "adjPastAffirmative",
+	AdjPastNegative = "adjPastNegative",
 }
