@@ -15,16 +15,17 @@ import { WordType } from "../../types";
 export type WordFrameProps = {
 	illistration: string;
 	word: WordType;
+	onInspect: () => void;
 	className?: string;
 };
 
-export function WordFrame({ word, className = "" }: WordFrameProps) {
+export function WordFrame({ word, onInspect, className = "" }: WordFrameProps) {
 	const baseClassName = `word-frame`;
 	const classNames = classnames(baseClassName, className);
 
 	return (
 		<div className={classNames}>
-			<div className={`${baseClassName}__illistration`}>{/* ADD ILLISTRATION HERE */}</div>
+			{/* <div className={`${baseClassName}__illistration`}>ADD ILLISTRATION HERE</div> */}
 			<div className={`${baseClassName}__content`}>
 				<span className={`${baseClassName}__meaning`}>{word.meaning}</span>
 
@@ -34,14 +35,16 @@ export function WordFrame({ word, className = "" }: WordFrameProps) {
 						<span className={`${baseClassName}__romanji`}>{word.dictionary.romanji}</span>
 					</div>
 
-					<Button
-						variant={ButtonVariant.Button}
-						className={`${baseClassName}__button`}
-						color={ButtonColors.White}
-						onClick={() => {}}
-					>
-						<Icon svg={IconSVG.Inspect} size={IconSize.MD} />
-					</Button>
+					{(word.type === "verb" || word.type === "adjective") && (
+						<Button
+							variant={ButtonVariant.Button}
+							className={`${baseClassName}__button`}
+							color={ButtonColors.White}
+							onClick={onInspect}
+						>
+							<Icon svg={IconSVG.Inspect} size={IconSize.MD} />
+						</Button>
+					)}
 				</div>
 			</div>
 		</div>

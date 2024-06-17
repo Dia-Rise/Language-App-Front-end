@@ -70,7 +70,7 @@ export class Adjectives {
 				this.decipherException(exceptions, ConjugationType.TeForm) ?? {
 					furigana: jpRoot + "くて",
 					romanji: enRoot + "kute",
-					conjugationGroup: `い`,
+					convertion: `い → くて`,
 				}
 			);
 		} else {
@@ -79,7 +79,7 @@ export class Adjectives {
 				this.decipherException(exceptions, ConjugationType.TeForm) ?? {
 					furigana: dictionary.furigana + "で",
 					romanji: dictionary.romanji + "de",
-					conjugationGroup: `な`,
+					convertion: `な → で`,
 				}
 			);
 		}

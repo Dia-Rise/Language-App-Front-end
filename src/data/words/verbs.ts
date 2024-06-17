@@ -11,4 +11,24 @@ export const verbs: WordType[] = [
 			romanji: "hanasu",
 		},
 	},
+	{
+		id: "13",
+		meaning: "To do",
+		type: "verb",
+		verbType: "irregular",
+		dictionary: {
+			furigana: "する",
+			romanji: "suru",
+		},
+	},
+	{
+		id: "14",
+		meaning: "To come",
+		type: "verb",
+		verbType: "irregular",
+		dictionary: {
+			furigana: "くる",
+			romanji: "kuru",
+		},
+	},
 ];

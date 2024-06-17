@@ -3,11 +3,14 @@ import { WordType } from "../../types";
 import { FormInput, Spinner } from "../../components";
 import { WordFrame } from "../../layouts/WordFrame/WordFrame";
 import { getWordByString } from "../../resources";
+import { WordModal } from "../../layouts/WordModal/WordModal";
 
 export function DictionaryScreen() {
 	const [searchValue, setSearchValue] = useState<string>("");
 	const [searchResults, setSearchResults] = useState<WordType[]>([]);
 	const [isLoading, setIsLoading] = useState<boolean>(false);
+
+	const [selectedWord, setSelectedWord] = useState<WordType | null>(null);
 
 	const typingTimer = useRef<ReturnType<typeof setTimeout>>();
 
@@ -59,7 +62,12 @@ export function DictionaryScreen() {
 				{!isLoading ? (
 					searchResults.length ? (
 						searchResults.map((current, index) => (
-							<WordFrame key={index} illistration={""} word={current} />
+							<WordFrame
+								key={index}
+								illistration={""}
+								word={current}
+								onInspect={() => setSelectedWord(current)}
+							/>
 						))
 					) : (
 						<p>{searchValue ? "No results found." : "Search for words in the input field above."}</p>
@@ -68,6 +76,16 @@ export function DictionaryScreen() {
 					<Spinner />
 				)}
 			</div>
+
+			{selectedWord && (
+				<WordModal
+					isOpen={true}
+					onClose={() => {
+						setSelectedWord(null);
+					}}
+					word={selectedWord}
+				/>
+			)}
 		</div>
 	);
 }

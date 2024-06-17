@@ -67,7 +67,7 @@ export class Verbs {
 		let teRomanji: string | null = null;
 
 		if (dictionaryForm.verbType === "irregular") {
-			conjugationGroup = `irregular`;
+			conjugationGroup = `Irregular`;
 			switch (dictionary.furigana) {
 				case "する":
 					teFurigana = "して";
@@ -94,24 +94,24 @@ export class Verbs {
 			switch (dictionaryForm.verbType) {
 				case "ru":
 					teSuffix = { jp: "て", en: "te" };
-					conjugationGroup = `る`;
+					conjugationGroup = `る → て`;
 					break;
 				case "u":
 					if (rootSuffix === ("う" || "つ" || "る")) {
 						teSuffix = { jp: "って", en: "tte" };
-						conjugationGroup = `う つ る`;
+						conjugationGroup = `う つ る → って`;
 					} else if (rootSuffix === ("む" || "ぬ" || "ぶ")) {
 						teSuffix = { jp: "んで", en: "nde" };
-						conjugationGroup = `む ぬ ぶ`;
+						conjugationGroup = `む ぬ ぶ → んで`;
 					} else if (rootSuffix === "く") {
 						teSuffix = { jp: "いて", en: "ite" };
-						conjugationGroup = `く`;
+						conjugationGroup = `く → いて`;
 					} else if (rootSuffix === "ぐ") {
 						teSuffix = { jp: "いで", en: "ide" };
-						conjugationGroup = `ぐ`;
+						conjugationGroup = `ぐ → いで`;
 					} else if (rootSuffix === "す") {
 						teSuffix = { jp: "して", en: "shite" };
-						conjugationGroup = `す`;
+						conjugationGroup = `す → して`;
 					} else {
 						throw Error(
 							`Verb - convertToTeForm() - Word is set as 'u' verb but dosen't have the correct ending characters. '${dictionary.romanji}'`

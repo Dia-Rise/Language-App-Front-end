@@ -21,7 +21,7 @@ type WordTypeTypes =
 	  }
 	| {
 			type: "noun";
-			nounType: string;
+			// nounType: string;
 	  }
 	| {
 			type: "thing";

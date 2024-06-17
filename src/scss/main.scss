@@ -26,10 +26,11 @@
 @import "../components/Forms/InputLabel/inputLabel";
 @import "../components/Icon/icons";
 @import "../components/Modal/modal";
+@import "../components/Pill/pill";
 @import "../components/SlideOut/slide-out";
+@import "../components/Spinner/spinner";
 @import "../components/Switch/switch";
 @import "../components/Tabs/tabs";
-@import "../components/Spinner/spinner";
 
 //===================================================================
 // Layouts
@@ -38,6 +39,7 @@
 @import "../layouts/CharacterGrid/character-grid";
 @import "../layouts/MegaButton/mega-button";
 @import "../layouts/WordFrame/word-frame";
+@import "../layouts/WordModal/word-modal";
 
 //===================================================================
 // Screens
