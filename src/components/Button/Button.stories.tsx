@@ -1,5 +1,5 @@
 import { StoryFn, Meta } from "@storybook/react";
-import { Button, ButtonColors, ButtonAppearance, ButtonSize, ButtonProps, ButtonVariant } from "./Button";
+import { Button, ButtonColors, ButtonAppearance, ButtonSize, ButtonProps, ButtonVariant, ButtonShape } from "./Button";
 
 export default {
 	title: "Components/Buttons",
@@ -16,6 +16,9 @@ export default {
 		},
 		size: {
 			options: ButtonSize,
+		},
+		shape: {
+			options: ButtonShape,
 		},
 	},
 } as Meta<typeof Button>;

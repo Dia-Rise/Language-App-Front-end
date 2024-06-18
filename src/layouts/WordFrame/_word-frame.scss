@@ -2,17 +2,12 @@
 	display: flex;
 
 	padding: 16px;
+	padding-top: 8px;
 	gap: 16px;
 
-	background-color: var(--clr-primary-500);
-	color: var(--clr-white);
-
-	&__illistration {
-		background-color: var(--clr-primary-600);
-		display: block;
-		width: 122px;
-		height: 122px;
-	}
+	background-color: var(--clr-white);
+	border: 1px solid var(--clr-base-200);
+	color: var(--clr-base-950);
 
 	&__content {
 		display: flex;
@@ -33,7 +28,7 @@
 		font-weight: 700;
 
 		padding-bottom: 8px;
-		border-bottom: 2px solid var(--clr-white);
+		border-bottom: 2px solid var(--clr-base-300);
 	}
 
 	&__examples {
@@ -57,5 +52,10 @@
 
 	&__button {
 		align-self: flex-end;
+	}
+
+	&__pill-container {
+		display: flex;
+		gap: 4px;
 	}
 }

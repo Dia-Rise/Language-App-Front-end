@@ -4,6 +4,7 @@ import { FormInput, Spinner } from "../../components";
 import { WordFrame } from "../../layouts/WordFrame/WordFrame";
 import { getWordByString } from "../../resources";
 import { WordModal } from "../../layouts/WordModal/WordModal";
+import { SiteHeader } from "../../layouts/SiteHeader/SiteHeader";
 
 export function DictionaryScreen() {
 	const [searchValue, setSearchValue] = useState<string>("");
@@ -20,6 +21,7 @@ export function DictionaryScreen() {
 		try {
 			const results = getWordByString(searchValue); //await goes here
 			if (results) setSearchResults(results);
+
 			setIsLoading(false);
 		} catch (error) {
 			throw new Error();
@@ -45,6 +47,16 @@ export function DictionaryScreen() {
 
 	return (
 		<div className={`${baseClassName}`}>
+			<SiteHeader
+				label={"Dictionary"}
+				onHomeClick={function (): void {
+					throw new Error("Function not implemented.");
+				}}
+				onMenuClick={function (): void {
+					throw new Error("Function not implemented.");
+				}}
+			/>
+
 			<div className={`${baseClassName}__top-bar`}>
 				<h1 className={`${baseClassName}__header`}>Dictionary</h1>
 				<FormInput
@@ -62,12 +74,7 @@ export function DictionaryScreen() {
 				{!isLoading ? (
 					searchResults.length ? (
 						searchResults.map((current, index) => (
-							<WordFrame
-								key={index}
-								illistration={""}
-								word={current}
-								onInspect={() => setSelectedWord(current)}
-							/>
+							<WordFrame key={index} word={current} onInspect={() => setSelectedWord(current)} />
 						))
 					) : (
 						<p>{searchValue ? "No results found." : "Search for words in the input field above."}</p>

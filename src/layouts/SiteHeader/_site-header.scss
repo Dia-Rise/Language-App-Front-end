@@ -1,0 +1,31 @@
+.site-header {
+	width: 100%;
+	border-bottom: 5px solid var(--clr-primary-500);
+	background-color: var(--clr-white);
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	padding: 8px 2rem;
+	@include media(md) {
+		padding: 8px 9.75rem;
+	}
+
+	&__button {
+		color: var(--clr-base-400);
+	}
+
+	&__heading {
+		font-size: 16px;
+		line-height: 100%;
+		font-weight: 600;
+		color: var(--clr-primary-500);
+	}
+
+	&__left-wrapper {
+		display: flex;
+		gap: 16px;
+		align-items: center;
+	}
+}

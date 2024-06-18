@@ -8,6 +8,7 @@ import { WordType } from "../../types";
 export type getWordByStringResponse = WordType[];
 
 //TODO - ADD FILTERS
+//TODO - ADD SYSTEM TO ORDER BY RELEVANCE
 export function getWordByString(value: string): getWordByStringResponse {
 	return words.filter(
 		(current) =>

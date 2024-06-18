@@ -15,9 +15,16 @@ export enum ButtonAppearance {
 }
 
 export enum ButtonSize {
+	XS = "button--extra-small",
 	SM = "button--small",
 	MD = "button--medium",
 	LG = "button--large",
+}
+
+export enum ButtonShape {
+	Rounded = "button--rounded",
+	Curved = "button--curved",
+	Sharp = "button--sharp",
 }
 
 export enum ButtonColors {
@@ -57,10 +64,12 @@ type ButtonSizeTypes =
 	| {
 			appearance?: ButtonAppearance.Text;
 			size?: never;
+			shape?: never;
 	  }
 	| {
 			appearance?: Exclude<ButtonAppearance, ButtonAppearance.Text>;
 			size?: ButtonSize;
+			shape?: ButtonShape;
 	  };
 
 export type ButtonProps = ButtonCommonProps & ButtonVariantProps & ButtonSizeTypes;
@@ -70,6 +79,7 @@ export function Button({
 	appearance = ButtonAppearance.Standard,
 	color = ButtonColors.Light,
 	size = ButtonSize.SM,
+	shape = ButtonShape.Rounded,
 	disabled,
 	active,
 	onClick,
@@ -81,7 +91,7 @@ export function Button({
 		case ButtonVariant.Button:
 			return (
 				<button
-					className={`button ${appearance} ${color} ${appearance != ButtonAppearance.Text ? size : ""} ${active ? "button--active" : ""} ${className}`}
+					className={`button ${appearance} ${color} ${appearance != ButtonAppearance.Text ? `${size} ${shape}` : ""}  ${active ? "button--active" : ""} ${className}`}
 					{...{ disabled, onClick }}
 				>
 					{children}
@@ -91,7 +101,7 @@ export function Button({
 			return (
 				<Link
 					to={href}
-					className={`button ${appearance} ${color} ${appearance != ButtonAppearance.Text ? size : ""} ${active ? "button--active" : ""} ${className}`}
+					className={`button ${appearance} ${color} ${appearance != ButtonAppearance.Text ? `${size} ${shape}` : ""} ${active ? "button--active" : ""} ${className}`}
 					{...{ disabled, onClick }}
 				>
 					{children}
@@ -101,7 +111,7 @@ export function Button({
 			return (
 				<NavLink
 					to={href}
-					className={`button ${appearance} ${color} ${appearance != ButtonAppearance.Text ? size : ""} ${active ? "button--active" : ""} ${className}`}
+					className={`button ${appearance} ${color} ${appearance != ButtonAppearance.Text ? `${size} ${shape}` : ""} ${active ? "button--active" : ""} ${className}`}
 					{...{ disabled }}
 				>
 					{children}

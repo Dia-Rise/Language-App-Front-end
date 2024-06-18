@@ -25,7 +25,11 @@ type WordTypeTypes =
 	  }
 	| {
 			type: "thing";
-			thingType: string;
+			// thingType: string;
+	  }
+	| {
+			type: "phrase";
+			// phraseType: string;
 	  };
 
 export type WordType = WordTypeCommonTypes & WordTypeTypes;
