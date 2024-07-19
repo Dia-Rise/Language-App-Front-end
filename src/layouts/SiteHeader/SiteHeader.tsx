@@ -1,19 +1,9 @@
 import classnames from "classnames";
-import {
-	Button,
-	ButtonAppearance,
-	ButtonShape,
-	ButtonSize,
-	ButtonVariant,
-	Icon,
-	IconSVG,
-	SlideOut,
-} from "../../components";
+import { Button, ButtonAppearance, ButtonShape, ButtonSize, ButtonVariant, Icon, IconSVG } from "../../components";
 import { RoutePaths } from "../../enums";
 import { useState } from "react";
-import { CharacterGrid } from "../CharacterGrid/CharacterGrid";
-import { Backdrop } from "../../components/Backdrop/Backdrop";
 import { createPortal } from "react-dom";
+import { SiteHeaderSlideOut } from "./SiteHeaderSlideOut";
 
 export type SiteHeaderProps = {
 	label: string;
@@ -25,16 +15,6 @@ export function SiteHeader({ label, className = "" }: SiteHeaderProps) {
 
 	const baseClassName = `site-header`;
 	const classNames = classnames(baseClassName, className);
-
-	//TODO - Make this it's own layout.
-	const slideOutComponent = (
-		<>
-			<Backdrop isVisible={isSlideOutOpen} onClick={() => setIsSlideOutOpen(false)} />
-			<SlideOut isOpen={isSlideOutOpen}>
-				<CharacterGrid />
-			</SlideOut>
-		</>
-	);
 
 	return (
 		<div className={classNames}>
@@ -65,7 +45,10 @@ export function SiteHeader({ label, className = "" }: SiteHeaderProps) {
 					<Icon svg={IconSVG.Languages} />
 				</Button>
 			</div>
-			{createPortal(slideOutComponent, document.body)}
+			{createPortal(
+				<SiteHeaderSlideOut isOpen={isSlideOutOpen} onClose={() => setIsSlideOutOpen(false)} />,
+				document.body
+			)}
 		</div>
 	);
 }
