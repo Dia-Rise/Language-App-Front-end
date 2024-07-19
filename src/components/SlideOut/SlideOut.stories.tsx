@@ -1,5 +1,6 @@
 import { StoryFn, Meta } from "@storybook/react";
 import { SlideOut, SlideOutProps } from "./SlideOut";
+import { useState } from "react";
 
 export default {
 	title: "Components/SlideOut",
@@ -8,9 +9,11 @@ export default {
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: StoryFn<typeof SlideOut> = (args: SlideOutProps) => {
+	const [isVisible, setIsVisible] = useState<boolean>(false);
 	return (
 		<>
-			<SlideOut {...args}>
+			<button onClick={() => setIsVisible(!isVisible)}>Toggle Slide out</button>
+			<SlideOut {...args} isOpen={isVisible}>
 				<p>hello</p>
 			</SlideOut>
 		</>
@@ -18,6 +21,4 @@ const Template: StoryFn<typeof SlideOut> = (args: SlideOutProps) => {
 };
 
 export const Default = Template.bind({});
-Default.args = {
-	isOpen: true,
-};
+Default.args = {};

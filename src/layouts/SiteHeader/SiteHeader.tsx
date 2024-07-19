@@ -1,16 +1,40 @@
 import classnames from "classnames";
-import { Button, ButtonAppearance, ButtonShape, ButtonSize, ButtonVariant, Icon, IconSVG } from "../../components";
+import {
+	Button,
+	ButtonAppearance,
+	ButtonShape,
+	ButtonSize,
+	ButtonVariant,
+	Icon,
+	IconSVG,
+	SlideOut,
+} from "../../components";
 import { RoutePaths } from "../../enums";
+import { useState } from "react";
+import { CharacterGrid } from "../CharacterGrid/CharacterGrid";
+import { Backdrop } from "../../components/Backdrop/Backdrop";
+import { createPortal } from "react-dom";
 
 export type SiteHeaderProps = {
 	label: string;
-	onMenuClick: () => void;
 	className?: string;
 };
 
-export function SiteHeader({ label, onMenuClick, className = "" }: SiteHeaderProps) {
+export function SiteHeader({ label, className = "" }: SiteHeaderProps) {
+	const [isSlideOutOpen, setIsSlideOutOpen] = useState<boolean>(false);
+
 	const baseClassName = `site-header`;
 	const classNames = classnames(baseClassName, className);
+
+	//TODO - Make this it's own layout.
+	const slideOutComponent = (
+		<>
+			<Backdrop isVisible={isSlideOutOpen} onClick={() => setIsSlideOutOpen(false)} />
+			<SlideOut isOpen={isSlideOutOpen}>
+				<CharacterGrid />
+			</SlideOut>
+		</>
+	);
 
 	return (
 		<div className={classNames}>
@@ -31,7 +55,7 @@ export function SiteHeader({ label, onMenuClick, className = "" }: SiteHeaderPro
 
 			<div className={`${baseClassName}__right-wrapper`}>
 				<Button
-					onClick={onMenuClick}
+					onClick={() => setIsSlideOutOpen(true)}
 					variant={ButtonVariant.Button}
 					size={ButtonSize.XS}
 					shape={ButtonShape.Curved}
@@ -41,6 +65,7 @@ export function SiteHeader({ label, onMenuClick, className = "" }: SiteHeaderPro
 					<Icon svg={IconSVG.Languages} />
 				</Button>
 			</div>
+			{createPortal(slideOutComponent, document.body)}
 		</div>
 	);
 }

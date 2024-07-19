@@ -97,10 +97,10 @@ export class Verbs {
 					conjugationGroup = `る → て`;
 					break;
 				case "u":
-					if (rootSuffix === ("う" || "つ" || "る")) {
+					if (rootSuffix === "う" || rootSuffix === "つ" || rootSuffix === "る") {
 						teSuffix = { jp: "って", en: "tte" };
 						conjugationGroup = `う つ る → って`;
-					} else if (rootSuffix === ("む" || "ぬ" || "ぶ")) {
+					} else if (rootSuffix === "む" || rootSuffix === "ぬ" || rootSuffix === "ぶ") {
 						teSuffix = { jp: "んで", en: "nde" };
 						conjugationGroup = `む ぬ ぶ → んで`;
 					} else if (rootSuffix === "く") {

@@ -9,7 +9,6 @@ export type SlideOutProps = {
 	children: ReactNode;
 	isOpen: boolean;
 	direction?: SlideOutDirection;
-	onOverlayClick?: () => void;
 	className?: string;
 };
 

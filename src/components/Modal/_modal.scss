@@ -28,14 +28,6 @@
 	}
 }
 
-.backdrop {
-	position: fixed;
-	width: 100%;
-	height: 100vh;
-	inset: 0;
-	background-color: rgba(0, 0, 0, 0.7);
-}
-
 :root {
 	--modal-background-color: var(--clr-white);
 	--modal-border-color: var(--clr-base-50);
