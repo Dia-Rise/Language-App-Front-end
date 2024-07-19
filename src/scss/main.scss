@@ -19,6 +19,8 @@
 // Components
 //===================================================================
 
+@import "../components/Alert/alert";
+@import "../components/Backdrop/backdrop";
 @import "../components/Button/button";
 @import "../components/ButtonGroup/button-group";
 @import "../components/CharacterFrame/character-frame";
@@ -31,7 +33,6 @@
 @import "../components/Spinner/spinner";
 @import "../components/Switch/switch";
 @import "../components/Tabs/tabs";
-@import "../components/Backdrop/backdrop";
 
 //===================================================================
 // Layouts
