@@ -1,10 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { WordType } from "../../types";
 import { FormInput, Spinner } from "../../components";
-import { WordFrame } from "../../layouts/WordFrame/WordFrame";
 import { getWordByString } from "../../resources";
-import { WordModal } from "../../layouts/WordModal/WordModal";
-import { SiteHeader } from "../../layouts/SiteHeader/SiteHeader";
+import { SiteHeader, WordFrame, WordModal } from "../../layouts";
+import { DictionaryScreenDisclaimer } from "./DictionaryScreenDisclaimer";
 
 export function DictionaryScreen() {
 	const [searchValue, setSearchValue] = useState<string>("");
@@ -36,6 +35,7 @@ export function DictionaryScreen() {
 			setIsLoading(true);
 		} else {
 			setSearchResults([]);
+			setIsLoading(false);
 		}
 
 		return () => {
@@ -47,15 +47,7 @@ export function DictionaryScreen() {
 
 	return (
 		<div className={`${baseClassName}`}>
-			<SiteHeader
-				label={"Dictionary"}
-				onHomeClick={function (): void {
-					throw new Error("Function not implemented.");
-				}}
-				onMenuClick={function (): void {
-					throw new Error("Function not implemented.");
-				}}
-			/>
+			<SiteHeader label={"Dictionary"} />
 
 			<div className={`${baseClassName}__top-bar`}>
 				<h1 className={`${baseClassName}__header`}>Dictionary</h1>
@@ -64,6 +56,7 @@ export function DictionaryScreen() {
 					className={`${baseClassName}__search-input`}
 					label={"search for a word here"}
 					value={searchValue}
+					autoFocus
 					onChange={(newValue: string) => {
 						setSearchValue(newValue);
 					}}
@@ -93,6 +86,8 @@ export function DictionaryScreen() {
 					word={selectedWord}
 				/>
 			)}
+
+			<DictionaryScreenDisclaimer />
 		</div>
 	);
 }

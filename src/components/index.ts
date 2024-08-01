@@ -8,3 +8,4 @@ export * from "./SlideOut/SlideOut";
 export * from "./Switch/Switch";
 export * from "./Tabs/Tabs";
 export * from "./Spinner/Spinner";
+export * from "./Alert/Alert";

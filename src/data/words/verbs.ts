@@ -31,4 +31,94 @@ export const verbs: WordType[] = [
 			romanji: "kuru",
 		},
 	},
+	{
+		id: "15",
+		type: "verb",
+		verbType: "ru",
+		meaning: "To eat",
+		dictionary: {
+			furigana: "たべる",
+			romanji: "taberu",
+		},
+	},
+	{
+		id: "16",
+		type: "verb",
+		verbType: "u",
+		meaning: "To buy",
+		dictionary: {
+			furigana: "かう",
+			romanji: "kau",
+		},
+	},
+	{
+		id: "17",
+		type: "verb",
+		verbType: "u",
+		meaning: "To wait",
+		dictionary: {
+			furigana: "まつ",
+			romanji: "matsu",
+		},
+	},
+	{
+		id: "18",
+		type: "verb",
+		verbType: "u",
+		meaning: "To take",
+		dictionary: {
+			furigana: "とる",
+			romanji: "toru",
+		},
+	},
+	{
+		id: "19",
+		type: "verb",
+		verbType: "u",
+		meaning: "To drink",
+		dictionary: {
+			furigana: "のむ",
+			romanji: "nomu",
+		},
+	},
+	{
+		id: "20",
+		type: "verb",
+		verbType: "u",
+		meaning: "To die",
+		dictionary: {
+			furigana: "しぬ",
+			romanji: "shinu",
+		},
+	},
+	{
+		id: "21",
+		type: "verb",
+		verbType: "u",
+		meaning: "To play",
+		dictionary: {
+			furigana: "あそぶ",
+			romanji: "asobu",
+		},
+	},
+	{
+		id: "22",
+		type: "verb",
+		verbType: "u",
+		meaning: "To write",
+		dictionary: {
+			furigana: "かく",
+			romanji: "kaku",
+		},
+	},
+	{
+		id: "32",
+		type: "verb",
+		verbType: "u",
+		meaning: "To swim",
+		dictionary: {
+			furigana: "およぐ",
+			romanji: "oyogu",
+		},
+	},
 ];

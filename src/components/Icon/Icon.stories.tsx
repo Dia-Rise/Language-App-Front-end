@@ -18,7 +18,9 @@ export default {
 const Template: StoryFn<typeof Icon> = (args: IconProps) => <Icon {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+	svg: IconSVG.Book
+};
 
 const AllIconsTemplate: StoryFn<typeof Icon> = (args: IconProps) => {
 	return (
@@ -30,3 +32,20 @@ const AllIconsTemplate: StoryFn<typeof Icon> = (args: IconProps) => {
 	);
 };
 export const AllIcons = AllIconsTemplate.bind({});
+
+const AllIconsSizesTemplate: StoryFn<typeof Icon> = (args: IconProps) => {
+	return (
+		<div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "16px" }}>
+			{(Object.keys(IconSize) as Array<keyof typeof IconSize>).slice(1).map((key) => (
+				<>
+				<span>{key}</span>
+				<Icon {...args} size={IconSize[key]} />
+				</>
+				
+			))}
+		</div>
+	);
+};
+export const AllSizes = AllIconsSizesTemplate.bind({
+	svg: IconSVG.Book
+});

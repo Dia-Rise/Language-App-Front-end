@@ -14,6 +14,14 @@ export function HomeScreen() {
 					subLabel={"辞書"}
 					color={MegaButtonColor.Orange}
 				/>
+
+				<MegaButton
+					href={RoutePaths.QUIZ}
+					icon={IconSVG.Search}
+					label={"Quiz"}
+					subLabel={"試験"}
+					color={MegaButtonColor.Pink}
+				/>
 			</div>
 		</div>
 	);

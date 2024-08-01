@@ -24,6 +24,7 @@ export type FormInputProps = {
 	type?: FormInputType;
 	disabled?: boolean;
 	readOnly?: boolean;
+	autoFocus?: boolean;
 	onChange: (newValue: string) => void;
 	className?: string;
 };
@@ -34,6 +35,7 @@ export function FormInput({
 	label,
 	disabled,
 	readOnly,
+	autoFocus,
 	state = FormInputState.default,
 	type = FormInputType.Text,
 	onChange,
@@ -59,7 +61,7 @@ export function FormInput({
 			<InputLabel className={`${baseClassName}__label`} value={label} htmlFor={id} />
 			<input
 				className={`${baseClassName}__input`}
-				{...{ id, type, value, disabled, readOnly }}
+				{...{ id, type, value, disabled, readOnly, autoFocus }}
 				onChange={({ target: { value } }: ChangeEvent<HTMLInputElement>) => onChange(value)}
 				onFocus={() => setIsFocused(true)}
 				onBlur={() => setIsFocused(false)}
