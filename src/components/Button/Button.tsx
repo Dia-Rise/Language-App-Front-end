@@ -1,5 +1,6 @@
 import { ReactNode, MouseEvent } from "react";
 import { Link, NavLink } from "react-router-dom";
+import classnames from "classnames";
 
 export enum ButtonVariant {
 	Button = "Button",
@@ -87,42 +88,42 @@ export function Button({
 	children,
 	className = "",
 }: ButtonProps) {
+	const baseClassname = "button";
+	const classNames = classnames(
+		baseClassname,
+		appearance,
+		color,
+		{
+			[size]: appearance != ButtonAppearance.Text,
+			[shape]: appearance != ButtonAppearance.Text,
+			[`${baseClassname}--active`]: active,
+			[`${baseClassname}--disabled`]: disabled,
+		},
+		className
+	);
+
 	switch (variant) {
 		case ButtonVariant.Button:
 			return (
-				<button
-					className={`button ${appearance} ${color} ${appearance != ButtonAppearance.Text ? `${size} ${shape}` : ""}  ${active ? "button--active" : ""} ${className}`}
-					{...{ disabled, onClick }}
-				>
+				<button className={classNames} {...{ disabled, onClick }}>
 					{children}
 				</button>
 			);
 		case ButtonVariant.ReactRouterLink:
 			return (
-				<Link
-					to={href}
-					className={`button ${appearance} ${color} ${appearance != ButtonAppearance.Text ? `${size} ${shape}` : ""} ${active ? "button--active" : ""} ${className}`}
-					{...{ disabled, onClick }}
-				>
+				<Link to={href} className={classNames} {...{ disabled, onClick }}>
 					{children}
 				</Link>
 			);
 		case ButtonVariant.ReactRouterNavLink:
 			return (
-				<NavLink
-					to={href}
-					className={`button ${appearance} ${color} ${appearance != ButtonAppearance.Text ? `${size} ${shape}` : ""} ${active ? "button--active" : ""} ${className}`}
-					{...{ disabled }}
-				>
+				<NavLink to={href} className={classNames} {...{ disabled }}>
 					{children}
 				</NavLink>
 			);
 		case ButtonVariant.Link:
 			return (
-				<a
-					className={`button ${appearance} ${color} ${appearance != ButtonAppearance.Text ? size : ""} ${active ? "button--active" : ""} ${className}`}
-					{...{ disabled, href }}
-				>
+				<a className={classNames} {...{ disabled, href }}>
 					{children}
 				</a>
 			);
