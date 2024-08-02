@@ -36,7 +36,7 @@ export function Switch({ value, onClick, falseIcon, trueIcon }: SwitchProps) {
 
 	return (
 		<button className={`switch ${value ? "switch--active" : ""}`} onClick={(e: MouseEvent) => handleClick(e)}>
-			<input type="checkbox" className="switch__input" checked={value} />
+			<input type="checkbox" className="switch__input" checked={value} readOnly />
 			<div className={`switch__dial`}></div>
 			{falseIcon && <Icon className="switch__icon switch__icon--false" svg={falseIcon} size={IconSize.XS} />}
 			{trueIcon && <Icon className="switch__icon switch__icon--true" svg={trueIcon} size={IconSize.XS} />}

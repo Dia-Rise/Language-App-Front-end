@@ -1,7 +1,7 @@
 import classnames from "classnames";
-import { QuizProvider, useQuiz } from "../../hooks/useQuiz";
-import { useEffect } from "react";
+import { useQuiz } from "../../hooks/useQuiz";
 import { shuffleArray } from "../../utilities";
+import { Button, ButtonAppearance, ButtonShape, ButtonSize, ButtonVariant } from "../../components";
 
 type QuizScreenQuestionProps = {};
 
@@ -11,7 +11,9 @@ export function QuizScreenQuestion({}: QuizScreenQuestionProps) {
 	const baseClassname = "quiz-screen-question";
 	const classNames = classnames(baseClassname);
 
-	const answersArray = [1, 2, 3, 4, 5];
+	function handleAnswerClick(answer: string | number | boolean) {
+		console.log("you've clicked an answer.");
+	}
 
 	return (
 		<div className={classNames}>
@@ -19,9 +21,18 @@ export function QuizScreenQuestion({}: QuizScreenQuestionProps) {
 				<>
 					<div className={`${baseClassname}__header`}></div>
 					<div className={`${baseClassname}__question-container`}>{questions[0].furigana}</div>
+					Place select the correct answers.
 					<div className={`${baseClassname}__answer-continer`}>
-						{shuffleArray(answersArray).map((current, index) => (
-							<>{current}</>
+						{shuffleArray(questions[0].possibleAnswers).map((current, index) => (
+							<Button
+								variant={ButtonVariant.Button}
+								appearance={ButtonAppearance.Oultine}
+								size={ButtonSize.XS}
+								shape={ButtonShape.Curved}
+								onClick={() => handleAnswerClick(current)}
+							>
+								{current}
+							</Button>
 						))}
 					</div>
 				</>

@@ -1,0 +1,28 @@
+.quiz-screen-question {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 24px;
+
+	min-height: 100vh;
+
+	&__question-container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		flex-grow: 1;
+	}
+
+	&__answer-continer {
+		display: flex;
+		gap: 16px;
+
+		padding: 72px;
+		padding-top: 0;
+
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+}

@@ -52,9 +52,9 @@ export function DictionaryScreen() {
 			<div className={`${baseClassName}__top-bar`}>
 				<h1 className={`${baseClassName}__header`}>Dictionary</h1>
 				<FormInput
-					id={""}
+					id={"searchInput"}
 					className={`${baseClassName}__search-input`}
-					label={"search for a word here"}
+					label={"Search for a word here"}
 					value={searchValue}
 					autoFocus
 					onChange={(newValue: string) => {

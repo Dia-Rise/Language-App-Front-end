@@ -52,12 +52,6 @@ export function CharacterGridTable({
 	function renderRows() {
 		return CharacterGridData.map((current, index) => (
 			<tr className="character-grid__row" key={index}>
-				<td>{renderCharacterFrame(current, "n")}</td>
-				<td>{renderCharacterFrame(current, "a")}</td>
-				<td>{renderCharacterFrame(current, "e")}</td>
-				<td>{renderCharacterFrame(current, "i")}</td>
-				<td>{renderCharacterFrame(current, "o")}</td>
-				<td>{renderCharacterFrame(current, "u")}</td>
 				<th
 					className={!current.rowLabel?.[pronunciation] ? "faded" : ""}
 					onMouseEnter={() => setHighlightedRow(current.rowLabel.default)}
@@ -65,31 +59,40 @@ export function CharacterGridTable({
 				>
 					{current.rowLabel?.[pronunciation] ?? current.rowLabel.default}
 				</th>
+				<td>{renderCharacterFrame(current, "a")}</td>
+				<td>{renderCharacterFrame(current, "e")}</td>
+				<td>{renderCharacterFrame(current, "i")}</td>
+				<td>{renderCharacterFrame(current, "o")}</td>
+				<td>{renderCharacterFrame(current, "u")}</td>
+				<td>{renderCharacterFrame(current, "n")}</td>
 			</tr>
 		));
 	}
 
 	return (
 		<table className="character-grid__table">
-			<tr className="character-grid__row">
-				<th onMouseEnter={() => setHighlightedColumn("n")} onMouseLeave={() => removeHighlight()}></th>
-				<th onMouseEnter={() => setHighlightedColumn("a")} onMouseLeave={() => removeHighlight()}>
-					A
-				</th>
-				<th onMouseEnter={() => setHighlightedColumn("e")} onMouseLeave={() => removeHighlight()}>
-					E
-				</th>
-				<th onMouseEnter={() => setHighlightedColumn("i")} onMouseLeave={() => removeHighlight()}>
-					I
-				</th>
-				<th onMouseEnter={() => setHighlightedColumn("o")} onMouseLeave={() => removeHighlight()}>
-					O
-				</th>
-				<th onMouseEnter={() => setHighlightedColumn("u")} onMouseLeave={() => removeHighlight()}>
-					U
-				</th>
-			</tr>
-			{renderRows()}
+			<thead>
+				<tr className="character-grid__row">
+					<th onMouseEnter={() => setHighlightedColumn("n")} onMouseLeave={() => removeHighlight()}></th>
+					<th onMouseEnter={() => setHighlightedColumn("a")} onMouseLeave={() => removeHighlight()}>
+						A
+					</th>
+					<th onMouseEnter={() => setHighlightedColumn("e")} onMouseLeave={() => removeHighlight()}>
+						E
+					</th>
+					<th onMouseEnter={() => setHighlightedColumn("i")} onMouseLeave={() => removeHighlight()}>
+						I
+					</th>
+					<th onMouseEnter={() => setHighlightedColumn("o")} onMouseLeave={() => removeHighlight()}>
+						O
+					</th>
+					<th onMouseEnter={() => setHighlightedColumn("u")} onMouseLeave={() => removeHighlight()}>
+						U
+					</th>
+					<th onMouseEnter={() => setHighlightedColumn("n")} onMouseLeave={() => removeHighlight()}></th>
+				</tr>
+			</thead>
+			<tbody>{renderRows()}</tbody>
 		</table>
 	);
 }
