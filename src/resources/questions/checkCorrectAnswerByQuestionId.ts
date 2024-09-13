@@ -6,7 +6,6 @@ import { correctAnswers } from "../../data/questions/correctAnswers";
 
 export function checkCorrectAnswerByQuestionId(answer: string | number | boolean, uuid: string): boolean {
 	// return api call;
-
 	const correctAnswersArray = correctAnswers.filter((current) => current.questionId === uuid);
 
 	return correctAnswersArray.some((current) => current.content === answer);

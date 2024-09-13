@@ -19,7 +19,7 @@ U_Verb.args = {
 		type: "verb",
 		verbType: "u",
 		dictionary: {
-			furigana: "はなす",
+			gana: "はなす",
 			romanji: "hanasu",
 		},
 	},
@@ -34,7 +34,7 @@ I_Adjective.args = {
 		type: "adjective",
 		adjectiveType: "i",
 		dictionary: {
-			furigana: "おもしろい",
+			gana: "おもしろい",
 			romanji: "omoshiroi",
 		},
 	},
@@ -49,7 +49,7 @@ NA_Adjective.args = {
 		type: "adjective",
 		adjectiveType: "na",
 		dictionary: {
-			furigana: "しずか",
+			gana: "しずか",
 			romanji: "shizuka",
 		},
 	},

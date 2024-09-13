@@ -3,7 +3,7 @@ type WordTypeCommonTypes = {
 	meaning: string;
 	dictionary: {
 		// kanji: string;
-		furigana: string;
+		gana: string;
 		romanji: string;
 		example?: string;
 	};

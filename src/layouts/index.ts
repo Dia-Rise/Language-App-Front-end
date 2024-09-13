@@ -3,3 +3,4 @@ export * from "./MegaButton/MegaButton";
 export * from "./SiteHeader/SiteHeader";
 export * from "./WordFrame/WordFrame";
 export * from "./WordModal/WordModal";
+export * from "./Quiz";

@@ -1,7 +1,7 @@
 // import { Hira } from "../enums";
-// import { convertFuriganaToRomanji } from "./convertFuriganaToRomanji";
+// import { convertGanaToRomanji } from "./convertGanaToRomanji";
 
-export function convertFuriganaToCharacterEquivalent(hiragana: string, convertTo: "a" | "e" | "i" | "o" | "u") {
+export function convertGanaToCharacterEquivalent(hiragana: string, convertTo: "a" | "e" | "i" | "o" | "u") {
 	const groups = [
 		//Hira
 		{ a: "あ", e: "え", i: "い", o: "お", u: "う" },

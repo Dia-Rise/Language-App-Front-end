@@ -1,6 +1,6 @@
 import { ConjugationType } from "../enums";
 import { ConjugationExceptionType, conjugationGroupType, conjugationResultType, WordType } from "../types";
-import { convertFuriganaToRomanji, convertFuriganaToCharacterEquivalent } from "../utilities";
+import { convertGanaToRomanji, convertGanaToCharacterEquivalent } from "../utilities";
 
 export class Verbs {
 	private _dictionaryWord: WordType["dictionary"];
@@ -45,7 +45,7 @@ export class Verbs {
 
 			if (exception) {
 				return {
-					furigana: exception.furigana,
+					gana: exception.gana,
 					romanji: exception.romanji,
 					convertion: "exception",
 				};
@@ -63,18 +63,18 @@ export class Verbs {
 		const { dictionary } = dictionaryForm;
 
 		let conjugationGroup: string | null = null;
-		let teFurigana: string | null = null;
+		let teGana: string | null = null;
 		let teRomanji: string | null = null;
 
 		if (dictionaryForm.verbType === "irregular") {
 			conjugationGroup = `Irregular`;
-			switch (dictionary.furigana) {
+			switch (dictionary.gana) {
 				case "する":
-					teFurigana = "して";
+					teGana = "して";
 					teRomanji = "shite";
 					break;
 				case "くる":
-					teFurigana = "きて";
+					teGana = "きて";
 					teRomanji = "kite";
 					break;
 				default:
@@ -83,10 +83,10 @@ export class Verbs {
 					);
 			}
 		} else {
-			const rootSuffix = dictionary.furigana.slice(-1);
-			const rootWord = dictionary.furigana.substring(0, dictionary.furigana.length - 1);
+			const rootSuffix = dictionary.gana.slice(-1);
+			const rootWord = dictionary.gana.substring(0, dictionary.gana.length - 1);
 
-			const romanjiSuffix = convertFuriganaToRomanji(rootSuffix);
+			const romanjiSuffix = convertGanaToRomanji(rootSuffix);
 			const romanjiRoot = dictionary.romanji.slice(0, dictionary.romanji.lastIndexOf(romanjiSuffix));
 
 			let teSuffix: { jp: string; en: string } | null = null;
@@ -120,12 +120,12 @@ export class Verbs {
 					break;
 			}
 
-			teFurigana = rootWord + teSuffix.jp;
+			teGana = rootWord + teSuffix.jp;
 			teRomanji = romanjiRoot + teSuffix.en;
 		}
 
 		return {
-			furigana: teFurigana,
+			gana: teGana,
 			romanji: teRomanji,
 			convertion: conjugationGroup,
 		};
@@ -149,7 +149,7 @@ export class Verbs {
 
 		if (verbType === "irregular") {
 			conjugationGroup = `irregular`;
-			switch (dictionary.furigana) {
+			switch (dictionary.gana) {
 				case "する":
 					root = { jp: "し", en: "shi" };
 					break;
@@ -162,9 +162,9 @@ export class Verbs {
 					);
 			}
 		} else if (verbType === "ru") {
-			const rootSuffix = dictionary.furigana.slice(-1);
-			const rootWord = dictionary.furigana.substring(0, dictionary.furigana.length - 1);
-			const romanjiSuffix = convertFuriganaToRomanji(rootSuffix);
+			const rootSuffix = dictionary.gana.slice(-1);
+			const rootWord = dictionary.gana.substring(0, dictionary.gana.length - 1);
+			const romanjiSuffix = convertGanaToRomanji(rootSuffix);
 			const romanjiRoot = dictionary.romanji.slice(0, dictionary.romanji.lastIndexOf(romanjiSuffix));
 
 			conjugationGroup = `る`;
@@ -172,12 +172,12 @@ export class Verbs {
 		} else if (verbType === "u") {
 			conjugationGroup = `う`;
 
-			const originalSuffix = dictionary.furigana.slice(-1);
-			const newSuffix = convertFuriganaToCharacterEquivalent(originalSuffix, "i");
-			const originalRomanjiSuffix = convertFuriganaToRomanji(originalSuffix);
-			const newRomanjiSuffix = convertFuriganaToRomanji(newSuffix);
+			const originalSuffix = dictionary.gana.slice(-1);
+			const newSuffix = convertGanaToCharacterEquivalent(originalSuffix, "i");
+			const originalRomanjiSuffix = convertGanaToRomanji(originalSuffix);
+			const newRomanjiSuffix = convertGanaToRomanji(newSuffix);
 
-			const rootWord = dictionary.furigana.substring(0, dictionary.furigana.length - 1) + newSuffix;
+			const rootWord = dictionary.gana.substring(0, dictionary.gana.length - 1) + newSuffix;
 			const romanjiRoot =
 				dictionary.romanji.slice(0, dictionary.romanji.lastIndexOf(originalRomanjiSuffix)) + newRomanjiSuffix;
 
@@ -190,22 +190,22 @@ export class Verbs {
 		if (root && conjugationGroup) {
 			return {
 				affirmative: this.decipherException(exceptions, ConjugationType.MasuFormAffirmative) ?? {
-					furigana: root.jp + affirmativeSuffix.jp,
+					gana: root.jp + affirmativeSuffix.jp,
 					romanji: root.en + affirmativeSuffix.en,
 					convertion: conjugationGroup,
 				},
 				negative: this.decipherException(exceptions, ConjugationType.MasuFormNegative) ?? {
-					furigana: root.jp + negativeSuffix.jp,
+					gana: root.jp + negativeSuffix.jp,
 					romanji: root.en + negativeSuffix.en,
 					convertion: conjugationGroup,
 				},
 				pastAffirmative: this.decipherException(exceptions, ConjugationType.MasuFormPastAffirmative) ?? {
-					furigana: root.jp + pastAffirmativeSuffix.jp,
+					gana: root.jp + pastAffirmativeSuffix.jp,
 					romanji: root.en + pastAffirmativeSuffix.en,
 					convertion: conjugationGroup,
 				},
 				pastNegative: this.decipherException(exceptions, ConjugationType.MasuFormPastNegative) ?? {
-					furigana: root.jp + pastNegativeSuffix.jp,
+					gana: root.jp + pastNegativeSuffix.jp,
 					romanji: root.en + pastNegativeSuffix.en,
 					convertion: conjugationGroup,
 				},
@@ -228,11 +228,11 @@ export class Verbs {
 		//Present Negative
 		function convertToPresentNegative() {
 			if (verbType === "irregular") {
-				switch (dictionary.furigana) {
+				switch (dictionary.gana) {
 					case "する":
-						return { furigana: "しない", romanji: "shinai" };
+						return { gana: "しない", romanji: "shinai" };
 					case "くる":
-						return { furigana: "こない", romanji: "konai" };
+						return { gana: "こない", romanji: "konai" };
 					default:
 						throw Error(
 							`Verb - convertToMasuForm() - Word is incorrectly set as an 'irregular' verb.'${dictionary.romanji}'`
@@ -240,34 +240,34 @@ export class Verbs {
 				}
 			} else if (verbType === "ru") {
 				//jp
-				const rootSuffix = dictionary.furigana.slice(-1);
-				const rootWord = dictionary.furigana.substring(0, dictionary.furigana.length - 1) + "ない";
+				const rootSuffix = dictionary.gana.slice(-1);
+				const rootWord = dictionary.gana.substring(0, dictionary.gana.length - 1) + "ない";
 
 				//en
-				const romanjiSuffix = convertFuriganaToRomanji(rootSuffix);
+				const romanjiSuffix = convertGanaToRomanji(rootSuffix);
 				const romanjiRoot = dictionary.romanji.slice(0, dictionary.romanji.lastIndexOf(romanjiSuffix)) + "nai";
 
 				return {
-					furigana: rootWord,
+					gana: rootWord,
 					romanji: romanjiRoot,
 				};
 			} else {
 				//jp
-				const originalSuffix = dictionary.furigana.slice(-1);
+				const originalSuffix = dictionary.gana.slice(-1);
 				const newSuffix =
-					originalSuffix === "う" ? "わ" : convertFuriganaToCharacterEquivalent(originalSuffix, "a");
-				const rootWord = dictionary.furigana.substring(0, dictionary.furigana.length - 1) + newSuffix + "ない";
+					originalSuffix === "う" ? "わ" : convertGanaToCharacterEquivalent(originalSuffix, "a");
+				const rootWord = dictionary.gana.substring(0, dictionary.gana.length - 1) + newSuffix + "ない";
 
 				//en
-				const originalRomanjiSuffix = convertFuriganaToRomanji(originalSuffix);
-				const newRomanjiSuffix = convertFuriganaToRomanji(newSuffix);
+				const originalRomanjiSuffix = convertGanaToRomanji(originalSuffix);
+				const newRomanjiSuffix = convertGanaToRomanji(newSuffix);
 				const romanjiRoot =
 					dictionary.romanji.slice(0, dictionary.romanji.lastIndexOf(originalRomanjiSuffix)) +
 					newRomanjiSuffix +
 					"nai";
 
 				return {
-					furigana: rootWord,
+					gana: rootWord,
 					romanji: romanjiRoot,
 				};
 			}
@@ -277,11 +277,11 @@ export class Verbs {
 		const teForm = this.convertToTeForm(dictionaryForm);
 		function convertToPastAffirmative() {
 			if (verbType === "irregular") {
-				switch (dictionary.furigana) {
+				switch (dictionary.gana) {
 					case "する":
-						return { furigana: "した", romanji: "shita" };
+						return { gana: "した", romanji: "shita" };
 					case "くる":
-						return { furigana: "きた", romanji: "kita" };
+						return { gana: "きた", romanji: "kita" };
 					default:
 						throw Error(
 							`Verb - convertToMasuForm() - Word is incorrectly set as an 'irregular' verb.'${dictionary.romanji}'`
@@ -289,18 +289,18 @@ export class Verbs {
 				}
 			} else {
 				//jp
-				const rootSuffix = teForm.furigana.slice(-1);
+				const rootSuffix = teForm.gana.slice(-1);
 				const newSuffix = rootSuffix === "で" ? "だ" : "た";
-				const rootWord = teForm.furigana.substring(0, teForm.furigana.length - 1) + newSuffix;
+				const rootWord = teForm.gana.substring(0, teForm.gana.length - 1) + newSuffix;
 
 				//en
-				const romanjiSuffix = convertFuriganaToRomanji(rootSuffix);
-				const newRomanjiSuffix = convertFuriganaToRomanji(newSuffix);
+				const romanjiSuffix = convertGanaToRomanji(rootSuffix);
+				const newRomanjiSuffix = convertGanaToRomanji(newSuffix);
 				const romanjiRoot =
 					teForm.romanji.slice(0, teForm.romanji.lastIndexOf(romanjiSuffix)) + newRomanjiSuffix;
 
 				return {
-					furigana: rootWord,
+					gana: rootWord,
 					romanji: romanjiRoot,
 				};
 			}
@@ -309,11 +309,11 @@ export class Verbs {
 		//Past Negative
 		function convertToPastNegative() {
 			if (verbType === "irregular") {
-				switch (dictionary.furigana) {
+				switch (dictionary.gana) {
 					case "する":
-						return { furigana: "しなかった", romanji: "shinakatta" };
+						return { gana: "しなかった", romanji: "shinakatta" };
 					case "くる":
-						return { furigana: "こなかった", romanji: "konakatta" };
+						return { gana: "こなかった", romanji: "konakatta" };
 					default:
 						throw Error(
 							`Verb - convertToMasuForm() - Word is incorrectly set as an 'irregular' verb.'${dictionary.romanji}'`
@@ -321,36 +321,36 @@ export class Verbs {
 				}
 			} else if (verbType === "ru") {
 				//jp
-				const rootSuffix = dictionary.furigana.slice(-1);
-				const rootWord = dictionary.furigana.substring(0, dictionary.furigana.length - 1) + "なかった";
+				const rootSuffix = dictionary.gana.slice(-1);
+				const rootWord = dictionary.gana.substring(0, dictionary.gana.length - 1) + "なかった";
 
 				//en
-				const romanjiSuffix = convertFuriganaToRomanji(rootSuffix);
+				const romanjiSuffix = convertGanaToRomanji(rootSuffix);
 				const romanjiRoot =
 					dictionary.romanji.slice(0, dictionary.romanji.lastIndexOf(romanjiSuffix)) + "nakatta";
 
 				return {
-					furigana: rootWord,
+					gana: rootWord,
 					romanji: romanjiRoot,
 				};
 			} else {
 				//jp
-				const originalSuffix = dictionary.furigana.slice(-1);
+				const originalSuffix = dictionary.gana.slice(-1);
 				const newSuffix =
-					originalSuffix === "う" ? "わ" : convertFuriganaToCharacterEquivalent(originalSuffix, "a");
+					originalSuffix === "う" ? "わ" : convertGanaToCharacterEquivalent(originalSuffix, "a");
 				const rootWord =
-					dictionary.furigana.substring(0, dictionary.furigana.length - 1) + newSuffix + "なかった";
+					dictionary.gana.substring(0, dictionary.gana.length - 1) + newSuffix + "なかった";
 
 				//en
-				const originalRomanjiSuffix = convertFuriganaToRomanji(originalSuffix);
-				const newRomanjiSuffix = convertFuriganaToRomanji(newSuffix);
+				const originalRomanjiSuffix = convertGanaToRomanji(originalSuffix);
+				const newRomanjiSuffix = convertGanaToRomanji(newSuffix);
 				const romanjiRoot =
 					dictionary.romanji.slice(0, dictionary.romanji.lastIndexOf(originalRomanjiSuffix)) +
 					newRomanjiSuffix +
 					"nakatta";
 
 				return {
-					furigana: rootWord,
+					gana: rootWord,
 					romanji: romanjiRoot,
 				};
 			}
@@ -358,7 +358,7 @@ export class Verbs {
 
 		return {
 			affirmative: this.decipherException(exceptions, ConjugationType.ShortFormAffirmative) ?? {
-				furigana: dictionary.furigana,
+				gana: dictionary.gana,
 				romanji: dictionary.romanji,
 			},
 			negative:

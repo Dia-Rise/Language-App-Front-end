@@ -7,7 +7,7 @@ export const verbs: WordType[] = [
 		type: "verb",
 		verbType: "u",
 		dictionary: {
-			furigana: "はなす",
+			gana: "はなす",
 			romanji: "hanasu",
 		},
 	},
@@ -17,7 +17,7 @@ export const verbs: WordType[] = [
 		type: "verb",
 		verbType: "irregular",
 		dictionary: {
-			furigana: "する",
+			gana: "する",
 			romanji: "suru",
 		},
 	},
@@ -27,7 +27,7 @@ export const verbs: WordType[] = [
 		type: "verb",
 		verbType: "irregular",
 		dictionary: {
-			furigana: "くる",
+			gana: "くる",
 			romanji: "kuru",
 		},
 	},
@@ -37,7 +37,7 @@ export const verbs: WordType[] = [
 		verbType: "ru",
 		meaning: "To eat",
 		dictionary: {
-			furigana: "たべる",
+			gana: "たべる",
 			romanji: "taberu",
 		},
 	},
@@ -47,7 +47,7 @@ export const verbs: WordType[] = [
 		verbType: "u",
 		meaning: "To buy",
 		dictionary: {
-			furigana: "かう",
+			gana: "かう",
 			romanji: "kau",
 		},
 	},
@@ -57,7 +57,7 @@ export const verbs: WordType[] = [
 		verbType: "u",
 		meaning: "To wait",
 		dictionary: {
-			furigana: "まつ",
+			gana: "まつ",
 			romanji: "matsu",
 		},
 	},
@@ -67,7 +67,7 @@ export const verbs: WordType[] = [
 		verbType: "u",
 		meaning: "To take",
 		dictionary: {
-			furigana: "とる",
+			gana: "とる",
 			romanji: "toru",
 		},
 	},
@@ -77,7 +77,7 @@ export const verbs: WordType[] = [
 		verbType: "u",
 		meaning: "To drink",
 		dictionary: {
-			furigana: "のむ",
+			gana: "のむ",
 			romanji: "nomu",
 		},
 	},
@@ -87,7 +87,7 @@ export const verbs: WordType[] = [
 		verbType: "u",
 		meaning: "To die",
 		dictionary: {
-			furigana: "しぬ",
+			gana: "しぬ",
 			romanji: "shinu",
 		},
 	},
@@ -97,7 +97,7 @@ export const verbs: WordType[] = [
 		verbType: "u",
 		meaning: "To play",
 		dictionary: {
-			furigana: "あそぶ",
+			gana: "あそぶ",
 			romanji: "asobu",
 		},
 	},
@@ -107,7 +107,7 @@ export const verbs: WordType[] = [
 		verbType: "u",
 		meaning: "To write",
 		dictionary: {
-			furigana: "かく",
+			gana: "かく",
 			romanji: "kaku",
 		},
 	},
@@ -117,7 +117,7 @@ export const verbs: WordType[] = [
 		verbType: "u",
 		meaning: "To swim",
 		dictionary: {
-			furigana: "およぐ",
+			gana: "およぐ",
 			romanji: "oyogu",
 		},
 	},

@@ -35,6 +35,7 @@ export enum IconSize {
 	LG = "icon--size-lg",
 	XL = "icon--size-xl",
 	XXL = "icon--size-xxl",
+	XXXL = "icon--size-xxxl",
 }
 
 export type IconProps = {

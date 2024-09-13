@@ -44,7 +44,7 @@ export class Adjectives {
 
 			if (exception) {
 				return {
-					furigana: exception.furigana,
+					gana: exception.gana,
 					romanji: exception.romanji,
 					convertion: "exception",
 				};
@@ -63,12 +63,12 @@ export class Adjectives {
 
 		if (dictionaryForm.adjectiveType === "i") {
 			// い Adjectives
-			const jpRoot = dictionary.furigana.substring(0, dictionary.furigana.lastIndexOf("い"));
+			const jpRoot = dictionary.gana.substring(0, dictionary.gana.lastIndexOf("い"));
 			const enRoot = dictionary.romanji.substring(0, dictionary.romanji.lastIndexOf("i"));
 
 			return (
 				this.decipherException(exceptions, ConjugationType.TeForm) ?? {
-					furigana: jpRoot + "くて",
+					gana: jpRoot + "くて",
 					romanji: enRoot + "kute",
 					convertion: `い → くて`,
 				}
@@ -77,7 +77,7 @@ export class Adjectives {
 			// な Adjectives
 			return (
 				this.decipherException(exceptions, ConjugationType.TeForm) ?? {
-					furigana: dictionary.furigana + "で",
+					gana: dictionary.gana + "で",
 					romanji: dictionary.romanji + "de",
 					convertion: `な → で`,
 				}
@@ -95,24 +95,24 @@ export class Adjectives {
 
 		if (dictionaryForm.adjectiveType === "i") {
 			// い Adjectives
-			const jpRoot = dictionary.furigana.substring(0, dictionary.furigana.lastIndexOf("い"));
+			const jpRoot = dictionary.gana.substring(0, dictionary.gana.lastIndexOf("い"));
 			const enRoot = dictionary.romanji.substring(0, dictionary.romanji.lastIndexOf("i"));
 
 			return {
 				affirmative: this.decipherException(exceptions, ConjugationType.AdjAffirmative) ?? {
-					furigana: dictionary.furigana + " です",
+					gana: dictionary.gana + " です",
 					romanji: dictionary.romanji + " desu",
 				},
 				negative: this.decipherException(exceptions, ConjugationType.AdjNegative) ?? {
-					furigana: jpRoot + "くない です",
+					gana: jpRoot + "くない です",
 					romanji: enRoot + "kunai desu",
 				},
 				pastAffirmative: this.decipherException(exceptions, ConjugationType.AdjPastAffirmative) ?? {
-					furigana: jpRoot + "かった です",
+					gana: jpRoot + "かった です",
 					romanji: enRoot + "katta desu",
 				},
 				pastNegative: this.decipherException(exceptions, ConjugationType.AdjPastNegative) ?? {
-					furigana: jpRoot + "くなかった です",
+					gana: jpRoot + "くなかった です",
 					romanji: enRoot + "kunakatta desu",
 				},
 			};
@@ -120,19 +120,19 @@ export class Adjectives {
 			// な Adjectives
 			return {
 				affirmative: this.decipherException(exceptions, ConjugationType.AdjAffirmative) ?? {
-					furigana: dictionary.furigana + " です",
+					gana: dictionary.gana + " です",
 					romanji: dictionary.romanji + " desu",
 				},
 				negative: this.decipherException(exceptions, ConjugationType.AdjNegative) ?? {
-					furigana: dictionary.furigana + "じゃない です",
+					gana: dictionary.gana + "じゃない です",
 					romanji: dictionary.romanji + "jyanai desu",
 				},
 				pastAffirmative: this.decipherException(exceptions, ConjugationType.AdjPastAffirmative) ?? {
-					furigana: dictionary.furigana + " でした",
+					gana: dictionary.gana + " でした",
 					romanji: dictionary.romanji + " deshita",
 				},
 				pastNegative: this.decipherException(exceptions, ConjugationType.AdjPastNegative) ?? {
-					furigana: dictionary.furigana + "じゃなかった です",
+					gana: dictionary.gana + "じゃなかった です",
 					romanji: dictionary.romanji + "jyanakatta desu",
 				},
 			};
@@ -149,24 +149,24 @@ export class Adjectives {
 
 		if (dictionaryForm.adjectiveType === "i") {
 			// い Adjectives
-			const jpRoot = dictionary.furigana.substring(0, dictionary.furigana.lastIndexOf("い"));
+			const jpRoot = dictionary.gana.substring(0, dictionary.gana.lastIndexOf("い"));
 			const enRoot = dictionary.romanji.substring(0, dictionary.romanji.lastIndexOf("i"));
 
 			return {
 				affirmative: this.decipherException(exceptions, ConjugationType.ShortFormAffirmative) ?? {
-					furigana: dictionary.furigana,
+					gana: dictionary.gana,
 					romanji: dictionary.romanji,
 				},
 				negative: this.decipherException(exceptions, ConjugationType.ShortFormNegative) ?? {
-					furigana: jpRoot + "くない",
+					gana: jpRoot + "くない",
 					romanji: enRoot + "kunai",
 				},
 				pastAffirmative: this.decipherException(exceptions, ConjugationType.ShortFormPastAffirmative) ?? {
-					furigana: jpRoot + "かった",
+					gana: jpRoot + "かった",
 					romanji: enRoot + "katta",
 				},
 				pastNegative: this.decipherException(exceptions, ConjugationType.ShortFormPastNegative) ?? {
-					furigana: jpRoot + "くなかった",
+					gana: jpRoot + "くなかった",
 					romanji: enRoot + "kunakatta",
 				},
 			};
@@ -174,19 +174,19 @@ export class Adjectives {
 			// な Adjectives
 			return {
 				affirmative: this.decipherException(exceptions, ConjugationType.ShortFormAffirmative) ?? {
-					furigana: dictionary.furigana + "た",
+					gana: dictionary.gana + "た",
 					romanji: dictionary.romanji + "ta",
 				},
 				negative: this.decipherException(exceptions, ConjugationType.ShortFormNegative) ?? {
-					furigana: dictionary.furigana + "じゃない",
+					gana: dictionary.gana + "じゃない",
 					romanji: dictionary.romanji + "jyanai",
 				},
 				pastAffirmative: this.decipherException(exceptions, ConjugationType.ShortFormPastAffirmative) ?? {
-					furigana: dictionary.furigana + "だった",
+					gana: dictionary.gana + "だった",
 					romanji: dictionary.romanji + " datta",
 				},
 				pastNegative: this.decipherException(exceptions, ConjugationType.ShortFormPastNegative) ?? {
-					furigana: dictionary.furigana + "じゃなかった",
+					gana: dictionary.gana + "じゃなかった",
 					romanji: dictionary.romanji + "jyanakatta",
 				},
 			};

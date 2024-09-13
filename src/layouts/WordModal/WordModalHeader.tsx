@@ -14,7 +14,7 @@ export function WordModalHeader({ word }: WordModalHeaderProps) {
 			<div className={`${baseClassName}__header`}>
 				<span className={`${baseClassName}__meaning`}>{word.meaning}</span>
 				<div className={`${baseClassName}__sub-header`}>
-					<span className={`${baseClassName}__furigana`}>{word.dictionary.furigana}</span>
+					<span className={`${baseClassName}__gana`}>{word.dictionary.gana}</span>
 					<span className={`${baseClassName}__romanji`}>({word.dictionary.romanji})</span>
 				</div>
 			</div>

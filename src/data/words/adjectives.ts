@@ -7,7 +7,7 @@ export const adjectives: WordType[] = [
 		type: "adjective",
 		adjectiveType: "i",
 		dictionary: {
-			furigana: "おもしろい",
+			gana: "おもしろい",
 			romanji: "omoshiroi",
 		},
 	},
@@ -17,7 +17,7 @@ export const adjectives: WordType[] = [
 		type: "adjective",
 		adjectiveType: "na",
 		dictionary: {
-			furigana: "しずか",
+			gana: "しずか",
 			romanji: "shizuka",
 		},
 	},

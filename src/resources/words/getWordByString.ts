@@ -12,7 +12,7 @@ export type getWordByStringResponse = WordType[];
 export function getWordByString(value: string): getWordByStringResponse {
 	return words.filter(
 		(current) =>
-			current.dictionary.furigana.toLowerCase().includes(value.toLowerCase()) ||
+			current.dictionary.gana.toLowerCase().includes(value.toLowerCase()) ||
 			current.dictionary.romanji.toLowerCase().includes(value.toLowerCase()) ||
 			current.meaning.toLowerCase().includes(value.toLowerCase())
 	);

@@ -1,5 +1,5 @@
 export type conjugationResultType = {
-	furigana: string;
+	gana: string;
 	romanji: string;
 	convertion?: string;
 };

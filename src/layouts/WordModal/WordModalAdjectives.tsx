@@ -30,8 +30,8 @@ export function WordModalAdjectives({ word }: WordModalVerbProps) {
 					)}
 				</div>
 				<div className={`${baseClassName}__sub-header`}>
-					<span className={`${baseClassName}__furigana`}>
-						{conjugation[key as keyof conjugationGroupType].furigana}
+					<span className={`${baseClassName}__gana`}>
+						{conjugation[key as keyof conjugationGroupType].gana}
 					</span>
 					<span className={`${baseClassName}__romanji`}>
 						({conjugation[key as keyof conjugationGroupType].romanji})
@@ -74,7 +74,7 @@ export function WordModalAdjectives({ word }: WordModalVerbProps) {
 										)}
 									</div>
 									<div className={`${baseClassName}__sub-header`}>
-										<span className={`${baseClassName}__furigana`}>{word.teForm.furigana}</span>
+										<span className={`${baseClassName}__gana`}>{word.teForm.gana}</span>
 										<span className={`${baseClassName}__romanji`}>({word.teForm.romanji})</span>
 									</div>
 								</div>

@@ -7,7 +7,7 @@ export const questions: Omit<QuizQuestionType, "possibleAnswers">[] = [
 		questionType: QuizQuestionTypes.Basic,
 		categories: [],
 		english: "",
-		furigana: "1",
+		gana: "1",
 		romanji: "test question in EN",
 	},
 	{
@@ -15,7 +15,7 @@ export const questions: Omit<QuizQuestionType, "possibleAnswers">[] = [
 		questionType: QuizQuestionTypes.Basic,
 		categories: [],
 		english: "",
-		furigana: "2",
+		gana: "2",
 		romanji: "test question in EN",
 	},
 	{
@@ -23,7 +23,7 @@ export const questions: Omit<QuizQuestionType, "possibleAnswers">[] = [
 		questionType: QuizQuestionTypes.Basic,
 		categories: [],
 		english: "",
-		furigana: "3",
+		gana: "3",
 		romanji: "test question in EN",
 	},
 	{
@@ -31,7 +31,7 @@ export const questions: Omit<QuizQuestionType, "possibleAnswers">[] = [
 		questionType: QuizQuestionTypes.Basic,
 		categories: [],
 		english: "",
-		furigana: "4",
+		gana: "4",
 		romanji: "test question in EN",
 	},
 	{
@@ -39,7 +39,7 @@ export const questions: Omit<QuizQuestionType, "possibleAnswers">[] = [
 		questionType: QuizQuestionTypes.Basic,
 		categories: [],
 		english: "",
-		furigana: "5",
+		gana: "5",
 		romanji: "test question in EN",
 	},
 	{
@@ -47,7 +47,7 @@ export const questions: Omit<QuizQuestionType, "possibleAnswers">[] = [
 		questionType: QuizQuestionTypes.Basic,
 		categories: [],
 		english: "",
-		furigana: "6",
+		gana: "6",
 		romanji: "test question in EN",
 	},
 	{
@@ -55,7 +55,7 @@ export const questions: Omit<QuizQuestionType, "possibleAnswers">[] = [
 		questionType: QuizQuestionTypes.Basic,
 		categories: [],
 		english: "",
-		furigana: "7",
+		gana: "7",
 		romanji: "test question in EN",
 	},
 	{
@@ -63,7 +63,7 @@ export const questions: Omit<QuizQuestionType, "possibleAnswers">[] = [
 		questionType: QuizQuestionTypes.Basic,
 		categories: [],
 		english: "",
-		furigana: "8",
+		gana: "8",
 		romanji: "test question in EN",
 	},
 	{
@@ -71,7 +71,7 @@ export const questions: Omit<QuizQuestionType, "possibleAnswers">[] = [
 		questionType: QuizQuestionTypes.Basic,
 		categories: [],
 		english: "",
-		furigana: "9",
+		gana: "9",
 		romanji: "test question in EN",
 	},
 	{
@@ -79,7 +79,7 @@ export const questions: Omit<QuizQuestionType, "possibleAnswers">[] = [
 		questionType: QuizQuestionTypes.Basic,
 		categories: [],
 		english: "",
-		furigana: "10",
+		gana: "10",
 		romanji: "test question in EN",
 	},
 ];

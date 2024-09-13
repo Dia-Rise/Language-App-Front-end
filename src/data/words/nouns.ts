@@ -6,7 +6,7 @@ export const nouns: WordType[] = [
 		meaning: "College, University",
 		type: "noun",
 		dictionary: {
-			furigana: "だいがく",
+			gana: "だいがく",
 			romanji: "daigaku",
 		},
 	},
@@ -15,7 +15,7 @@ export const nouns: WordType[] = [
 		meaning: "High School",
 		type: "noun",
 		dictionary: {
-			furigana: "こうこう",
+			gana: "こうこう",
 			romanji: "kookoo",
 		},
 	},
@@ -24,7 +24,7 @@ export const nouns: WordType[] = [
 		meaning: "Student",
 		type: "noun",
 		dictionary: {
-			furigana: "がくせい",
+			gana: "がくせい",
 			romanji: "gakusee",
 		},
 	},
@@ -33,7 +33,7 @@ export const nouns: WordType[] = [
 		meaning: "College student",
 		type: "noun",
 		dictionary: {
-			furigana: "だいがくせい",
+			gana: "だいがくせい",
 			romanji: "daigakusee",
 		},
 	},
@@ -42,7 +42,7 @@ export const nouns: WordType[] = [
 		meaning: "International student",
 		type: "noun",
 		dictionary: {
-			furigana: "りゅうがくせい",
+			gana: "りゅうがくせい",
 			romanji: "ryuugakusee",
 		},
 	},
@@ -51,7 +51,7 @@ export const nouns: WordType[] = [
 		meaning: "Teacher, Professor, Mentor",
 		type: "noun",
 		dictionary: {
-			furigana: "せんせい",
+			gana: "せんせい",
 			romanji: "sensee",
 		},
 	},
@@ -60,7 +60,7 @@ export const nouns: WordType[] = [
 		meaning: "... year student",
 		type: "noun",
 		dictionary: {
-			furigana: "~ねんせい",
+			gana: "~ねんせい",
 			romanji: "~nensee",
 		},
 	},
@@ -69,7 +69,7 @@ export const nouns: WordType[] = [
 		meaning: "Major",
 		type: "noun",
 		dictionary: {
-			furigana: "せんこう",
+			gana: "せんこう",
 			romanji: "senkoo",
 		},
 	},
@@ -78,7 +78,7 @@ export const nouns: WordType[] = [
 		meaning: "I (Myself)",
 		type: "noun",
 		dictionary: {
-			furigana: "わたし",
+			gana: "わたし",
 			romanji: "watashi",
 		},
 	},

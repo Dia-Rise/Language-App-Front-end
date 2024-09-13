@@ -37,7 +37,7 @@ export function DictionaryScreenDisclaimer({ className }: DictionaryScreenDiscla
 			className={classNames}
 			variant={ButtonVariant.Button}
 			color={ButtonColors.Warning}
-			shape={ButtonShape.Rounded}
+			shape={ButtonShape.Circular}
 			size={ButtonSize.SM}
 			onClick={() => setIsVisable(true)}
 		>

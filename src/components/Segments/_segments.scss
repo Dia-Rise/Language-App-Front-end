@@ -1,0 +1,23 @@
+.segments {
+	width: 100%;
+	display: flex;
+	gap: 8px;
+
+	&__segment {
+		flex: 1;
+		width: 100%;
+		min-width: 10px;
+		height: 8px;
+
+		border-radius: 999px;
+		background-color: var(--clr-base-200);
+
+		&--completed {
+			background-color: var(--clr-primary);
+		}
+
+		&--pending {
+			background-color: var(--clr-primary-300);
+		}
+	}
+}

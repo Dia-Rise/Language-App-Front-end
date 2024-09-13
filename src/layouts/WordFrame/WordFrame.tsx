@@ -59,7 +59,7 @@ export function WordFrame({ word, onInspect, className = "" }: WordFrameProps) {
 
 				<div className={`${baseClassName}__sub-content`}>
 					<div className={`${baseClassName}__examples`}>
-						<span className={`${baseClassName}__furigana`}>{word.dictionary.furigana}</span>
+						<span className={`${baseClassName}__gana`}>{word.dictionary.gana}</span>
 						<span className={`${baseClassName}__romanji`}>{word.dictionary.romanji}</span>
 					</div>
 

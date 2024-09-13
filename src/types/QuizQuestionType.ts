@@ -10,7 +10,7 @@ export type QuizQuestionType = {
 	questionType: QuizQuestionTypes;
 
 	// kanji: string | null;
-	furigana: string | null;
+	gana: string | null;
 	romanji: string | null;
 	english: string | null;
 

@@ -30,7 +30,7 @@ Default.args = {
 		verbType: "u",
 		dictionary: {
 			// kanji: "lorem ipsum",
-			furigana: "はなす",
+			gana: "はなす",
 			romanji: "hanasu",
 		},
 	},

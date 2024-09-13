@@ -23,8 +23,8 @@ export enum ButtonSize {
 }
 
 export enum ButtonShape {
-	Rounded = "button--rounded",
-	Curved = "button--curved",
+	Circular = "button--circular",
+	Soft = "button--soft",
 	Sharp = "button--sharp",
 }
 
@@ -80,7 +80,7 @@ export function Button({
 	appearance = ButtonAppearance.Standard,
 	color = ButtonColors.Light,
 	size = ButtonSize.SM,
-	shape = ButtonShape.Rounded,
+	shape = ButtonShape.Circular,
 	disabled,
 	active,
 	onClick,

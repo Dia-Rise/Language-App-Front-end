@@ -1,5 +1,5 @@
 export * from "./createWordClass";
-export * from "./convertFuriganaToRomanji";
-export * from "./convertFuriganaToCharacterEquivalent";
+export * from "./convertGanaToRomanji";
+export * from "./convertGanaToCharacterEquivalent";
 export * from "./manageBodyScroll";
 export * from "./shuffleArray";

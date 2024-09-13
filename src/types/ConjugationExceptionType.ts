@@ -5,6 +5,6 @@ export type ConjugationExceptionType = {
 	dictionaryId: string;
 	wordType: "verb" | "adjective" | "noun" | "thing";
 	exceptionType: ConjugationType;
-	furigana: string;
+	gana: string;
 	romanji: string;
 };

@@ -30,7 +30,7 @@ export class Nouns {
 
 			if (exception) {
 				return {
-					furigana: exception.furigana,
+					gana: exception.gana,
 					romanji: exception.romanji,
 					convertion: "exception",
 				};

@@ -5,7 +5,7 @@ import { Verbs } from "./verbs";
 type expectedResultsType = {
 	label: string;
 	convertion: string;
-	furigana: string;
+	gana: string;
 	romanji: string;
 };
 
@@ -16,7 +16,7 @@ const wordData: WordType[] = [
 		verbType: "ru",
 		meaning: "To eat",
 		dictionary: {
-			furigana: "たべる",
+			gana: "たべる",
 			romanji: "taberu",
 		},
 	},
@@ -26,7 +26,7 @@ const wordData: WordType[] = [
 		verbType: "u",
 		meaning: "To buy",
 		dictionary: {
-			furigana: "かう",
+			gana: "かう",
 			romanji: "kau",
 		},
 	},
@@ -36,7 +36,7 @@ const wordData: WordType[] = [
 		verbType: "u",
 		meaning: "To wait",
 		dictionary: {
-			furigana: "まつ",
+			gana: "まつ",
 			romanji: "matsu",
 		},
 	},
@@ -46,7 +46,7 @@ const wordData: WordType[] = [
 		verbType: "u",
 		meaning: "To take",
 		dictionary: {
-			furigana: "とる",
+			gana: "とる",
 			romanji: "toru",
 		},
 	},
@@ -56,7 +56,7 @@ const wordData: WordType[] = [
 		verbType: "u",
 		meaning: "To drink",
 		dictionary: {
-			furigana: "のむ",
+			gana: "のむ",
 			romanji: "nomu",
 		},
 	},
@@ -66,7 +66,7 @@ const wordData: WordType[] = [
 		verbType: "u",
 		meaning: "To die",
 		dictionary: {
-			furigana: "しぬ",
+			gana: "しぬ",
 			romanji: "shinu",
 		},
 	},
@@ -76,7 +76,7 @@ const wordData: WordType[] = [
 		verbType: "u",
 		meaning: "To play",
 		dictionary: {
-			furigana: "あそぶ",
+			gana: "あそぶ",
 			romanji: "asobu",
 		},
 	},
@@ -86,7 +86,7 @@ const wordData: WordType[] = [
 		verbType: "u",
 		meaning: "To write",
 		dictionary: {
-			furigana: "かく",
+			gana: "かく",
 			romanji: "kaku",
 		},
 	},
@@ -96,7 +96,7 @@ const wordData: WordType[] = [
 		verbType: "u",
 		meaning: "To swim",
 		dictionary: {
-			furigana: "およぐ",
+			gana: "およぐ",
 			romanji: "oyogu",
 		},
 	},
@@ -106,7 +106,7 @@ const wordData: WordType[] = [
 		verbType: "u",
 		meaning: "To speak",
 		dictionary: {
-			furigana: "はなす",
+			gana: "はなす",
 			romanji: "hanasu",
 		},
 	},
@@ -128,61 +128,61 @@ describe("Verb conjugation class.", () => {
 			{
 				label: "る -> て",
 				convertion: teFormConjugationGroups.group1,
-				furigana: "たべて",
+				gana: "たべて",
 				romanji: "tabete",
 			},
 			{
 				label: "う -> って",
 				convertion: teFormConjugationGroups.group2,
-				furigana: "かって",
+				gana: "かって",
 				romanji: "katte",
 			},
 			{
 				label: "つ -> って",
 				convertion: teFormConjugationGroups.group2,
-				furigana: "まって",
+				gana: "まって",
 				romanji: "matte",
 			},
 			{
 				label: "る -> って",
 				convertion: teFormConjugationGroups.group2,
-				furigana: "とって",
+				gana: "とって",
 				romanji: "totte",
 			},
 			{
 				label: "む -> んで",
 				convertion: teFormConjugationGroups.group3,
-				furigana: "のんで",
+				gana: "のんで",
 				romanji: "nonde",
 			},
 			{
 				label: "ぬ -> んで",
 				convertion: teFormConjugationGroups.group3,
-				furigana: "しんで",
+				gana: "しんで",
 				romanji: "shinde",
 			},
 			{
 				label: "ぶ -> んで",
 				convertion: teFormConjugationGroups.group3,
-				furigana: "あそんで",
+				gana: "あそんで",
 				romanji: "asonde",
 			},
 			{
 				label: "く -> いて",
 				convertion: teFormConjugationGroups.group4,
-				furigana: "かいて",
+				gana: "かいて",
 				romanji: "kaite",
 			},
 			{
 				label: "ぐ -> いで",
 				convertion: teFormConjugationGroups.group5,
-				furigana: "およいで",
+				gana: "およいで",
 				romanji: "oyoide",
 			},
 			{
 				label: "す -> して",
 				convertion: teFormConjugationGroups.group6,
-				furigana: "はなして",
+				gana: "はなして",
 				romanji: "hanashite",
 			},
 		];
@@ -192,7 +192,7 @@ describe("Verb conjugation class.", () => {
 				const wordClass = new Verbs(current);
 
 				expect(wordClass.teForm.convertion).toBe(expectedResultsData[index].convertion);
-				expect(wordClass.teForm.furigana).toBe(expectedResultsData[index].furigana);
+				expect(wordClass.teForm.gana).toBe(expectedResultsData[index].gana);
 				expect(wordClass.teForm.romanji).toBe(expectedResultsData[index].romanji);
 			});
 		});
@@ -204,22 +204,22 @@ describe("Verb conjugation class.", () => {
 				label: "る -> ます",
 				affirmative: {
 					convertion: "る",
-					furigana: "たべます",
+					gana: "たべます",
 					romanji: "tabemasu",
 				},
 				negative: {
 					convertion: "る",
-					furigana: "たべません",
+					gana: "たべません",
 					romanji: "tabemasen",
 				},
 				pastAffirmative: {
 					convertion: "る",
-					furigana: "たべました",
+					gana: "たべました",
 					romanji: "tabemashita",
 				},
 				pastNegative: {
 					convertion: "る",
-					furigana: "たべませんでした",
+					gana: "たべませんでした",
 					romanji: "tabemasendeshita",
 				},
 			},
@@ -227,22 +227,22 @@ describe("Verb conjugation class.", () => {
 				label: "う -> iます",
 				affirmative: {
 					convertion: "う",
-					furigana: "かいます",
+					gana: "かいます",
 					romanji: "kaimasu",
 				},
 				negative: {
 					convertion: "う",
-					furigana: "かいません",
+					gana: "かいません",
 					romanji: "kaimasen",
 				},
 				pastAffirmative: {
 					convertion: "う",
-					furigana: "かいました",
+					gana: "かいました",
 					romanji: "kaimashita",
 				},
 				pastNegative: {
 					convertion: "う",
-					furigana: "かいませんでした",
+					gana: "かいませんでした",
 					romanji: "kaimasendeshita",
 				},
 			},
@@ -250,22 +250,22 @@ describe("Verb conjugation class.", () => {
 				label: "う -> iます",
 				affirmative: {
 					convertion: "う",
-					furigana: "まちます",
+					gana: "まちます",
 					romanji: "machimasu",
 				},
 				negative: {
 					convertion: "う",
-					furigana: "まちません",
+					gana: "まちません",
 					romanji: "machimasen",
 				},
 				pastAffirmative: {
 					convertion: "う",
-					furigana: "まちました",
+					gana: "まちました",
 					romanji: "machimashita",
 				},
 				pastNegative: {
 					convertion: "う",
-					furigana: "まちませんでした",
+					gana: "まちませんでした",
 					romanji: "machimasendeshita",
 				},
 			},
@@ -273,22 +273,22 @@ describe("Verb conjugation class.", () => {
 				label: "う -> iます",
 				affirmative: {
 					convertion: "う",
-					furigana: "とります",
+					gana: "とります",
 					romanji: "torimasu",
 				},
 				negative: {
 					convertion: "う",
-					furigana: "とりません",
+					gana: "とりません",
 					romanji: "torimasen",
 				},
 				pastAffirmative: {
 					convertion: "う",
-					furigana: "とりました",
+					gana: "とりました",
 					romanji: "torimashita",
 				},
 				pastNegative: {
 					convertion: "う",
-					furigana: "とりませんでした",
+					gana: "とりませんでした",
 					romanji: "torimasendeshita",
 				},
 			},
@@ -296,22 +296,22 @@ describe("Verb conjugation class.", () => {
 				label: "う -> iます",
 				affirmative: {
 					convertion: "う",
-					furigana: "のみます",
+					gana: "のみます",
 					romanji: "nomimasu",
 				},
 				negative: {
 					convertion: "う",
-					furigana: "のみません",
+					gana: "のみません",
 					romanji: "nomimasen",
 				},
 				pastAffirmative: {
 					convertion: "う",
-					furigana: "のみました",
+					gana: "のみました",
 					romanji: "nomimashita",
 				},
 				pastNegative: {
 					convertion: "う",
-					furigana: "のみませんでした",
+					gana: "のみませんでした",
 					romanji: "nomimasendeshita",
 				},
 			},
@@ -319,22 +319,22 @@ describe("Verb conjugation class.", () => {
 				label: "う -> iます",
 				affirmative: {
 					convertion: "う",
-					furigana: "しにます",
+					gana: "しにます",
 					romanji: "shinimasu",
 				},
 				negative: {
 					convertion: "う",
-					furigana: "しにません",
+					gana: "しにません",
 					romanji: "shinimasen",
 				},
 				pastAffirmative: {
 					convertion: "う",
-					furigana: "しにました",
+					gana: "しにました",
 					romanji: "shinimashita",
 				},
 				pastNegative: {
 					convertion: "う",
-					furigana: "しにませんでした",
+					gana: "しにませんでした",
 					romanji: "shinimasendeshita",
 				},
 			},
@@ -342,22 +342,22 @@ describe("Verb conjugation class.", () => {
 				label: "う -> iます",
 				affirmative: {
 					convertion: "う",
-					furigana: "あそびます",
+					gana: "あそびます",
 					romanji: "asobimasu",
 				},
 				negative: {
 					convertion: "う",
-					furigana: "あそびません",
+					gana: "あそびません",
 					romanji: "asobimasen",
 				},
 				pastAffirmative: {
 					convertion: "う",
-					furigana: "あそびました",
+					gana: "あそびました",
 					romanji: "asobimashita",
 				},
 				pastNegative: {
 					convertion: "う",
-					furigana: "あそびませんでした",
+					gana: "あそびませんでした",
 					romanji: "asobimasendeshita",
 				},
 			},
@@ -365,22 +365,22 @@ describe("Verb conjugation class.", () => {
 				label: "う -> iます",
 				affirmative: {
 					convertion: "う",
-					furigana: "かきます",
+					gana: "かきます",
 					romanji: "kakimasu",
 				},
 				negative: {
 					convertion: "う",
-					furigana: "かきません",
+					gana: "かきません",
 					romanji: "kakimasen",
 				},
 				pastAffirmative: {
 					convertion: "う",
-					furigana: "かきました",
+					gana: "かきました",
 					romanji: "kakimashita",
 				},
 				pastNegative: {
 					convertion: "う",
-					furigana: "かきませんでした",
+					gana: "かきませんでした",
 					romanji: "kakimasendeshita",
 				},
 			},
@@ -388,22 +388,22 @@ describe("Verb conjugation class.", () => {
 				label: "う -> iます",
 				affirmative: {
 					convertion: "う",
-					furigana: "およぎます",
+					gana: "およぎます",
 					romanji: "oyogimasu",
 				},
 				negative: {
 					convertion: "う",
-					furigana: "およぎません",
+					gana: "およぎません",
 					romanji: "oyogimasen",
 				},
 				pastAffirmative: {
 					convertion: "う",
-					furigana: "およぎました",
+					gana: "およぎました",
 					romanji: "oyogimashita",
 				},
 				pastNegative: {
 					convertion: "う",
-					furigana: "およぎませんでした",
+					gana: "およぎませんでした",
 					romanji: "oyogimasendeshita",
 				},
 			},
@@ -411,22 +411,22 @@ describe("Verb conjugation class.", () => {
 				label: "う -> iます",
 				affirmative: {
 					convertion: "う",
-					furigana: "はなします",
+					gana: "はなします",
 					romanji: "hanashimasu",
 				},
 				negative: {
 					convertion: "う",
-					furigana: "はなしません",
+					gana: "はなしません",
 					romanji: "hanashimasen",
 				},
 				pastAffirmative: {
 					convertion: "う",
-					furigana: "はなしました",
+					gana: "はなしました",
 					romanji: "hanashimashita",
 				},
 				pastNegative: {
 					convertion: "う",
-					furigana: "はなしませんでした",
+					gana: "はなしませんでした",
 					romanji: "hanashimasendeshita",
 				},
 			},
@@ -440,7 +440,7 @@ describe("Verb conjugation class.", () => {
 					expect(value.convertion).toBe(
 						expectedResultsData[index][key as keyof conjugationGroupType].convertion
 					);
-					expect(value.furigana).toBe(expectedResultsData[index][key as keyof conjugationGroupType].furigana);
+					expect(value.gana).toBe(expectedResultsData[index][key as keyof conjugationGroupType].gana);
 					expect(value.romanji).toBe(expectedResultsData[index][key as keyof conjugationGroupType].romanji);
 				});
 			});
@@ -452,190 +452,190 @@ describe("Verb conjugation class.", () => {
 			{
 				label: "",
 				affirmative: {
-					furigana: "たべる",
+					gana: "たべる",
 					romanji: "taberu",
 				},
 				negative: {
-					furigana: "たべない",
+					gana: "たべない",
 					romanji: "tabenai",
 				},
 				pastAffirmative: {
-					furigana: "たべた",
+					gana: "たべた",
 					romanji: "tabeta",
 				},
 				pastNegative: {
-					furigana: "たべなかった",
+					gana: "たべなかった",
 					romanji: "tabenakatta",
 				},
 			},
 			{
 				label: "",
 				affirmative: {
-					furigana: "かう",
+					gana: "かう",
 					romanji: "kau",
 				},
 				negative: {
-					furigana: "かわない",
+					gana: "かわない",
 					romanji: "kawanai",
 				},
 				pastAffirmative: {
-					furigana: "かった",
+					gana: "かった",
 					romanji: "katta",
 				},
 				pastNegative: {
-					furigana: "かわなかった",
+					gana: "かわなかった",
 					romanji: "kawanakatta",
 				},
 			},
 			{
 				label: "",
 				affirmative: {
-					furigana: "まつ",
+					gana: "まつ",
 					romanji: "matsu",
 				},
 				negative: {
-					furigana: "またない",
+					gana: "またない",
 					romanji: "matanai",
 				},
 				pastAffirmative: {
-					furigana: "まった",
+					gana: "まった",
 					romanji: "matta",
 				},
 				pastNegative: {
-					furigana: "またなかった",
+					gana: "またなかった",
 					romanji: "matanakatta",
 				},
 			},
 			{
 				label: "",
 				affirmative: {
-					furigana: "とる",
+					gana: "とる",
 					romanji: "toru",
 				},
 				negative: {
-					furigana: "とらない",
+					gana: "とらない",
 					romanji: "toranai",
 				},
 				pastAffirmative: {
-					furigana: "とった",
+					gana: "とった",
 					romanji: "totta",
 				},
 				pastNegative: {
-					furigana: "とらなかった",
+					gana: "とらなかった",
 					romanji: "toranakatta",
 				},
 			},
 			{
 				label: "",
 				affirmative: {
-					furigana: "のむ",
+					gana: "のむ",
 					romanji: "nomu",
 				},
 				negative: {
-					furigana: "のまない",
+					gana: "のまない",
 					romanji: "nomanai",
 				},
 				pastAffirmative: {
-					furigana: "のんだ",
+					gana: "のんだ",
 					romanji: "nonda",
 				},
 				pastNegative: {
-					furigana: "のまなかった",
+					gana: "のまなかった",
 					romanji: "nomanakatta",
 				},
 			},
 			{
 				label: "",
 				affirmative: {
-					furigana: "しぬ",
+					gana: "しぬ",
 					romanji: "shinu",
 				},
 				negative: {
-					furigana: "しなない",
+					gana: "しなない",
 					romanji: "shinanai",
 				},
 				pastAffirmative: {
-					furigana: "しんだ",
+					gana: "しんだ",
 					romanji: "shinda",
 				},
 				pastNegative: {
-					furigana: "しななかった",
+					gana: "しななかった",
 					romanji: "shinanakatta",
 				},
 			},
 			{
 				label: "",
 				affirmative: {
-					furigana: "あそぶ",
+					gana: "あそぶ",
 					romanji: "asobu",
 				},
 				negative: {
-					furigana: "あそばない",
+					gana: "あそばない",
 					romanji: "asobanai",
 				},
 				pastAffirmative: {
-					furigana: "あそんだ",
+					gana: "あそんだ",
 					romanji: "asonda",
 				},
 				pastNegative: {
-					furigana: "あそばなかった",
+					gana: "あそばなかった",
 					romanji: "asobanakatta",
 				},
 			},
 			{
 				label: "",
 				affirmative: {
-					furigana: "かく",
+					gana: "かく",
 					romanji: "kaku",
 				},
 				negative: {
-					furigana: "かかない",
+					gana: "かかない",
 					romanji: "kakanai",
 				},
 				pastAffirmative: {
-					furigana: "かいた",
+					gana: "かいた",
 					romanji: "kaita",
 				},
 				pastNegative: {
-					furigana: "かかなかった",
+					gana: "かかなかった",
 					romanji: "kakanakatta",
 				},
 			},
 			{
 				label: "",
 				affirmative: {
-					furigana: "およぐ",
+					gana: "およぐ",
 					romanji: "oyogu",
 				},
 				negative: {
-					furigana: "およがない",
+					gana: "およがない",
 					romanji: "oyoganai",
 				},
 				pastAffirmative: {
-					furigana: "およいだ",
+					gana: "およいだ",
 					romanji: "oyoida",
 				},
 				pastNegative: {
-					furigana: "およがなかった",
+					gana: "およがなかった",
 					romanji: "oyoganakatta",
 				},
 			},
 			{
 				label: "",
 				affirmative: {
-					furigana: "はなす",
+					gana: "はなす",
 					romanji: "hanasu",
 				},
 				negative: {
-					furigana: "はなさない",
+					gana: "はなさない",
 					romanji: "hanasanai",
 				},
 				pastAffirmative: {
-					furigana: "はなした",
+					gana: "はなした",
 					romanji: "hanashita",
 				},
 				pastNegative: {
-					furigana: "はなさなかった",
+					gana: "はなさなかった",
 					romanji: "hanasanakatta",
 				},
 			},
@@ -646,7 +646,7 @@ describe("Verb conjugation class.", () => {
 				const wordClass = new Verbs(current);
 
 				Object.entries(wordClass.shortForm).forEach(([key, value]) => {
-					expect(value.furigana).toBe(expectedResultsData[index][key as keyof conjugationGroupType].furigana);
+					expect(value.gana).toBe(expectedResultsData[index][key as keyof conjugationGroupType].gana);
 					expect(value.romanji).toBe(expectedResultsData[index][key as keyof conjugationGroupType].romanji);
 				});
 			});

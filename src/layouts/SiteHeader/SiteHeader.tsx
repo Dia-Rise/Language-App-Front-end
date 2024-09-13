@@ -23,7 +23,7 @@ export function SiteHeader({ label, className = "" }: SiteHeaderProps) {
 					href={RoutePaths.HOME}
 					variant={ButtonVariant.ReactRouterLink}
 					size={ButtonSize.XS}
-					shape={ButtonShape.Curved}
+					shape={ButtonShape.Soft}
 					appearance={ButtonAppearance.Oultine}
 					className={`${baseClassName}__button`}
 				>
@@ -38,7 +38,7 @@ export function SiteHeader({ label, className = "" }: SiteHeaderProps) {
 					onClick={() => setIsSlideOutOpen(true)}
 					variant={ButtonVariant.Button}
 					size={ButtonSize.XS}
-					shape={ButtonShape.Curved}
+					shape={ButtonShape.Soft}
 					appearance={ButtonAppearance.Oultine}
 					className={`${baseClassName}__button`}
 				>
