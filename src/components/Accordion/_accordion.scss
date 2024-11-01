@@ -1,0 +1,8 @@
+.accordion {
+	display: flex;
+	flex-direction: column;
+}
+
+@import "./AccordionContent/accordion-content";
+@import "./AccordionTrigger/accordion-trigger";
+@import "./AccordionItem/accordion-item";

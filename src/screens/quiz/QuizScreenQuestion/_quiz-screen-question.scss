@@ -1,0 +1,28 @@
+.quiz-screen-question {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	background-color: var(--clr-base-50);
+
+	min-height: 100vh;
+
+	&__header {
+		padding: 32px 72px;
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	&__question-container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		flex-grow: 1;
+		transition: all 0.5s ease-in-out;
+	}
+}
+
+@import "./quiz-screen-question-header";
+@import "./quiz-screen-question-answers-list";

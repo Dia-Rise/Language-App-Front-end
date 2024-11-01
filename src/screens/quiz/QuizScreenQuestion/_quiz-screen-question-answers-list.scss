@@ -1,0 +1,22 @@
+.quiz-screen-question-answers-list {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+
+	padding: 32px 72px;
+
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+
+	background-color: var(--clr-white);
+
+	&__request {
+		font-weight: 700;
+	}
+
+	&__answers {
+		display: flex;
+		gap: 16px;
+	}
+}

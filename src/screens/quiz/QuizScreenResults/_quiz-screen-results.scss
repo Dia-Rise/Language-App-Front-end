@@ -1,0 +1,49 @@
+.quiz-screen-results {
+	background-color: var(--clr-base-50);
+	display: flex;
+
+	&__left,
+	&__right {
+		flex: 1;
+		padding: 72px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	&__left {
+		max-height: 100vh;
+		justify-content: center;
+		position: sticky;
+		gap: 72px;
+		top: 0;
+	}
+
+	&__actions {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	&__gauge {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	&__score {
+		font-size: 64px;
+		line-height: 100%;
+		font-weight: 700;
+	}
+
+	&__message {
+		font-size: 32px;
+		line-height: 100%;
+		font-weight: 700;
+	}
+}
+
+@import "./quiz-screen-results-accordion";

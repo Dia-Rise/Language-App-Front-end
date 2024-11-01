@@ -1,1 +1,8 @@
-@import "./quiz-screen-question";
+.quiz-screen {
+	background-color: var(--clr-base-50);
+	min-height: 100vh;
+}
+
+@import "./QuizScreenQuestion/quiz-screen-question";
+@import "./QuizScreenResults/quiz-screen-results";
+@import "./QuizScreenLoading/quiz-screen-loading";

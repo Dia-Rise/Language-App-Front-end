@@ -4,6 +4,7 @@
 
 import { correctAnswers } from "../../data/questions/correctAnswers";
 import { questions } from "../../data/questions/questions";
+import { QuizAnswerType } from "../../types";
 import { QuizQuestionType } from "../../types/QuizQuestionType";
 import { shuffleArray } from "../../utilities";
 
@@ -19,7 +20,7 @@ export function getRandomQuestions(amount: number): getRandomQuestionsResponse {
 	}
 
 	const result: Omit<QuizQuestionType, "possibleAnswers">[] = [];
-	const fullResults: QuizQuestionType[] = [];
+	const fullResults: getRandomQuestionsResponse = [];
 
 	function selectRandom() {
 		const randomIndex = Math.floor(Math.random() * questions.length);
@@ -33,12 +34,12 @@ export function getRandomQuestions(amount: number): getRandomQuestionsResponse {
 			result.push(selectedQuestion);
 
 			//Get possible awnsers here
-			const possibleAnswersArray: (string | number | boolean)[] = [];
+			const possibleAnswersArray: QuizAnswerType[] = [];
 
 			//Get correct awnser - If multiple only add one and random.
 			const correctAnswersArray = correctAnswers.filter((current) => current.questionId === selectedQuestion.id);
 			const randomCorrectAnswerIndex = Math.floor(Math.random() * correctAnswersArray.length);
-			possibleAnswersArray.push(correctAnswersArray[randomCorrectAnswerIndex].content);
+			possibleAnswersArray.push(correctAnswersArray[randomCorrectAnswerIndex]);
 
 			//Grab random incorect answers (correct answer for different questions);
 			// TODO - filter awnsers by question categoires.
@@ -46,11 +47,11 @@ export function getRandomQuestions(amount: number): getRandomQuestionsResponse {
 				const randomAwnserIndex = Math.floor(Math.random() * correctAnswers.length);
 				const incorrectAnswer = correctAnswers[randomAwnserIndex];
 
-				if (possibleAnswersArray.includes(incorrectAnswer.content)) {
+				if (possibleAnswersArray.includes(incorrectAnswer)) {
 					//Loop back around.
 					selectRandomAnswer();
 				} else {
-					possibleAnswersArray.push(incorrectAnswer.content);
+					possibleAnswersArray.push(incorrectAnswer);
 				}
 			}
 

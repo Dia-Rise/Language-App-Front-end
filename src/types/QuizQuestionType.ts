@@ -1,18 +1,30 @@
-import { QuizQuestionTypes } from "../enums";
+import { Languages, QuizQuestionTypes } from "../enums";
+import { enContentType } from "./enContentType";
+import { jpContentType } from "./jpContentType";
+import { QuizAnswerType } from "./QuizAnswerType";
 
-//TODO - rethink this data type.
-// If 'questionType' is 'ENTranslation' the the system should use 'english'
-// This feild may not be filled on all questions.
+export type QuizQuestionLanguageType =
+	| ({ language: Languages.EN } & enContentType)
+	| ({ language: Languages.JP } & jpContentType);
 
-export type QuizQuestionType = {
+export type QuizQuestionCommonType = {
 	id: string;
-	categories: string[];
 	questionType: QuizQuestionTypes;
-
-	// kanji: string | null;
-	gana: string | null;
-	romanji: string | null;
-	english: string | null;
-
-	possibleAnswers: (string | number | boolean)[];
+	categories: string[];
+	possibleAnswers: QuizAnswerType[];
 };
+
+export type QuizQuestionType = QuizQuestionCommonType & QuizQuestionLanguageType;
+
+// export type QuizQuestionType = {
+// 	id: string;
+// 	categories: string[];
+// 	questionType: QuizQuestionTypes;
+
+// 	// kanji: string | null;
+// 	gana: string | null;
+// 	romanji: string | null;
+// 	english: string | null;
+
+// 	possibleAnswers: (string | number | boolean)[];
+// };
