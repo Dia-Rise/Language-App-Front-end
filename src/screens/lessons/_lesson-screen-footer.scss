@@ -1,0 +1,11 @@
+.lesson-screen-footer {
+	padding: 32px 72px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 16px;
+
+	&__action {
+		width: 300px;
+	}
+}

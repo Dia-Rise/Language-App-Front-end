@@ -338,4 +338,31 @@
 		--button-hover-background-color: transparent;
 		--button-hover-text-color: var(--clr-black);
 	}
+
+	//Disabled
+	&--disabled {
+		pointer-events: none;
+		--button-background-color: var(--clr-base-200) !important;
+		--button-text-color: var(--clr-white) !important;
+		--button-hover-background-color: var(--clr-base-200) !important;
+		--button-hover-text-color: var(--clr-white) !important;
+	}
+
+	&--text#{&}--disabled {
+		--button-background-color: transparent !important;
+		--button-text-color: var(--clr-base-200) !important;
+
+		--button-hover-background-color: transparent !important;
+		--button-hover-text-color: var(--clr-base-200) !important;
+	}
+
+	&--outline#{&}--disabled {
+		--button-border-color: var(--clr-base-200) !important;
+		--button-background-color: transparent !important;
+		--button-text-color: var(--clr-base-200) !important;
+
+		--button-hover-border-color: var(--clr-base-200) !important;
+		--button-hover-background-color: transparent !important;
+		--button-hover-text-color: var(--clr-base-200) !important;
+	}
 }

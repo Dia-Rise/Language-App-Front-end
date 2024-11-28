@@ -1,0 +1,10 @@
+.lesson-screen {
+	background-color: var(--clr-base-50);
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+@import "./lesson-screen-header";
+@import "./lesson-screen-stage";
+@import "./lesson-screen-footer";
